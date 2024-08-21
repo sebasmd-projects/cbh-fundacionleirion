@@ -178,11 +178,11 @@ ROSETTA_SHOW_AT_ADMIN_PANEL = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = str(BASE_DIR / os.getenv('DJANGO_STATIC_ROOT'))
+STATIC_ROOT = str(os.getenv('DJANGO_STATIC_ROOT'))
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = str(BASE_DIR / os.getenv('DJANGO_MEDIA_ROOT'))
+MEDIA_ROOT = str(os.getenv('DJANGO_MEDIA_ROOT'))
 
 STATICFILES_DIRS = [str(BASE_DIR / 'public' / 'staticfiles')]
 
