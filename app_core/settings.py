@@ -1,12 +1,16 @@
 import os
 from pathlib import Path
-
+import logging
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+logging.basicConfig(
+    filename='stderr.log', format='%(asctime)s - %(levelname)s - %(message)s', encoding='utf-8'
+)
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
