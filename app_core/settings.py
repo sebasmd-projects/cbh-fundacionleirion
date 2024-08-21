@@ -1,6 +1,7 @@
+import logging
 import os
 from pathlib import Path
-import logging
+
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
@@ -177,13 +178,15 @@ ROSETTA_SHOW_AT_ADMIN_PANEL = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = str(BASE_DIR / 'public' / 'static')
-
-STATICFILES_DIRS = [str(BASE_DIR / 'public' / 'staticfiles')]
+STATIC_ROOT = str(BASE_DIR / os.getenv('DJANGO_STATIC_ROOT'))
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = str(BASE_DIR / 'public' / 'media')
+MEDIA_ROOT = str(BASE_DIR / os.getenv('DJANGO_MEDIA_ROOT'))
+
+STATICFILES_DIRS = [str(BASE_DIR / 'public' / 'staticfiles')]
+
+# subdomains/controlbonoshistoricos/public
 
 if bool(os.getenv('DJANGO_EMAIL_USE_SSL')):
     EMAIL_USE_SSL = True
