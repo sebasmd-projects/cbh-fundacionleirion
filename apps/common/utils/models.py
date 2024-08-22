@@ -1,4 +1,3 @@
-import base64
 import decimal
 
 from auditlog.models import AuditlogHistoryField
@@ -72,7 +71,7 @@ class EncryptedField(models.Field):
         encrypted_value = self.cipher.encrypt(value_str.encode('utf-8'))
         return encrypted_value.decode('utf-8')
 
-    def decrypt(self, value: str | None):
+    def decrypt(self, value):
         if value is None:
             return value
 
