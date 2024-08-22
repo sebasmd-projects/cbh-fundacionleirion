@@ -87,8 +87,7 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
     readonly_fields = (
         'created',
         'updated',
-        'last_login',
-        'get_age'
+        'last_login'
     )
 
     fieldsets = (
@@ -106,7 +105,6 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
                     'first_name',
                     'last_name',
                     'email',
-                    'get_age',
                     'country_code'
                 )
             }
@@ -142,11 +140,7 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
 
     form = UserAdminForm
 
-    def get_age(self, obj):
-        return obj.get_age()
-
     def get_full_name(self, obj):
         return obj.get_full_name()
 
     get_full_name.short_description = _('Names')
-    get_age.short_description = _('Age')

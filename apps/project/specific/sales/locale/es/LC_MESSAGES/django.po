@@ -1,0 +1,262 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-21 19:45-0500\n"
+"PO-Revision-Date: 2024-08-21 19:45-0500\n"
+"Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\project\specific\sales\models.py:14
+msgid "Direct Sales"
+msgstr "Ventas Directas"
+
+#: .\apps\project\specific\sales\models.py:15
+msgid "RD"
+msgstr "RD"
+
+#: .\apps\project\specific\sales\models.py:16
+#: .\apps\project\specific\sales\models.py:22
+msgid "Other"
+msgstr "Otro"
+
+#: .\apps\project\specific\sales\models.py:19
+msgid "Bank"
+msgstr "Banco"
+
+#: .\apps\project\specific\sales\models.py:20
+msgid "Organization"
+msgstr "Organización"
+
+#: .\apps\project\specific\sales\models.py:21
+msgid "Private"
+msgstr "Privado"
+
+#: .\apps\project\specific\sales\models.py:25
+msgid "AED, United Arab Emirates Dirham"
+msgstr "AED, Dírham de los Emiratos Árabes Unidos"
+
+#: .\apps\project\specific\sales\models.py:26
+msgid "ARS, Argentine Peso"
+msgstr "ARS, Peso Argentino"
+
+#: .\apps\project\specific\sales\models.py:27
+msgid "AUD, Australian Dollar"
+msgstr "AUD, Dólar Australiano"
+
+#: .\apps\project\specific\sales\models.py:28
+msgid "BRL, Brazilian Real"
+msgstr "BRL, Real Brasileño"
+
+#: .\apps\project\specific\sales\models.py:29
+msgid "CAD, Canadian Dollar"
+msgstr "CAD, Dólar Canadiense"
+
+#: .\apps\project\specific\sales\models.py:30
+msgid "CHF, Swiss Franc"
+msgstr "CHF, Franco Suizo"
+
+#: .\apps\project\specific\sales\models.py:31
+msgid "CNY, Chinese Yuan"
+msgstr "CNY, Renminbi (Yen Chino)"
+
+#: .\apps\project\specific\sales\models.py:32
+msgid "COP, Colombian Peso"
+msgstr "COP, Peso Colombiano"
+
+#: .\apps\project\specific\sales\models.py:33
+msgid "DKK, Danish Krone"
+msgstr "DKK, Corona Danesa"
+
+#: .\apps\project\specific\sales\models.py:34
+msgid "EUR, Euro"
+msgstr "EUR, Euro"
+
+#: .\apps\project\specific\sales\models.py:35
+msgid "GBP, British Pound Sterling"
+msgstr "GBP, Libra Esterlina"
+
+#: .\apps\project\specific\sales\models.py:36
+msgid "HKD, Hong Kong Dollar"
+msgstr "HKD, Dólar de Hong Kong"
+
+#: .\apps\project\specific\sales\models.py:37
+msgid "ILS, Israeli New Shekel"
+msgstr "ILS, Nuevo Séquel Israelí"
+
+#: .\apps\project\specific\sales\models.py:38
+msgid "INR, Indian Rupee"
+msgstr "INR, Rupia India"
+
+#: .\apps\project\specific\sales\models.py:39
+msgid "JPY, Japanese Yen"
+msgstr "JPY, Yen Japonés"
+
+#: .\apps\project\specific\sales\models.py:40
+#| msgid "JPY, South Korean Won"
+msgid "KRW, South Korean Won"
+msgstr "KRW, Won surcoreano"
+
+#: .\apps\project\specific\sales\models.py:41
+msgid "MXN, Mexican Peso"
+msgstr "MXN, Peso Mexicano"
+
+#: .\apps\project\specific\sales\models.py:42
+msgid "MYR, Malaysian Ringgit"
+msgstr "MYR, Ringgit Malayo"
+
+#: .\apps\project\specific\sales\models.py:43
+msgid "NOK, Norwegian Krone"
+msgstr "NOK, Corona Noruega"
+
+#: .\apps\project\specific\sales\models.py:44
+msgid "NZD, New Zealand Dollar"
+msgstr "NZD, Dólar Neozelandés"
+
+#: .\apps\project\specific\sales\models.py:45
+msgid "PLN, Polish Zloty"
+msgstr "PLN, Zloty Polaco"
+
+#: .\apps\project\specific\sales\models.py:46
+msgid "RUB, Russian Ruble"
+msgstr "RUB, Rublo Ruso"
+
+#: .\apps\project\specific\sales\models.py:47
+msgid "SAR, Saudi Riyal"
+msgstr "SAR, Riyal Saudí"
+
+#: .\apps\project\specific\sales\models.py:48
+msgid "SEK, Swedish Krona"
+msgstr "SEK, Corona Sueca"
+
+#: .\apps\project\specific\sales\models.py:49
+msgid "SGD, Singapore Dollar"
+msgstr "SGD, Dólar de Singapur"
+
+#: .\apps\project\specific\sales\models.py:50
+msgid "THB, Thai Baht"
+msgstr "THB, Baht Tailandés"
+
+#: .\apps\project\specific\sales\models.py:51
+msgid "TRY, Turkish Lira"
+msgstr "TRY, Lira Turca"
+
+#: .\apps\project\specific\sales\models.py:52
+msgid "TWD, New Taiwan Dollar"
+msgstr "TWD, Nuevo Dólar Taiwanés"
+
+#: .\apps\project\specific\sales\models.py:53
+msgid "USD, United States Dollar"
+msgstr "USD, Dólar Estadounidense"
+
+#: .\apps\project\specific\sales\models.py:54
+msgid "ZAR, South African Rand"
+msgstr "ZAR, Rand Sudafricano"
+
+#: .\apps\project\specific\sales\models.py:55
+msgid "ZWD, Zimbabwe Dollar"
+msgstr "ZWD, Dólar Zimbabuense"
+
+#: .\apps\project\specific\sales\models.py:61
+msgid "bond"
+msgstr "bono"
+
+#: .\apps\project\specific\sales\models.py:65
+msgid "buyer type"
+msgstr "tipo de comprador"
+
+#: .\apps\project\specific\sales\models.py:72
+msgid "buyer name"
+msgstr "nombre del comprador"
+
+#: .\apps\project\specific\sales\models.py:76
+msgid "country code"
+msgstr "Código del país"
+
+#: .\apps\project\specific\sales\models.py:83
+msgid "amount sold"
+msgstr "cantidad vendida"
+
+#: .\apps\project\specific\sales\models.py:87
+msgid "sales type"
+msgstr "tipo de venta"
+
+#: .\apps\project\specific\sales\models.py:94
+msgid "sale value"
+msgstr "valor de la venta"
+
+#: .\apps\project\specific\sales\models.py:98
+msgid "currency"
+msgstr "divisa"
+
+#: .\apps\project\specific\sales\models.py:109
+msgid "Sale"
+msgstr "Venta"
+
+#: .\apps\project\specific\sales\models.py:110
+msgid "Sales"
+msgstr "Ventas"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:16
+msgid "Sales Information"
+msgstr "información de ventas"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:20
+msgid "Bond"
+msgstr "Bono"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:21
+msgid "Buyer Type"
+msgstr "tipo de comprador"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:22
+msgid "Buyer Name"
+msgstr "nombre del comprador"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:23
+msgid "Country"
+msgstr "Código del país"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:24
+msgid "Amount Sold"
+msgstr "cantidad vendida"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:25
+msgid "Sales Type"
+msgstr "tipo de venta"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:26
+msgid "Sale Value"
+msgstr "valor de la venta"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:27
+msgid "Created"
+msgstr "creado"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:28
+msgid "Updated"
+msgstr "actualizado"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:48
+msgid "Key Validation"
+msgstr "Validación de llave"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:53
+msgid "Enter the key:"
+msgstr "Ingresa la llave"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:59
+msgid "Submit"
+msgstr "Enviar"

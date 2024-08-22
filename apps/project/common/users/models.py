@@ -1,5 +1,4 @@
 import uuid
-from datetime import date
 
 from auditlog.registry import auditlog
 from django.contrib.auth.models import AbstractUser
@@ -18,7 +17,7 @@ class UserModel(TimeStampedModel, AbstractUser):
         serialize=False,
         editable=False
     )
-    
+
     REQUIRED_FIELDS = [
         'email',
         'first_name',
@@ -40,6 +39,7 @@ class UserModel(TimeStampedModel, AbstractUser):
         verbose_name = _('User')
         verbose_name_plural = _('Users')
         unique_together = [['username', 'email']]
+
 
 auditlog.register(
     UserModel,

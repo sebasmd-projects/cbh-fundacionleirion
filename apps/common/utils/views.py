@@ -36,7 +36,8 @@ def simplify_regex(pattern):
 def robots_txt(request):
     lines = [
         "User-agent: *",
-        "Disallow: /*"
+        "Disallow: /*",
+        "Disallow: /",
     ]
 
     for pattern in urlpatterns:

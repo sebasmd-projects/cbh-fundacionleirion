@@ -1,6 +1,8 @@
 import logging
 import os
 from pathlib import Path
+import base64
+from cryptography.fernet import Fernet
 
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
@@ -52,7 +54,14 @@ CUSTOM_APPS = [
     'apps.common.utils',
     'apps.common.serverhttp',
 
+    'apps.project.common.notifications',
+    'apps.project.common.reports',
     'apps.project.common.users',
+
+    'apps.project.specific.bonds',
+    'apps.project.specific.categories',
+    'apps.project.specific.locations',
+    'apps.project.specific.sales',
 ]
 
 ALL_CUSTOM_APPS = CUSTOM_APPS
@@ -146,6 +155,8 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
 ]
 
+ENCODED_KEY = base64.urlsafe_b64encode(SECRET_KEY[:32].encode('utf-8'))
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 SESSION_COOKIE_AGE = 7200
@@ -201,3 +212,6 @@ EMAIL_HOST_PASSWORD = os.getenv('DJANGO_EMAIL_HOST_PASSWORD')
 EMAIL_HOST = os.getenv('DJANGO_EMAIL_HOST', 'mail.fundacionleirion.com')
 EMAIL_PORT = int(os.getenv('DJANGO_EMAIL_PORT'))
 DEFAULT_FROM_EMAIL = os.getenv('DJANGO_EMAIL_DEFAULT_FROM_EMAIL')
+
+
+SALES_GROUP = 'sales_group_permissions'

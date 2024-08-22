@@ -1,3 +1,6 @@
 from django.contrib import admin
+from import_export.admin import ImportExportActionModelAdmin
+from .models import BondLocationModel, LocationModel
 
-# Register your models here.
+admin.site.register(LocationModel, ImportExportActionModelAdmin)
+admin.site.register(BondLocationModel, ImportExportActionModelAdmin)

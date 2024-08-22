@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-21 18:33-0500\n"
+"PO-Revision-Date: 2024-08-21 18:42-0500\n"
+"Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\project\specific\locations\models.py:11
+msgid "name"
+msgstr "nombre"
+
+#: .\apps\project\specific\locations\models.py:16
+msgid "description"
+msgstr "descripción"
+
+#: .\apps\project\specific\locations\models.py:26
+msgid "Location"
+msgstr "Ubicación"
+
+#: .\apps\project\specific\locations\models.py:27
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#: .\apps\project\specific\locations\models.py:35
+msgid "bond"
+msgstr "bono"
+
+#: .\apps\project\specific\locations\models.py:42
+msgid "location"
+msgstr "ubicación"
+
+#: .\apps\project\specific\locations\models.py:50
+msgid "Bond Location"
+msgstr "Ubicación del bono"
+
+#: .\apps\project\specific\locations\models.py:51
+msgid "Bond Locations"
+msgstr "Ubicaciones de los bonos"
