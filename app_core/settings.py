@@ -1,9 +1,9 @@
+import base64
 import logging
 import os
 from pathlib import Path
-import base64
-from cryptography.fernet import Fernet
 
+from cryptography.fernet import Fernet
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
@@ -51,9 +51,11 @@ THIRD_PARTY_APPS = [
 ]
 
 CUSTOM_APPS = [
-    'apps.common.utils',
+    'apps.common.core',
     'apps.common.serverhttp',
+    'apps.common.utils',
 
+    'apps.project.common.account',
     'apps.project.common.notifications',
     'apps.project.common.reports',
     'apps.project.common.users',
@@ -88,7 +90,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'apps.common.utils.middleware.APILogMiddleware',
+    'apps.common.utils.middleware.RedirectWWWMiddleware',
+    'apps.common.utils.middleware.BlockIPMiddleware',
 ]
 
 MIDDLEWARE_NOT_INCLUDE = [os.getenv('MIDDLEWARE_NOT_INCLUDE')]
@@ -157,6 +160,8 @@ PASSWORD_HASHERS = [
 
 ENCODED_KEY = base64.urlsafe_b64encode(SECRET_KEY[:32].encode('utf-8'))
 
+MAX_KEY_ATTEMPS = os.getenv('MAX_KEY_ATTEMPS')
+
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 
 SESSION_COOKIE_AGE = 7200
@@ -206,12 +211,13 @@ else:
     EMAIL_USE_SSL = False
     EMAIL_USE_TLS = True
 
-EMAIL_BACKEND = os.getenv('DJANGO_EMAIL_BACKEND')
-EMAIL_HOST_USER = os.getenv('DJANGO_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('DJANGO_EMAIL_HOST_PASSWORD')
-EMAIL_HOST = os.getenv('DJANGO_EMAIL_HOST', 'mail.fundacionleirion.com')
-EMAIL_PORT = int(os.getenv('DJANGO_EMAIL_PORT'))
 DEFAULT_FROM_EMAIL = os.getenv('DJANGO_EMAIL_DEFAULT_FROM_EMAIL')
+EMAIL_BACKEND = os.getenv('DJANGO_EMAIL_BACKEND')
+EMAIL_HOST = os.getenv('DJANGO_EMAIL_HOST', 'mail.fundacionleirion.com')
+EMAIL_HOST_PASSWORD = os.getenv('DJANGO_EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.getenv('DJANGO_EMAIL_HOST_USER')
+EMAIL_PORT = int(os.getenv('DJANGO_EMAIL_PORT'))
+
+SALES_GROUP = os.getenv('PERMISSION_SALES_GROUP')
 
 
-SALES_GROUP = 'sales_group_permissions'

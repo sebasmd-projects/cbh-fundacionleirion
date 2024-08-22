@@ -63,6 +63,7 @@ class BondModel(TimeStampedModel):
         db_table = "apps_project_specific_bonds_bond"
         verbose_name = _("Bond")
         verbose_name_plural = _("Bonds")
+        unique_together = [['name', 'quantity_type']]
 
 
 class BondStatusModel(TimeStampedModel):

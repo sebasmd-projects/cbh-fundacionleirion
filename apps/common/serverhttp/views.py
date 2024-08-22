@@ -1,6 +1,8 @@
 from django.views.generic import TemplateView
 
-from .models import IPToBlockModel
+from apps.common.core.models import IPBlockedModel
+
+
 
 
 class HttpRequestAttakView(TemplateView):
@@ -20,9 +22,11 @@ class HttpRequestAttakView(TemplateView):
 
         if user_language not in ["es", "en"]:
             user_language = "en"
-        IPToBlockModel.objects.get_or_create(
+
+        IPBlockedModel.objects.get_or_create(
             current_ip=ip_address,
-            language=user_language
+            language=user_language,
+            reason=IPBlockedModel.ReasonsChoices.SERVER_HTTP_REQUEST
         )
 
         context['n'] = [i for i in range(1000)]

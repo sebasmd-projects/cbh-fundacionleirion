@@ -1,11 +1,15 @@
 import logging
 
+from django.core.exceptions import PermissionDenied
 from django.utils.translation import gettext as _
+
+from apps.common.core.models import IPBlockedModel
+
 
 logger = logging.getLogger(__name__)
 
 
-class APILogMiddleware:
+class RedirectWWWMiddleware:
     """Middleware to log API requests."""
 
     def __init__(self, get_response):
@@ -41,3 +45,15 @@ class APILogMiddleware:
 
         response = self.get_response(request)
         return response
+
+class BlockIPMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        user_ip = request.META['REMOTE_ADDR']
+        
+        if IPBlockedModel.objects.filter(current_ip=user_ip, is_active=True).exists():
+            raise PermissionDenied(_("Your IP has been blocked due to too many incorrect attempts."))
+
+        return self.get_response(request)

@@ -6,7 +6,7 @@ from django_countries import countries
 from import_export.admin import ImportExportActionModelAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import UserModel
+from .models import UserModel, UserLoginAttemptModel
 
 
 class UserAdminForm(forms.ModelForm):
@@ -144,3 +144,6 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
         return obj.get_full_name()
 
     get_full_name.short_description = _('Names')
+
+
+admin.site.register(UserLoginAttemptModel)
