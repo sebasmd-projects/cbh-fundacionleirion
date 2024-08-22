@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 10:38-0500\n"
-"PO-Revision-Date: 2024-08-22 10:43-0500\n"
+"POT-Creation-Date: 2024-08-22 10:52-0500\n"
+"PO-Revision-Date: 2024-08-22 10:53-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -49,54 +49,48 @@ msgstr "Cuenta | CBH | Fundación Leirión"
 msgid "Control of historical bonds"
 msgstr "Control de bonos históricos"
 
-#: .\apps\common\core\templates\page\index.html:6
-#: .\apps\common\core\templates\partials\nav.html:15
-msgid "Home"
-msgstr "Inicio"
-
 #: .\apps\common\core\templates\partials\footer.html:6
-msgid "All rights reserved"
-msgstr "Reservados todos los derechos"
+msgid "Created by"
+msgstr "Creado por"
 
 #: .\apps\common\core\templates\partials\nav.html:5
 #: .\apps\common\core\templates\partials\nav.html:9
 msgid "CHB"
 msgstr "CHB"
 
-#: .\apps\common\core\templates\partials\nav.html:18
-#: .\apps\common\core\templates\partials\nav.html:33
-msgid "Bonds"
-msgstr "Bonos"
-
-#: .\apps\common\core\templates\partials\nav.html:21
-msgid "Categories"
-msgstr "Categorías"
-
-#: .\apps\common\core\templates\partials\nav.html:24
-msgid "Locations"
-msgstr "Ubicaciones"
-
-#: .\apps\common\core\templates\partials\nav.html:27
-#: .\apps\common\core\templates\partials\nav.html:36
-msgid "Sales"
-msgstr "Ventas"
-
-#: .\apps\common\core\templates\partials\nav.html:30
-msgid "Reports"
-msgstr "Reportes"
-
-#: .\apps\common\core\templates\partials\nav.html:41
+#: .\apps\common\core\templates\partials\nav.html:42
 msgid "Language"
 msgstr "Idioma"
 
-#: .\apps\common\core\templates\partials\nav.html:55
+#: .\apps\common\core\templates\partials\nav.html:56
 msgid "Logout"
 msgstr "Cerrar Sesión"
 
-#: .\apps\common\core\templates\partials\nav.html:58
+#: .\apps\common\core\templates\partials\nav.html:59
 msgid "Admin"
 msgstr "Admin"
 
-#: .\apps\common\core\templates\partials\nav.html:62
+#: .\apps\common\core\templates\partials\nav.html:63
 msgid "Login"
 msgstr "Iniciar Sesión"
+
+#~ msgid "Home"
+#~ msgstr "Inicio"
+
+#~ msgid "All rights reserved"
+#~ msgstr "Reservados todos los derechos"
+
+#~ msgid "Bonds"
+#~ msgstr "Bonos"
+
+#~ msgid "Categories"
+#~ msgstr "Categorías"
+
+#~ msgid "Locations"
+#~ msgstr "Ubicaciones"
+
+#~ msgid "Sales"
+#~ msgstr "Ventas"
+
+#~ msgid "Reports"
+#~ msgstr "Reportes"
