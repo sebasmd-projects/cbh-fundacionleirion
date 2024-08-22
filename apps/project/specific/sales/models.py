@@ -75,9 +75,8 @@ class SalesModel(TimeStampedModel):
 
     buyer_country = models.CharField(
         _('country code'),
-        max_length=10,
-        blank=True,
-        null=True,
+        max_length=50,
+        default='US'
     )
 
     amount_sold = EncryptedPositiveIntegerField(
