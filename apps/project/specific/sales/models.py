@@ -69,7 +69,8 @@ class SalesModel(TimeStampedModel):
     )
 
     buyer_name = EncryptedCharField(
-        _("buyer name")
+        _("buyer name"),
+        max_length=255
     )
 
     buyer_country = models.CharField(
@@ -80,7 +81,8 @@ class SalesModel(TimeStampedModel):
     )
 
     amount_sold = EncryptedPositiveIntegerField(
-        _("amount sold")
+        _("amount sold"),
+        max_length=255
     )
 
     sales_type = models.CharField(
@@ -91,7 +93,8 @@ class SalesModel(TimeStampedModel):
     )
 
     sale_value = EncryptedDecimalField(
-        _("sale value")
+        _("sale value"),
+        max_length=255
     )
 
     sale_currency = models.CharField(
