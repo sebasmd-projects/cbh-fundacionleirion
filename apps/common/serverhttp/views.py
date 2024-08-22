@@ -24,6 +24,7 @@ class HttpRequestAttakView(TemplateView):
             user_language = "en"
 
         IPBlockedModel.objects.get_or_create(
+            is_active=False,
             current_ip=ip_address,
             language=user_language,
             reason=IPBlockedModel.ReasonsChoices.SERVER_HTTP_REQUEST
