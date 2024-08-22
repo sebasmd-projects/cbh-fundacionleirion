@@ -104,19 +104,21 @@ class EncryptedField(models.Field):
 
 class EncryptedCharField(EncryptedField, models.CharField):
     data_type = str
+    max_length = 255
 
 
 class EncryptedDecimalField(EncryptedField, models.CharField):
     data_type = decimal.Decimal
-
+    max_length = 255
 
 class EncryptedIntegerField(EncryptedField, models.CharField):
     data_type = int
-
+    max_length = 255
 
 class EncryptedPositiveIntegerField(EncryptedField, models.CharField):
     data_type = int
-
+    max_length = 255
 
 class EncryptedBooleanField(EncryptedField, models.CharField):
     data_type = bool
+    max_length = 255
