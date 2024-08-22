@@ -19,7 +19,7 @@ class SalesView(LoginRequiredMixin, TemplateView):
         self.cipher = Fernet(settings.ENCODED_KEY)
         super().__init__(*args, **kwargs)
 
-    def decrypt(self, value: str | None):
+    def decrypt(self, value):
         if value is None:
             return value
 
