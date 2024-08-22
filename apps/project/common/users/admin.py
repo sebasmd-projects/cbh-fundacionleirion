@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import gettext_lazy as _
 from django_countries import countries
 from import_export.admin import ImportExportActionModelAdmin
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import UserModel, UserLoginAttemptModel
+from .models import UserLoginAttemptModel, UserModel
 
 
 class UserAdminForm(forms.ModelForm):
@@ -18,11 +18,6 @@ class UserAdminForm(forms.ModelForm):
         if password:
             password.help_text = password.help_text.format(
                 f"../../{self.instance.pk}/password/"
-            )
-        user_permissions = self.fields.get("user_permissions")
-        if user_permissions:
-            user_permissions.queryset = user_permissions.queryset.select_related(
-                "content_type"
             )
 
     country_code = forms.ChoiceField(
@@ -42,11 +37,13 @@ class UserAdminForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'country_code', 'password']  # Campos que puede editar el staff
 
 
 @admin.register(UserModel)
 class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
+    form = UserAdminForm
+
     search_fields = (
         'id',
         'username',
@@ -84,11 +81,11 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
         'username',
     )
 
-    readonly_fields = (
+    readonly_fields = [
         'created',
         'updated',
         'last_login'
-    )
+    ]
 
     fieldsets = (
         (
@@ -138,7 +135,48 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
         )
     )
 
-    form = UserAdminForm
+    def get_form(self, request, obj=None, **kwargs):
+        if request.user.is_staff and not request.user.is_superuser:
+            self.readonly_fields += [
+                'username',
+            ]
+            
+            self.fieldsets = (
+                (
+                    _('User Information'), {
+                        'fields': (
+                            'username',
+                            'password',
+                        )
+                    }
+                ),
+                (
+                    _('Personal Information'), {
+                        'fields': (
+                            'first_name',
+                            'last_name',
+                            'country_code'
+                        )
+                    }
+                ),
+            )
+        return super().get_form(request, obj, **kwargs)
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        if request.user.is_staff and not request.user.is_superuser:
+            return queryset.filter(id=request.user.id)
+        return queryset
+
+    def has_add_permission(self, request):
+        if request.user.is_staff and not request.user.is_superuser:
+            return False
+        return super().has_add_permission(request)
+
+    def has_delete_permission(self, request, obj=None):
+        if request.user.is_staff and not request.user.is_superuser:
+            return False
+        return super().has_delete_permission(request, obj)
 
     def get_full_name(self, obj):
         return obj.get_full_name()
