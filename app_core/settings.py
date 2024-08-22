@@ -175,8 +175,8 @@ USE_I18N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ('es', _('Spanish')),
-    ('en', _('English'))
+    ('es', 'Español'),
+    ('en', 'English')
 ]
 
 PARLER_LANGUAGES = {
