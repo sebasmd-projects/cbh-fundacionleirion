@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 19:45-0500\n"
-"PO-Revision-Date: 2024-08-21 19:45-0500\n"
+"POT-Creation-Date: 2024-08-22 10:41-0500\n"
+"PO-Revision-Date: 2024-08-22 10:38-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -105,7 +105,6 @@ msgid "JPY, Japanese Yen"
 msgstr "JPY, Yen Japonés"
 
 #: .\apps\project\specific\sales\models.py:40
-#| msgid "JPY, South Korean Won"
 msgid "KRW, South Korean Won"
 msgstr "KRW, Won surcoreano"
 
@@ -181,7 +180,7 @@ msgstr "tipo de comprador"
 msgid "buyer name"
 msgstr "nombre del comprador"
 
-#: .\apps\project\specific\sales\models.py:76
+#: .\apps\project\specific\sales\models.py:77
 msgid "country code"
 msgstr "Código del país"
 
@@ -189,57 +188,61 @@ msgstr "Código del país"
 msgid "amount sold"
 msgstr "cantidad vendida"
 
-#: .\apps\project\specific\sales\models.py:87
+#: .\apps\project\specific\sales\models.py:88
 msgid "sales type"
 msgstr "tipo de venta"
 
-#: .\apps\project\specific\sales\models.py:94
+#: .\apps\project\specific\sales\models.py:95
 msgid "sale value"
 msgstr "valor de la venta"
 
-#: .\apps\project\specific\sales\models.py:98
+#: .\apps\project\specific\sales\models.py:100
 msgid "currency"
 msgstr "divisa"
 
-#: .\apps\project\specific\sales\models.py:109
+#: .\apps\project\specific\sales\models.py:111
 msgid "Sale"
 msgstr "Venta"
 
-#: .\apps\project\specific\sales\models.py:110
+#: .\apps\project\specific\sales\models.py:112
 msgid "Sales"
 msgstr "Ventas"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:16
+#: .\apps\project\specific\sales\templates\sales_info.html:15
 msgid "Sales Information"
 msgstr "información de ventas"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:20
+#: .\apps\project\specific\sales\templates\sales_info.html:19
 msgid "Bond"
 msgstr "Bono"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:21
+#: .\apps\project\specific\sales\templates\sales_info.html:20
 msgid "Buyer Type"
 msgstr "tipo de comprador"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:22
+#: .\apps\project\specific\sales\templates\sales_info.html:21
 msgid "Buyer Name"
 msgstr "nombre del comprador"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:23
+#: .\apps\project\specific\sales\templates\sales_info.html:22
 msgid "Country"
 msgstr "Código del país"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:24
+#: .\apps\project\specific\sales\templates\sales_info.html:23
 msgid "Amount Sold"
 msgstr "cantidad vendida"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:25
+#: .\apps\project\specific\sales\templates\sales_info.html:24
 msgid "Sales Type"
 msgstr "tipo de venta"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:26
+#: .\apps\project\specific\sales\templates\sales_info.html:25
 msgid "Sale Value"
 msgstr "valor de la venta"
+
+#: .\apps\project\specific\sales\templates\sales_info.html:26
+msgid "Currency"
+msgstr "Divisa"
 
 #: .\apps\project\specific\sales\templates\sales_info.html:27
 msgid "Created"
@@ -249,14 +252,14 @@ msgstr "creado"
 msgid "Updated"
 msgstr "actualizado"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:48
+#: .\apps\project\specific\sales\templates\sales_info.html:49
 msgid "Key Validation"
 msgstr "Validación de llave"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:53
+#: .\apps\project\specific\sales\templates\sales_info.html:54
 msgid "Enter the key:"
 msgstr "Ingresa la llave"
 
-#: .\apps\project\specific\sales\templates\sales_info.html:59
+#: .\apps\project\specific\sales\templates\sales_info.html:60
 msgid "Submit"
 msgstr "Enviar"

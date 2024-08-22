@@ -133,9 +133,9 @@ class UserRegisterForm(forms.ModelForm):
             attrs={
                 "id": "register_first_name",
                 "type": "text",
-                "placeholder": _("Nombres"),
+                "placeholder": _("Names"),
                 "class": "form-control",
-                'aria-label': _('Nombres'),
+                'aria-label': _('Names'),
                 'aria-describedby': 'register_first_name'
             }
         )

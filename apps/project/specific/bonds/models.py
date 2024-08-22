@@ -15,7 +15,7 @@ class BondModel(TimeStampedModel):
 
     name = models.CharField(
         _("name"),
-        max_length=150
+        max_length=255
     )
 
     category = models.ForeignKey(

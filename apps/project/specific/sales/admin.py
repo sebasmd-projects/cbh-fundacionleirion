@@ -53,10 +53,7 @@ class SalesModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
 
     readonly_fields = (
         'created',
-        'updated',
-        'buyer_name',
-        'amount_sold',
-        'sale_value'
+        'updated'
     )
 
     ordering = (
