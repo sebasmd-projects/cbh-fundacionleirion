@@ -26,7 +26,7 @@ class UserLoginView(FormView):
 
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('dashboard:dashboard')
+            return redirect('core:index')
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
