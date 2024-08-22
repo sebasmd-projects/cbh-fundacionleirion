@@ -5,10 +5,6 @@ from .views import HttpRequestAttakView
 app_name = 'serverhttp'
 
 urlpatterns = [
-    path(
-        '*',
-        HttpRequestAttakView.as_view(),
-    ),
     re_path(
         r'^.*[Ss][Ee][Tt][Uu][Pp].*',
         HttpRequestAttakView.as_view()
