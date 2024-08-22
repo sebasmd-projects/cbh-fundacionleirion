@@ -23,7 +23,7 @@ class BondModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
 
     search_fields = (
         'name',
-        'category'
+        'category__name'
     )
 
     list_filter = (
