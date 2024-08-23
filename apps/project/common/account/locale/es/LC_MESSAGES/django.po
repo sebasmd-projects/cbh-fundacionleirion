@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 10:41-0500\n"
-"PO-Revision-Date: 2024-08-22 10:41-0500\n"
+"POT-Creation-Date: 2024-08-22 23:56-0500\n"
+"PO-Revision-Date: 2024-08-23 00:18-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -72,7 +72,15 @@ msgstr "Apellidos"
 msgid "Passwords do not match"
 msgstr "Las contraseñas no coinciden"
 
+#: .\apps\project\common\account\models.py:18
+msgid "User Login Attempt"
+msgstr "Intento de Inicio de Sesión de Usuario"
+
+#: .\apps\project\common\account\models.py:19
+msgid "User Login Attempts"
+msgstr "Intentos de Inicio de Sesión de Usuario"
+
 #: .\apps\project\common\account\templates\account\login.html:19
 #: .\apps\project\common\account\templates\account\register.html:20
-msgid "Control of historical bonds"
+msgid "Control of historical activos"
 msgstr "Control de bonos históricos"

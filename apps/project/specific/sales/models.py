@@ -6,7 +6,7 @@ from apps.common.utils.models import (EncryptedCharField,
                                       EncryptedDecimalField,
                                       EncryptedPositiveIntegerField,
                                       TimeStampedModel)
-from apps.project.specific.bonds.models import BondModel
+from apps.project.specific.assets.models import AssetModel
 
 
 class SalesModel(TimeStampedModel):
@@ -54,11 +54,11 @@ class SalesModel(TimeStampedModel):
         ZAR = 'ZAR', _('ZAR, South African Rand')
         ZWD = 'ZWD', _('ZWD, Zimbabwe Dollar')
 
-    bond = models.ForeignKey(
-        BondModel,
+    asset = models.ForeignKey(
+        AssetModel,
         on_delete=models.CASCADE,
         related_name="sales_bond",
-        verbose_name=_("bond")
+        verbose_name=_("asset")
     )
 
     buyer_type = models.CharField(
@@ -104,7 +104,7 @@ class SalesModel(TimeStampedModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.bond.name}"
+        return f"{self.asset.name}"
 
     class Meta:
         db_table = "apps_project_specific_sales_sales"

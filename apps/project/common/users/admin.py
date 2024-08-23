@@ -1,13 +1,14 @@
 from django import forms
+from django.conf import settings
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.core.exceptions import PermissionDenied
 from django.utils.translation import gettext_lazy as _
 from django_countries import countries
 from import_export.admin import ImportExportActionModelAdmin
 
-from .models import UserLoginAttemptModel, UserModel
-
+from .models import UserModel
 
 class UserAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -37,7 +38,7 @@ class UserAdminForm(forms.ModelForm):
 
     class Meta:
         model = UserModel
-        fields = ['first_name', 'last_name', 'country_code', 'password']  # Campos que puede editar el staff
+        fields = '__all__'
 
 
 @admin.register(UserModel)
@@ -134,54 +135,80 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
             }
         )
     )
+    
+    def user_has_edit_permission(self, request):
+        return request.user.is_superuser or request.user.groups.filter(name=settings.EDIT_USERS_GROUP).exists()
 
-    def get_form(self, request, obj=None, **kwargs):
-        if request.user.is_staff and not request.user.is_superuser:
-            self.readonly_fields += [
-                'username',
-            ]
-            
-            self.fieldsets = (
-                (
-                    _('User Information'), {
-                        'fields': (
-                            'username',
-                            'password',
-                        )
-                    }
-                ),
+    def has_change_permission(self, request, obj=None):
+        if obj is None:
+            return True
+        if self.user_has_edit_permission(request):
+            return True
+        return obj == request.user
+
+    def has_delete_permission(self, request, obj=None):
+        if self.user_has_edit_permission(request):
+            return True
+        return obj == request.user
+
+    def has_add_permission(self, request):
+        return self.user_has_edit_permission(request)
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if self.user_has_edit_permission(request):
+            return qs
+        return qs.filter(pk=request.user.pk)
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        if not self.user_has_edit_permission(request) and obj == request.user:
+            return (
                 (
                     _('Personal Information'), {
                         'fields': (
+                            'username',
                             'first_name',
                             'last_name',
-                            'country_code'
+                            'country_code',
+                            'password'
                         )
                     }
                 ),
+                (
+                    _('Dates'), {
+                        'fields': (
+                            'last_login',
+                            'created',
+                            'updated'
+                        )
+                    }
+                )
             )
-        return super().get_form(request, obj, **kwargs)
+        return fieldsets
 
-    def get_queryset(self, request):
-        queryset = super().get_queryset(request)
-        if request.user.is_staff and not request.user.is_superuser:
-            return queryset.filter(id=request.user.id)
-        return queryset
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        if self.user_has_edit_permission(request) or obj is None:
+            return form
 
-    def has_add_permission(self, request):
-        if request.user.is_staff and not request.user.is_superuser:
-            return False
-        return super().has_add_permission(request)
-
-    def has_delete_permission(self, request, obj=None):
-        if request.user.is_staff and not request.user.is_superuser:
-            return False
-        return super().has_delete_permission(request, obj)
+        if obj == request.user:
+            allowed_fields = [
+                'username',
+                'first_name',
+                'last_name',
+                'country_code',
+                'password'
+            ]
+            for field_name in list(form.base_fields):
+                if field_name not in allowed_fields:
+                    form.base_fields.pop(field_name)
+            form.base_fields['username'].widget.attrs['readonly'] = True
+        else:
+            raise PermissionDenied
+        return form
 
     def get_full_name(self, obj):
         return obj.get_full_name()
 
     get_full_name.short_description = _('Names')
-
-
-admin.site.register(UserLoginAttemptModel)

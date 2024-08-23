@@ -46,7 +46,7 @@ msgstr "Cuenta | CBH | Fundación Leirión"
 
 #: .\apps\common\core\templates\base.html:15
 #: .\apps\common\core\templates\base.html:16
-msgid "Control of historical bonds"
+msgid "Control of historical activos"
 msgstr "Control de bonos históricos"
 
 #: .\apps\common\core\templates\partials\footer.html:6

@@ -41,26 +41,7 @@ class UserModel(TimeStampedModel, AbstractUser):
         unique_together = [['username', 'email']]
 
 
-class UserLoginAttemptModel(models.Model):
-    user = models.OneToOneField(UserModel, on_delete=models.CASCADE)
-    attempts = models.IntegerField(default=0)
-    last_attempt = models.DateTimeField(auto_now=True)
-
-    def __str__(self) -> str:
-        return f"{self.user.get_full_name()} - {self.attempts} - {self.last_attempt}"
-
-    class Meta:
-        db_table = 'apps_project_common_users_userloginattempt'
-        verbose_name = _('User Login Attempt')
-        verbose_name_plural = _('User Login Attempts')
-
-
 auditlog.register(
     UserModel,
-    serialize_data=True
-)
-
-auditlog.register(
-    UserLoginAttemptModel,
     serialize_data=True
 )

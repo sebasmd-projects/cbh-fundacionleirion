@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 10:38-0500\n"
+"POT-Creation-Date: 2024-08-22 23:56-0500\n"
 "PO-Revision-Date: 2024-08-22 10:39-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,41 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\common\users\admin.py:35
+#: .\apps\project\common\users\admin.py:31
 msgid "password"
 msgstr "contraseña"
 
-#: .\apps\project\common\users\admin.py:37
+#: .\apps\project\common\users\admin.py:33
 msgid ""
 "Raw passwords are not stored, so there is no way to see this user’s "
-"password, but you can change the password using <a href=\"{}\">this "
-"form</a>."
+"password, but you can change the password using <a href=\"{}\">this form</a>."
 msgstr ""
 "Las contraseñas sin formato no se almacenan, por lo que no hay forma de ver "
-"la contraseña de este usuario, pero puede cambiarla usando <a "
-"href=\"{}\">este formulario</a>."
+"la contraseña de este usuario, pero puede cambiarla usando <a href="
+"\"{}\">este formulario</a>."
 
-#: .\apps\project\common\users\admin.py:95
+#: .\apps\project\common\users\admin.py:93
 msgid "User Information"
 msgstr "Información del usuario"
 
-#: .\apps\project\common\users\admin.py:103
+#: .\apps\project\common\users\admin.py:101
+#: .\apps\project\common\users\admin.py:168
 msgid "Personal Information"
 msgstr "Información personal"
 
-#: .\apps\project\common\users\admin.py:113
+#: .\apps\project\common\users\admin.py:111
 msgid "Permissions"
 msgstr "Permisos"
 
-#: .\apps\project\common\users\admin.py:124
+#: .\apps\project\common\users\admin.py:122
+#: .\apps\project\common\users\admin.py:179
 msgid "Dates"
 msgstr "Fechas"
 
-#: .\apps\project\common\users\admin.py:133
+#: .\apps\project\common\users\admin.py:131
 msgid "Priority"
 msgstr "Prioridad"
 
-#: .\apps\project\common\users\admin.py:146
+#: .\apps\project\common\users\admin.py:214
 msgid "Names"
 msgstr "Nombres"
 
@@ -65,18 +66,9 @@ msgstr "Usuario"
 msgid "Users"
 msgstr "Usuarios"
 
-#: .\apps\project\common\users\models.py:54
-msgid "User Login Attempt"
-msgstr "Intento de inicio de sesión de usuario"
-
-#: .\apps\project\common\users\models.py:55
-msgid "User Login Attempts"
-msgstr "Intentos de inicio de sesión de usuario"
-
 #: .\apps\project\common\users\validators.py:10
 msgid ""
-"Please enter a valid name. This value can contain only letters, min lenght: "
-"3"
+"Please enter a valid name. This value can contain only letters, min lenght: 3"
 msgstr ""
 "Por favor ingrese un nombre válido. Este valor puede contener sólo letras, "
 "longitud mínima: 3"
@@ -86,8 +78,8 @@ msgid ""
 "Please enter a valid last name. This value can contain only letters, min "
 "lenght: 3"
 msgstr ""
-"Por favor ingrese un apellido válido. Este valor puede contener sólo letras,"
-" longitud mínima: 3"
+"Por favor ingrese un apellido válido. Este valor puede contener sólo letras, "
+"longitud mínima: 3"
 
 #: .\apps\project\common\users\validators.py:28
 msgid ""

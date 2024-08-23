@@ -60,7 +60,7 @@ CUSTOM_APPS = [
     'apps.project.common.reports',
     'apps.project.common.users',
 
-    'apps.project.specific.bonds',
+    'apps.project.specific.assets',
     'apps.project.specific.categories',
     'apps.project.specific.locations',
     'apps.project.specific.sales',
@@ -219,5 +219,6 @@ EMAIL_HOST_USER = os.getenv('DJANGO_EMAIL_HOST_USER')
 EMAIL_PORT = int(os.getenv('DJANGO_EMAIL_PORT'))
 
 SALES_GROUP = os.getenv('PERMISSION_SALES_GROUP')
-
+EDIT_USER_GROUP = os.getenv('PERMISSION_EDIT_USER_GROUP')
+EDIT_USERS_GROUP = os.getenv('PERMISSION_EDIT_USERS_GROUP')
 

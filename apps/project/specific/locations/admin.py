@@ -1,6 +1,18 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
-from .models import BondLocationModel, LocationModel
 
-admin.site.register(LocationModel, ImportExportActionModelAdmin)
-admin.site.register(BondLocationModel, ImportExportActionModelAdmin)
+from .models import AssetLocationModel, AssetModel, LocationModel
+
+
+class AssetLocationInline(admin.TabularInline):
+    model = AssetLocationModel
+    extra = 1
+    min_num = 1
+    fk_name = 'asset'
+
+
+@admin.register(LocationModel)
+class LocationModelAdmin(ImportExportActionModelAdmin):
+    list_display = ['reference', 'continent', 'owner']
+    search_fields = ['reference', 'owner']
+    list_filter = ['continent', 'owner']

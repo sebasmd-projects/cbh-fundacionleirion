@@ -4,10 +4,9 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.common.utils.models import TimeStampedModel
 
-
-class BondCategoryModel(TimeStampedModel):
+class AssetCategoryModel(TimeStampedModel):
     name = models.CharField(
-        _("name"),
+        _("category"),
         max_length=50
     )
 
@@ -20,22 +19,27 @@ class BondCategoryModel(TimeStampedModel):
     parent = models.ForeignKey(
         "self",
         on_delete=models.CASCADE,
-        related_name="bondcategory_bondcategory",
-        verbose_name=_("sub category"),
+        related_name="assetcategory_assetcategory",
+        verbose_name=_("parent category"),
         blank=True,
         null=True
     )
 
     def __str__(self) -> str:
-        return self.name
+        message = f"{self.name}"
+        
+        if self.parent:
+            message = f"{self.parent} - {self.name}"
+            
+        return f"{message}"
 
     class Meta:
-        db_table = "apps_project_specific_categories_bondcategory"
-        verbose_name = _('Bond Category')
-        verbose_name_plural = _('Bond Categories')
+        db_table = "apps_project_specific_categories_assetcategory"
+        verbose_name = _('Asset Category')
+        verbose_name_plural = _('Assets Categories')
 
 
 auditlog.register(
-    BondCategoryModel,
+    AssetCategoryModel,
     serialize_data=True
 )

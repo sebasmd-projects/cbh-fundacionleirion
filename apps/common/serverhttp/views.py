@@ -2,9 +2,6 @@ from django.views.generic import TemplateView
 
 from apps.common.core.models import IPBlockedModel
 
-
-
-
 class HttpRequestAttakView(TemplateView):
     template_name = 'setup.html'
 

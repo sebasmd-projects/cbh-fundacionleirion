@@ -16,7 +16,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-capitalize">{% trans 'Bond' %}</th>
+                    <th class="text-capitalize">{% trans 'Assets' %}</th>
                     <th class="text-capitalize">{% trans 'Buyer Type' %}</th>
                     <th class="text-capitalize">{% trans 'Buyer Name' %}</th>
                     <th class="text-capitalize">{% trans 'Country' %}</th>
@@ -31,7 +31,7 @@
             <tbody>
                 {% for sale in sales_data %}
                 <tr>
-                    <td>{{ sale.bond }}</td>
+                    <td>{{ sale.assets }}</td>
                     <td>{{ sale.get_buyer_type_display }}</td>
                     <td>{{ sale.buyer_name }}</td>
                     <td>{{ sale.buyer_country }}</td>

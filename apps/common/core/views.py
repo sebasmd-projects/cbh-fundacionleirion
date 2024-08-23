@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.generic import TemplateView
 
 from apps.common.core.models import IPBlockedModel
-from apps.project.common.users.models import UserLoginAttemptModel
+from apps.project.common.account.models import UserLoginAttemptModel
 
 from .forms import KeyPrefixForm
 

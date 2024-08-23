@@ -1,3 +1,5 @@
+import logging
+
 from cryptography.fernet import Fernet
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,6 +11,8 @@ from apps.common.core.forms import KeyPrefixForm
 
 from .models import SalesModel
 
+logger = logging.getLogger(__name__)
+
 
 class SalesView(LoginRequiredMixin, TemplateView):
     group_required = settings.SALES_GROUP
@@ -17,6 +21,15 @@ class SalesView(LoginRequiredMixin, TemplateView):
 
     def __init__(self, *args, **kwargs):
         self.cipher = Fernet(settings.ENCODED_KEY)
+        
+        logger.warning(
+            f'encoded key | {settings.ENCODED_KEY}'
+        )
+        
+        logger.warning(
+            f'encoded key | {self.cipher}'
+        )
+        
         super().__init__(*args, **kwargs)
 
     def decrypt(self, value):

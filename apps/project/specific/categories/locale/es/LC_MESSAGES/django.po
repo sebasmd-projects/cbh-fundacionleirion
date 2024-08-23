@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 18:33-0500\n"
-"PO-Revision-Date: 2024-08-21 18:42-0500\n"
+"POT-Creation-Date: 2024-08-23 00:19-0500\n"
+"PO-Revision-Date: 2024-08-23 00:19-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,22 +19,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\specific\categories\models.py:10
-msgid "name"
-msgstr "nombre"
+#: .\apps\project\specific\categories\models.py:9
+#| msgid "parent category"
+msgid "category"
+msgstr "categoría"
 
-#: .\apps\project\specific\categories\models.py:15
+#: .\apps\project\specific\categories\models.py:14
 msgid "description"
 msgstr "descripción"
 
-#: .\apps\project\specific\categories\models.py:24
-msgid "sub category"
-msgstr "sub categoría"
+#: .\apps\project\specific\categories\models.py:23
+msgid "parent category"
+msgstr "categoría padre"
 
-#: .\apps\project\specific\categories\models.py:34
-msgid "Bond Category"
-msgstr "Categoría del bono"
+#: .\apps\project\specific\categories\models.py:38
+msgid "Asset Category"
+msgstr "Categoría del Activo"
 
-#: .\apps\project\specific\categories\models.py:35
-msgid "Bond Categories"
-msgstr "Categorías del bono"
+#: .\apps\project\specific\categories\models.py:39
+msgid "Assets Categories"
+msgstr "Categorías de los Activos"
+
+#~ msgid "name"
+#~ msgstr "nombre"

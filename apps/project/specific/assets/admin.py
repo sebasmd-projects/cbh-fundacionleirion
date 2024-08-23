@@ -3,26 +3,32 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from import_export.admin import ImportExportActionModelAdmin
 
-from .models import BondModel, BondStatusModel
+from apps.project.specific.locations.admin import AssetLocationInline
 
-admin.site.register(BondStatusModel, ImportExportActionModelAdmin)
+from .models import AssetModel, AssetStatusModel
+
+admin.site.register(AssetStatusModel, ImportExportActionModelAdmin)
 
 
-class BondModelForm(forms.ModelForm):
+class AssetModelForm(forms.ModelForm):
     class Meta:
-        model = BondModel
+        model = AssetModel
         fields = '__all__'
         widgets = {
             'name': forms.Textarea(attrs={'rows': 2, 'style': 'width: 80%;'}),
+            'es_name': forms.Textarea(attrs={'rows': 2, 'style': 'width: 80%;'}),
         }
 
 
-@admin.register(BondModel)
-class BondModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
-    form = BondModelForm
+@admin.register(AssetModel)
+class AssetModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
+    inlines = [AssetLocationInline]
+
+    form = AssetModelForm
 
     search_fields = (
         'name',
+        'es_name',
         'category__name'
     )
 
@@ -32,6 +38,7 @@ class BondModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
     )
 
     list_display = (
+        'es_name',
         'name',
         'category',
         'quantity_type',
@@ -56,7 +63,9 @@ class BondModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
             _('Required Fields'),
             {
                 'fields': (
+                    'asset_img',
                     'name',
+                    'es_name',
                     'category',
                     'quantity_type',
                     'total_quantity',
@@ -68,7 +77,7 @@ class BondModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
             _('Optional Fields'),
             {
                 'fields': (
-                    'bond_year',
+                    'asset_year',
                     'emission',
                     'language',
                     'default_order',
