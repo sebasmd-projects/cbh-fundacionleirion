@@ -46,7 +46,11 @@ class LocationModel(TimeStampedModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.reference} - {self.get_continent_display()} - {self.owner}"
+        message = f"{self.reference} - {self.get_continent_display()}"
+        if self.owner:
+            message = f"{
+                self.reference} - {self.get_continent_display()} - {self.owner}"
+        return message
 
     class Meta:
         db_table = "apps_project_specific_locations_location"
