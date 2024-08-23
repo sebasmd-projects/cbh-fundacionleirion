@@ -7,7 +7,8 @@ from apps.common.utils.models import TimeStampedModel
 class AssetCategoryModel(TimeStampedModel):
     name = models.CharField(
         _("category"),
-        max_length=50
+        max_length=50,
+        unique=True
     )
 
     description = models.TextField(
