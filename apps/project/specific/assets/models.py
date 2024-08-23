@@ -2,6 +2,7 @@ from auditlog.registry import auditlog
 from django.db import models
 from django.db.models.signals import (post_delete, post_save, pre_delete,
                                       pre_save)
+from django.forms import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 from apps.common.utils.models import TimeStampedModel
@@ -9,8 +10,7 @@ from apps.project.specific.categories.models import AssetCategoryModel
 
 from .signals import (assets_directory_path, auto_delete_asset_img_on_change,
                       auto_delete_asset_img_on_delete, optimize_image,
-                      return_asset_total_quantity_on_delete,
-                      validate_and_update_asset_total_quantity)
+                      return_asset_total_quantity_on_delete)
 
 
 class AssetModel(TimeStampedModel):
@@ -70,7 +70,7 @@ class AssetModel(TimeStampedModel):
         default=QuantityTypeChoices.UNITS
     )
 
-    total_quantity = models.PositiveIntegerField(
+    total_quantity = models.BigIntegerField(
         _("total lump sum"),
         default=0
     )
@@ -117,6 +117,27 @@ class AssetStatusModel(TimeStampedModel):
         null=True
     )
 
+    def clean(self):
+        super().clean()
+        asset = self.assets
+
+        if self.pk:
+            previous_instance = AssetStatusModel.objects.get(pk=self.pk)
+            if previous_instance.status != 'A' and self.status == 'A':
+                asset.total_quantity += previous_instance.quantity
+
+        if asset.total_quantity < self.quantity:
+            raise ValidationError(
+                _(f"Not enough quantity available for {asset.name}")
+            )
+
+        if self.status != 'A':
+            asset.total_quantity -= self.quantity
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
     class Meta:
         db_table = "apps_project_specific_assets_status"
         verbose_name = _("Assets Status")
@@ -149,11 +170,6 @@ post_delete.connect(
 pre_save.connect(
     auto_delete_asset_img_on_change,
     sender=AssetModel
-)
-
-pre_save.connect(
-    validate_and_update_asset_total_quantity,
-    sender=AssetStatusModel
 )
 
 pre_delete.connect(

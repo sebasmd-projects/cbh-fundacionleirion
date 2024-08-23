@@ -58,28 +58,6 @@ def auto_delete_asset_img_on_change(sender, instance, *args, **kwargs):
                     os.remove(old_instance.asset_img.path)  # Delete old file
 
 
-def validate_and_update_asset_total_quantity(sender, instance, **kwargs):
-    from apps.project.specific.assets.models import AssetStatusModel
-
-    asset = instance.assets
-
-    with transaction.atomic():
-        if instance.pk:
-            previous_instance = AssetStatusModel.objects.get(pk=instance.pk)
-            if previous_instance.status != 'A' and instance.status == 'A':
-                asset.total_quantity += previous_instance.quantity
-
-        if asset.total_quantity < instance.quantity:
-            raise ValidationError(
-                _(f"Not enough quantity available for {asset.name}")
-            )
-
-        if instance.status != 'A':
-            asset.total_quantity -= instance.quantity
-
-        asset.save()
-
-
 def return_asset_total_quantity_on_delete(sender, instance, **kwargs):
     from apps.project.specific.assets.models import AssetModel
 
