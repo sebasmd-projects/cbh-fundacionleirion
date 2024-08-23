@@ -38,8 +38,6 @@ class AssetCategoryModel(TimeStampedModel):
         db_table = "apps_project_specific_categories_assetcategory"
         verbose_name = _('Asset Category')
         verbose_name_plural = _('Assets Categories')
-        unique_together = [['name', 'parent']]
-
 
 auditlog.register(
     AssetCategoryModel,
