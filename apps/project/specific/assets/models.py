@@ -27,6 +27,22 @@ class AssetModel(TimeStampedModel):
         null=True
     )
 
+    observations = models.TextField(
+        _("observations"),
+        default=""
+    )
+
+    units_per_box = models.BigIntegerField(
+        _("units per box"),
+        default=0
+
+    )
+
+    boxes_per_container = models.BigIntegerField(
+        _("boxes per container"),
+        default=0
+    )
+
     name = models.CharField(
         _("english name"),
         max_length=255
