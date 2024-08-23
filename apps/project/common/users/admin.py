@@ -10,6 +10,7 @@ from import_export.admin import ImportExportActionModelAdmin
 
 from .models import UserModel
 
+
 class UserAdminForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -53,18 +54,14 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
         'last_name',
     )
 
-    list_filter = (
-        'is_active',
-        'is_staff',
-        'is_superuser',
-    )
-
     list_display = (
         'get_full_name',
         'username',
         'email',
         'is_staff',
-        'is_active'
+        'is_active',
+        'is_superuser',
+        'get_groups',
     )
 
     list_display_links = (
@@ -135,7 +132,7 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
             }
         )
     )
-    
+
     def user_has_edit_permission(self, request):
         return request.user.is_superuser or request.user.groups.filter(name=settings.EDIT_USERS_GROUP).exists()
 
@@ -208,7 +205,12 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
             raise PermissionDenied
         return form
 
+    def get_groups(self, obj):
+        return ", ".join([group.name for group in obj.groups.all()])
+
     def get_full_name(self, obj):
         return obj.get_full_name()
+
+    get_groups.short_description = _('Groups')
 
     get_full_name.short_description = _('Names')
