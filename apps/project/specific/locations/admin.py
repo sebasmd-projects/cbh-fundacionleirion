@@ -7,7 +7,7 @@ from .models import AssetLocationModel, AssetModel, LocationModel
 class AssetLocationInline(admin.TabularInline):
     model = AssetLocationModel
     extra = 1
-    min_num = 1
+    min_num = 0
     fk_name = 'asset'
 
 
