@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 23:56-0500\n"
+"POT-Creation-Date: 2024-08-23 00:39-0500\n"
 "PO-Revision-Date: 2024-08-23 00:21-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,6 @@ msgid "amount"
 msgstr "cantidad"
 
 #: .\apps\project\specific\locations\models.py:81
-#| msgid "Assets Locations"
 msgid "Assets Location"
 msgstr "Ubicación de los activos"
 
