@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 00:39-0500\n"
+"POT-Creation-Date: 2024-08-23 17:06-0500\n"
 "PO-Revision-Date: 2024-08-23 00:21-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,30 +67,30 @@ msgstr "continente"
 msgid "owner"
 msgstr "propietario"
 
-#: .\apps\project\specific\locations\models.py:53
+#: .\apps\project\specific\locations\models.py:56
 msgid "Location"
 msgstr "Ubicación"
 
-#: .\apps\project\specific\locations\models.py:54
+#: .\apps\project\specific\locations\models.py:57
 msgid "Locations"
 msgstr "Ubicaciones"
 
-#: .\apps\project\specific\locations\models.py:62
+#: .\apps\project\specific\locations\models.py:65
 msgid "Assets"
 msgstr "Activos"
 
-#: .\apps\project\specific\locations\models.py:69
+#: .\apps\project\specific\locations\models.py:72
 msgid "location"
 msgstr "ubicación"
 
-#: .\apps\project\specific\locations\models.py:73
+#: .\apps\project\specific\locations\models.py:76
 msgid "amount"
 msgstr "cantidad"
 
-#: .\apps\project\specific\locations\models.py:81
+#: .\apps\project\specific\locations\models.py:84
 msgid "Assets Location"
 msgstr "Ubicación de los activos"
 
-#: .\apps\project\specific\locations\models.py:82
+#: .\apps\project\specific\locations\models.py:85
 msgid "Assets Locations"
 msgstr "Ubicaciones de los activos"
