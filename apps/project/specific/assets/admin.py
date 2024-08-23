@@ -69,7 +69,9 @@ class AssetModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
                     'category',
                     'quantity_type',
                     'total_quantity',
-                    'is_active'
+                    'is_active',
+                    'units_per_box',
+                    'boxes_per_container'
                 )
             }
         ),
@@ -81,6 +83,7 @@ class AssetModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
                     'emission',
                     'language',
                     'default_order',
+                    'observations'
                 )
             }
         )

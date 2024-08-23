@@ -29,13 +29,14 @@ class AssetModel(TimeStampedModel):
 
     observations = models.TextField(
         _("observations"),
-        default=""
+        default="",
+        blank=True,
+        null=True
     )
 
     units_per_box = models.BigIntegerField(
         _("units per box"),
         default=0
-
     )
 
     boxes_per_container = models.BigIntegerField(
