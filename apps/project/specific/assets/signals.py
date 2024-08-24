@@ -1,10 +1,11 @@
 import os
 from datetime import date
 
-from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
+
+from app_core import remove_accents
 
 
 def optimize_image(sender, instance, *args, **kwargs):
@@ -25,10 +26,11 @@ def optimize_image(sender, instance, *args, **kwargs):
 
 def assets_directory_path(instance, filename):
     """
-    This function is used to generate a file path for an avatar image when a user is saved.
-    The path includes the current year, month, and day, as well as the full name of the user and the original filename of the image.
+    This function is used to generate a file path for an image when a asset is saved.
+    The path includes the current year, month, and day, as well as the full name of the asset and the original filename of the image.
     """
-    return f"asset/{instance.es_name}/img/{date.today().year}-{date.today().month}-{date.today().day}/{filename}"
+    es_name = remove_accents(instance.es_name)
+    return f"asset/{es_name}/img/{date.today().year}-{date.today().month}-{date.today().day}/{filename}"
 
 
 def auto_delete_asset_img_on_delete(sender, instance, *args, **kwargs):

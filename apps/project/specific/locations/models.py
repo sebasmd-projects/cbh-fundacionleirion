@@ -77,7 +77,7 @@ class AssetLocationModel(TimeStampedModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.asset.name} - {self.location.reference} - {self.amount}"
+        return f"{self.asset.es_name} - {self.location.reference} - {self.amount}"
 
     class Meta:
         db_table = "apps_project_specific_locations_assetlocation"
