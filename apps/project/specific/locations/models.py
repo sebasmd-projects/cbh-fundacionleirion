@@ -61,8 +61,7 @@ class LocationModel(TimeStampedModel):
     def __str__(self) -> str:
         message = f"{self.reference} - {self.get_continent_display()}"
         if self.owner:
-            message = f"{
-                self.reference} - {self.get_continent_display()} - {self.owner}"
+            message = f"{self.reference} - {self.get_continent_display()} - {self.owner}"
         return message
 
     class Meta:
