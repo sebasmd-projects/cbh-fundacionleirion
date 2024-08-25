@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportActionModelAdmin
 
-from .models import AssetLocationModel, AssetModel, LocationModel
+from .models import AssetLocationModel, LocationModel
 
 
 class AssetLocationInline(admin.TabularInline):
@@ -9,6 +9,7 @@ class AssetLocationInline(admin.TabularInline):
     extra = 1
     min_num = 0
     fk_name = 'asset'
+    exclude = ('language', 'default_order')
 
 
 @admin.register(LocationModel)

@@ -4,8 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.common.utils.models import (EncryptedCharField,
                                       EncryptedDecimalField,
-                                      EncryptedPositiveIntegerField,
-                                      TimeStampedModel)
+                                      EncryptedIntegerField, TimeStampedModel)
 from apps.project.specific.assets.models import AssetModel
 
 
@@ -79,7 +78,7 @@ class SalesModel(TimeStampedModel):
         default='US'
     )
 
-    amount_sold = EncryptedPositiveIntegerField(
+    amount_sold = EncryptedIntegerField(
         _("amount sold"),
         max_length=255
     )

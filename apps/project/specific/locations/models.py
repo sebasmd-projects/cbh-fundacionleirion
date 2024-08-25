@@ -1,16 +1,29 @@
 from auditlog.registry import auditlog
 from django.db import models
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, pre_delete, pre_save
 from django.utils.translation import gettext_lazy as _
 
 from apps.common.utils.models import TimeStampedModel
 from apps.project.specific.assets.models import AssetModel
 
-from .signals import update_asset_total_quantity_on_location
+from .signals import (handle_assetlocation_is_active_change,
+                      update_asset_total_quantity_on_location,
+                      update_asset_total_quantity_on_location_change,
+                      update_asset_total_quantity_on_location_delete)
 
 
 class LocationModel(TimeStampedModel):
+    """Represents a physical location with attributes such as reference, description, and continent.
+
+    Args:
+        TimeStampedModel (class): Base model with timestamp fields.
+    """
     class ContinentChoices(models.TextChoices):
+        """Enumeration of continent choices for the LocationModel.
+
+        Args:
+            models.TextChoices (class): Django model choices class.
+        """
         ASIA = "AS", _("Asia")
         NORTH_AMERICA = "NA", _("North America")
         CENTRAL_AMERICA = "CA", _("Central America")
@@ -48,7 +61,8 @@ class LocationModel(TimeStampedModel):
     def __str__(self) -> str:
         message = f"{self.reference} - {self.get_continent_display()}"
         if self.owner:
-            message = f"{self.reference} - {self.get_continent_display()} - {self.owner}"
+            message = f"{
+                self.reference} - {self.get_continent_display()} - {self.owner}"
         return message
 
     class Meta:
@@ -58,6 +72,11 @@ class LocationModel(TimeStampedModel):
 
 
 class AssetLocationModel(TimeStampedModel):
+    """Represents the relationship between an Asset and a Location, including the quantity of assets at that location.
+
+    Args:
+        TimeStampedModel (class): Base model with timestamp fields.
+    """
     asset = models.ForeignKey(
         AssetModel,
         on_delete=models.CASCADE,
@@ -97,5 +116,20 @@ auditlog.register(
 
 post_save.connect(
     update_asset_total_quantity_on_location,
+    sender=AssetLocationModel
+)
+
+pre_delete.connect(
+    update_asset_total_quantity_on_location_delete,
+    sender=AssetLocationModel
+)
+
+pre_save.connect(
+    update_asset_total_quantity_on_location_change,
+    sender=AssetLocationModel
+)
+
+pre_save.connect(
+    handle_assetlocation_is_active_change,
     sender=AssetLocationModel
 )

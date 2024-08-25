@@ -1,18 +1,165 @@
-import decimal
+from decimal import Decimal
 
 from auditlog.models import AuditlogHistoryField
 from cryptography.fernet import Fernet
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-utils_path: str = settings.UTILS_PATH
-utils_db_name = utils_path.replace('.', '_')
+
+class EncryptedField(models.CharField):
+    """Custom field for storing encrypted data in the database.
+
+    Args:
+        models.CharField (class): Base Django CharField class.
+    """
+
+    def __init__(self, *args, **kwargs):
+        self.cipher = Fernet(settings.ENCODED_KEY)
+        self.data_type = kwargs.pop('data_type', str)
+        super().__init__(*args, **kwargs)
+
+    def encrypt(self, value: any) -> str:
+        """Encrypts the given value.
+
+        Args:
+            value (any): The value to encrypt.
+
+        Returns:
+            str: The encrypted value as a string.
+        """
+        if value is None:
+            return value
+        value_str = str(value)
+        encrypted_value = self.cipher.encrypt(value_str.encode('utf-8'))
+        return encrypted_value.decode('utf-8')
+
+    def decrypt(self, value: any) -> any:
+        """Decrypts the given value.
+
+        Args:
+            value (str): The encrypted value to decrypt.
+
+        Raises:
+            ValidationError: If the decryption fails.
+
+        Returns:
+            any: The decrypted value, converted to the appropriate data type.
+        """
+        if value is None or value.startswith("****"):
+            return value
+        try:
+            decrypted_value = self.cipher.decrypt(
+                value.encode('utf-8')
+            ).decode('utf-8')
+        except Exception:
+            raise ValidationError("Error decrypting the value")
+
+        type_map = {
+            int: int,
+            Decimal: Decimal,
+            bool: lambda x: x.lower() == 'true'
+        }
+
+        return type_map.get(self.data_type, str)(decrypted_value)
+
+    def get_prep_value(self, value: any) -> str:
+        """Prepares the value for saving to the database by encrypting it.
+
+        Args:
+            value (any): The value to prepare.
+
+        Returns:
+            str: The encrypted value.
+        """
+        if isinstance(value, str) and value.startswith('gAAAAA'):
+            return value
+        return self.encrypt(value)
+
+    def from_db_value(self, value: str, expression: any, connection: any) -> any:
+        """Converts the encrypted value from the database back to its original form.
+
+        Args:
+            value (str): The encrypted value from the database.
+            expression (any): The expression used in the query.
+            connection (any): The database connection used for the query.
+
+        Returns:
+            any: The decrypted value if the user has access; otherwise, a masked value.
+        """
+        return self.decrypt(value)
+
+    def to_python(self, value: any) -> any:
+        """Converts the value to the appropriate Python data type.
+
+        Args:
+            value (any): The value to convert.
+
+        Returns:
+            any: The value converted to its appropriate data type.
+        """
+        if isinstance(value, self.data_type) or value is None:
+            return value
+        return value
+
+
+class EncryptedCharField(EncryptedField):
+    """Custom field for storing encrypted string data.
+
+    Args:
+        EncryptedField (class): Base class for encrypted fields.
+    """
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = kwargs.get('max_length', 255)
+        super().__init__(data_type=str, *args, **kwargs)
+
+
+class EncryptedDecimalField(EncryptedField):
+    """Custom field for storing encrypted decimal data.
+
+    Args:
+        EncryptedField (class): Base class for encrypted fields.
+        models.CharField (class): Django model field for character data.
+    """
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = kwargs.get('max_length', 255)
+        super().__init__(data_type=Decimal, *args, **kwargs)
+
+
+class EncryptedIntegerField(EncryptedField):
+    """Custom field for storing encrypted integer data.
+
+    Args:
+        EncryptedField (class): Base class for encrypted fields.
+    """
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = kwargs.get('max_length', 255)
+        super().__init__(data_type=int, *args, **kwargs)
+
+
+class EncryptedBooleanField(EncryptedField):
+    """Custom field for storing encrypted boolean data.
+
+    Args:
+        EncryptedField (class): Base class for encrypted fields.
+    """
+
+    def __init__(self, *args, **kwargs):
+        kwargs['max_length'] = kwargs.get('max_length', 255)
+        super().__init__(data_type=bool, *args, **kwargs)
 
 
 class TimeStampedModel(models.Model):
-    """A base model class with timestamp fields."""
+    """Abstract model providing timestamp fields (created and updated) and additional metadata.
+
+    Args:
+        models.Model (class): Base Django model class.
+    """
     history = AuditlogHistoryField()
 
     language_choices = [
@@ -56,67 +203,3 @@ class TimeStampedModel(models.Model):
     class Meta:
         abstract = True
         ordering = ['default_order']
-
-
-class EncryptedField(models.Field):
-    def __init__(self, *args, **kwargs):
-        self.cipher = Fernet(settings.ENCODED_KEY)
-        self.data_type = kwargs.pop('data_type', str)
-        super().__init__(*args, **kwargs)
-
-    def encrypt(self, value):
-        if value is None:
-            return value
-        value_str = str(value)
-        encrypted_value = self.cipher.encrypt(value_str.encode('utf-8'))
-        return encrypted_value.decode('utf-8')
-
-    def decrypt(self, value):
-        if value is None:
-            return value
-
-        decrypted_value = self.cipher.decrypt(
-            value.encode('utf-8')).decode('utf-8')
-
-        if self.data_type == int:
-            return int(decrypted_value)
-
-        elif self.data_type == decimal.Decimal:
-            return decimal.Decimal(decrypted_value)
-
-        elif self.data_type == bool:
-            return decrypted_value.lower() == 'true'
-
-        return decrypted_value
-
-    def get_prep_value(self, value):
-        return self.encrypt(value)
-
-    def from_db_value(self, value, expression, connection):
-        return self.decrypt(value)
-
-    def to_python(self, value):
-        if isinstance(value, self.data_type) or value is None:
-            return value
-
-        return self.decrypt(value)
-
-
-class EncryptedCharField(EncryptedField, models.CharField):
-    data_type = str
-
-
-class EncryptedDecimalField(EncryptedField, models.CharField):
-    data_type = decimal.Decimal
-
-
-class EncryptedIntegerField(EncryptedField, models.CharField):
-    data_type = int
-
-
-class EncryptedPositiveIntegerField(EncryptedField, models.CharField):
-    data_type = int
-
-
-class EncryptedBooleanField(EncryptedField, models.CharField):
-    data_type = bool

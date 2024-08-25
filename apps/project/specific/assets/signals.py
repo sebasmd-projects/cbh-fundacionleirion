@@ -37,10 +37,10 @@ def assets_directory_path(instance, filename):
     The path includes the current year, month, and day, and the hash of the filename without the extension.
     Maintains the original file extension.
     """
-    es_name = slugify(instance.es_name)
+    es_name = slugify(instance.es_name)[:40]
     base_filename, file_extension = os.path.splitext(filename)
     filename_hash = generate_md5_hash(base_filename)
-    return f"asset/{es_name}/img/{date.today().year}/{date.today().month}/{date.today().day}/{filename_hash}{file_extension}"
+    return f"asset/{es_name}/img/{date.today().year}/{date.today().month}/{date.today().day}/{filename_hash[:10]}{file_extension}"
 
 
 def auto_delete_asset_img_on_delete(sender, instance, *args, **kwargs):
