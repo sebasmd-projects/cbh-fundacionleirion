@@ -1,3 +1,4 @@
+import logging
 from decimal import Decimal
 
 from auditlog.models import AuditlogHistoryField
@@ -7,6 +8,8 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+
+logger = logging.getLogger(__name__)
 
 
 class EncryptedField(models.CharField):
@@ -100,9 +103,21 @@ class EncryptedField(models.CharField):
         Returns:
             any: The value converted to its appropriate data type.
         """
-        if isinstance(value, self.data_type) or value is None:
+        if value is None:
+            return None
+
+        if isinstance(value, self.data_type):
             return value
-        return value
+
+        try:
+            # Attempt to convert the value to the expected data type
+            return self.data_type(value)
+        except (ValueError, TypeError) as e:
+            # Log an error or raise an exception if the conversion fails
+            logger.error(
+                _(f"Cannot convert value {value} to {self.data_type}: {e}")
+            )
+            raise
 
 
 class EncryptedCharField(EncryptedField):
@@ -201,5 +216,7 @@ class TimeStampedModel(models.Model):
     )
 
     class Meta:
+        abstract = True
+        ordering = ['default_order']
         abstract = True
         ordering = ['default_order']

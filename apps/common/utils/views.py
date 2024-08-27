@@ -1,3 +1,4 @@
+import logging
 import re
 
 from django.conf import settings
@@ -8,9 +9,16 @@ from django.utils.translation import gettext_lazy as _
 
 from apps.common.serverhttp.urls import urlpatterns
 
+logger = logging.getLogger(__name__)
+
 try:
     template_name = settings.ERROR_TEMPLATE
-except:
+except AttributeError:
+    template_name = 'errors_template.html'
+except SystemExit:
+    raise
+except Exception as e:
+    logger.error(f"An unexpected error occurred: {e}")
     template_name = 'errors_template.html'
 
 

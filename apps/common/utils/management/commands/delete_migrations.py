@@ -164,7 +164,7 @@ class Command(BaseCommand):
             deleted_files (List[tuple]): List of deleted files.
             exceptions (List[str]): List of exceptions.
         """
-        deleted_items = set(deleted_folders + deleted_files)
+        deleted_items = list(set(deleted_folders + deleted_files))
 
         if deleted_items:
             self.print_deleted(

@@ -11,34 +11,37 @@ from apps.project.common.users.validators import (
 )
 
 UserModel = get_user_model()
-
+USER_OR_EMAIL_TXT = _('User or Email')
+PASSWORD_TXT = _('Password')
+USER_TXT = _('User')
+EMAIL_TXT = _('Email')
 
 class UserLoginForm(forms.Form):
     username = forms.CharField(
-        label=_('User or Email'),
+        label=USER_OR_EMAIL_TXT,
         required=True,
         widget=forms.TextInput(
             attrs={
                 'id': 'login_username',
                 'type': 'text',
-                'placeholder': _('User or Email'),
+                'placeholder': USER_OR_EMAIL_TXT,
                 'class': 'form-control',
-                'aria-label': _('User or Email'),
+                'aria-label': USER_OR_EMAIL_TXT,
                 'aria-describedby': 'login_username'
             },
         )
     )
 
     password = forms.CharField(
-        label=_('Password'),
+        label=PASSWORD_TXT,
         required=True,
         widget=forms.PasswordInput(
             attrs={
                 'id': 'login_password',
                 'type': 'password',
-                'placeholder': _('Password'),
+                'placeholder': PASSWORD_TXT,
                 'class': 'form-control',
-                'aria-label': _('Password'),
+                'aria-label': PASSWORD_TXT,
                 'aria-describedby': 'login_password'
             }
         )
@@ -65,46 +68,46 @@ class UserRegisterForm(forms.ModelForm):
     last_name_validator = UnicodeLastNameValidator()
 
     username = forms.CharField(
-        label=_("User"),
+        label=USER_TXT,
         validators=[username_validator],
         required=True,
         widget=forms.TextInput(
             attrs={
                 "id": "register_username",
                 "type": "text",
-                "placeholder": _("User"),
+                "placeholder": USER_TXT,
                 "class": "form-control",
-                'aria-label': _('User'),
+                'aria-label': USER_TXT,
                 'aria-describedby': 'register_username'
             }
         )
     )
 
     email = forms.CharField(
-        label=_("Email"),
+        label=EMAIL_TXT,
         required=True,
         widget=forms.EmailInput(
             attrs={
                 "id": "register_email",
                 "type": "email",
-                "placeholder": _("Email"),
+                "placeholder": EMAIL_TXT,
                 "class": "form-control",
-                'aria-label': _('Email'),
+                'aria-label': EMAIL_TXT,
                 'aria-describedby': 'register_email'
             }
         )
     )
 
     password = forms.CharField(
-        label=_('Password'),
+        label=PASSWORD_TXT,
         required=True,
         widget=forms.PasswordInput(
             attrs={
                 "id": "register_password",
                 'type': 'password',
-                'placeholder': _('Password'),
+                'placeholder': PASSWORD_TXT,
                 'class': 'form-control',
-                'aria-label': _('Password'),
+                'aria-label': PASSWORD_TXT,
                 'aria-describedby': 'register_password'
             }
         )
