@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 17:06-0500\n"
-"PO-Revision-Date: 2024-08-23 17:06-0500\n"
+"POT-Creation-Date: 2024-08-27 14:26-0500\n"
+"PO-Revision-Date: 2024-08-27 14:27-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -19,11 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\specific\assets\admin.py:63
+#: .\apps\project\specific\assets\admin.py:16
+msgid "Total Quantity Zero"
+msgstr "Cantidad total en 0"
+
+#: .\apps\project\specific\assets\admin.py:21
+#: .\apps\project\specific\assets\admin.py:39
+#: .\apps\project\specific\assets\admin.py:57
+msgid "Yes"
+msgstr "Si"
+
+#: .\apps\project\specific\assets\admin.py:22
+#: .\apps\project\specific\assets\admin.py:40
+#: .\apps\project\specific\assets\admin.py:58
+msgid "No"
+msgstr "No"
+
+#: .\apps\project\specific\assets\admin.py:34
+#| msgid "units per box"
+msgid "Units per Box Zero"
+msgstr "Unidades por Caja en 0"
+
+#: .\apps\project\specific\assets\admin.py:52
+#| msgid "boxes per container"
+msgid "Boxes per Container Zero"
+msgstr "Cajas por Contenedor en 0"
+
+#: .\apps\project\specific\assets\admin.py:70
+#| msgid "category"
+msgid "Parent Category"
+msgstr "Categoría Padre"
+
+#: .\apps\project\specific\assets\admin.py:144
 msgid "Required Fields"
 msgstr "Campos Requeridos"
 
-#: .\apps\project\specific\assets\admin.py:79
+#: .\apps\project\specific\assets\admin.py:160
 msgid "Optional Fields"
 msgstr "Campos Opcionales"
 
@@ -40,7 +71,7 @@ msgid "Boxes"
 msgstr "Cajas"
 
 #: .\apps\project\specific\assets\models.py:21
-#: .\apps\project\specific\assets\models.py:110
+#: .\apps\project\specific\assets\models.py:111
 msgid "Other"
 msgstr "Otro"
 
@@ -48,92 +79,92 @@ msgstr "Otro"
 msgid "img"
 msgstr "imagen"
 
-#: .\apps\project\specific\assets\models.py:31
+#: .\apps\project\specific\assets\models.py:32
 msgid "observations"
 msgstr "observaciones"
 
-#: .\apps\project\specific\assets\models.py:38
+#: .\apps\project\specific\assets\models.py:39
 msgid "units per box"
 msgstr "unidades por caja"
 
-#: .\apps\project\specific\assets\models.py:43
+#: .\apps\project\specific\assets\models.py:44
 msgid "boxes per container"
 msgstr "cajas por contenedor"
 
-#: .\apps\project\specific\assets\models.py:48
+#: .\apps\project\specific\assets\models.py:49
 msgid "english name"
 msgstr "nombre en inglés"
 
-#: .\apps\project\specific\assets\models.py:53
+#: .\apps\project\specific\assets\models.py:54
 msgid "spanish name"
 msgstr "nombre en español"
 
-#: .\apps\project\specific\assets\models.py:61
+#: .\apps\project\specific\assets\models.py:62
 msgid "category"
 msgstr "categoría"
 
-#: .\apps\project\specific\assets\models.py:65
+#: .\apps\project\specific\assets\models.py:66
 msgid "description"
 msgstr "descripción"
 
-#: .\apps\project\specific\assets\models.py:71
+#: .\apps\project\specific\assets\models.py:72
 msgid "year"
 msgstr "año"
 
-#: .\apps\project\specific\assets\models.py:77
+#: .\apps\project\specific\assets\models.py:78
 msgid "emission"
 msgstr "emisión"
 
-#: .\apps\project\specific\assets\models.py:84
+#: .\apps\project\specific\assets\models.py:85
 msgid "quantity type"
 msgstr "tipo de cantidad"
 
-#: .\apps\project\specific\assets\models.py:91
+#: .\apps\project\specific\assets\models.py:92
 msgid "total lump sum"
 msgstr "suma total"
 
-#: .\apps\project\specific\assets\models.py:100
+#: .\apps\project\specific\assets\models.py:101
 msgid "Asset"
 msgstr "Activo"
 
-#: .\apps\project\specific\assets\models.py:101
-#: .\apps\project\specific\assets\models.py:116
+#: .\apps\project\specific\assets\models.py:102
+#: .\apps\project\specific\assets\models.py:117
 msgid "Assets"
 msgstr "Activos"
 
-#: .\apps\project\specific\assets\models.py:107
+#: .\apps\project\specific\assets\models.py:108
 msgid "Available"
 msgstr "Disponible"
 
-#: .\apps\project\specific\assets\models.py:108
+#: .\apps\project\specific\assets\models.py:109
 msgid "Reserved"
 msgstr "Reservado"
 
-#: .\apps\project\specific\assets\models.py:109
+#: .\apps\project\specific\assets\models.py:110
 msgid "Sold"
 msgstr "Vendido"
 
-#: .\apps\project\specific\assets\models.py:120
+#: .\apps\project\specific\assets\models.py:121
 msgid "status"
 msgstr "estado"
 
-#: .\apps\project\specific\assets\models.py:127
+#: .\apps\project\specific\assets\models.py:128
 msgid "quantity"
 msgstr "cantidad"
 
-#: .\apps\project\specific\assets\models.py:132
+#: .\apps\project\specific\assets\models.py:133
 msgid "price"
 msgstr "precio"
 
-#: .\apps\project\specific\assets\models.py:148
+#: .\apps\project\specific\assets\models.py:149
 #, python-brace-format
 msgid "Not enough quantity available for {asset.name}"
 msgstr "No hay suficiente cantidad disponible para {asset.name}"
 
-#: .\apps\project\specific\assets\models.py:160
+#: .\apps\project\specific\assets\models.py:161
 msgid "Assets Status"
 msgstr "Estado de los Activos"
 
-#: .\apps\project\specific\assets\models.py:161
+#: .\apps\project\specific\assets\models.py:162
 msgid "Assets Statuses"
 msgstr "Estados de los Activos"

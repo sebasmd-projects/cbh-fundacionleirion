@@ -47,7 +47,7 @@ THIRD_PARTY_APPS = [
     'auditlog',
     'import_export',
     'parler',
-    'rosetta'
+    'rosetta',
 ]
 
 CUSTOM_APPS = [

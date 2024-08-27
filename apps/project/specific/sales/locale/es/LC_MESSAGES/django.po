@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 00:39-0500\n"
+"POT-Creation-Date: 2024-08-27 14:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,192 +18,192 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\apps\project\specific\sales\models.py:14
+#: .\apps\project\specific\sales\models.py:13
 msgid "Direct Sales"
 msgstr "Ventas Directas"
 
-#: .\apps\project\specific\sales\models.py:15
+#: .\apps\project\specific\sales\models.py:14
 msgid "RD"
 msgstr "RD"
 
-#: .\apps\project\specific\sales\models.py:16
-#: .\apps\project\specific\sales\models.py:22
+#: .\apps\project\specific\sales\models.py:15
+#: .\apps\project\specific\sales\models.py:21
 msgid "Other"
 msgstr "Otro"
 
-#: .\apps\project\specific\sales\models.py:19
+#: .\apps\project\specific\sales\models.py:18
 msgid "Bank"
 msgstr "Banco"
 
-#: .\apps\project\specific\sales\models.py:20
+#: .\apps\project\specific\sales\models.py:19
 msgid "Organization"
 msgstr "Organización"
 
-#: .\apps\project\specific\sales\models.py:21
+#: .\apps\project\specific\sales\models.py:20
 msgid "Private"
 msgstr "Privado"
 
-#: .\apps\project\specific\sales\models.py:25
+#: .\apps\project\specific\sales\models.py:24
 msgid "AED, United Arab Emirates Dirham"
 msgstr "AED, Dírham de los Emiratos Árabes Unidos"
 
-#: .\apps\project\specific\sales\models.py:26
+#: .\apps\project\specific\sales\models.py:25
 msgid "ARS, Argentine Peso"
 msgstr "ARS, Peso Argentino"
 
-#: .\apps\project\specific\sales\models.py:27
+#: .\apps\project\specific\sales\models.py:26
 msgid "AUD, Australian Dollar"
 msgstr "AUD, Dólar Australiano"
 
-#: .\apps\project\specific\sales\models.py:28
+#: .\apps\project\specific\sales\models.py:27
 msgid "BRL, Brazilian Real"
 msgstr "BRL, Real Brasileño"
 
-#: .\apps\project\specific\sales\models.py:29
+#: .\apps\project\specific\sales\models.py:28
 msgid "CAD, Canadian Dollar"
 msgstr "CAD, Dólar Canadiense"
 
-#: .\apps\project\specific\sales\models.py:30
+#: .\apps\project\specific\sales\models.py:29
 msgid "CHF, Swiss Franc"
 msgstr "CHF, Franco Suizo"
 
-#: .\apps\project\specific\sales\models.py:31
+#: .\apps\project\specific\sales\models.py:30
 msgid "CNY, Chinese Yuan"
 msgstr "CNY, Yuan Chino"
 
-#: .\apps\project\specific\sales\models.py:32
+#: .\apps\project\specific\sales\models.py:31
 msgid "COP, Colombian Peso"
 msgstr "COP, Peso Colombiano"
 
-#: .\apps\project\specific\sales\models.py:33
+#: .\apps\project\specific\sales\models.py:32
 msgid "DKK, Danish Krone"
 msgstr "DKK, Corona Danesa"
 
-#: .\apps\project\specific\sales\models.py:34
+#: .\apps\project\specific\sales\models.py:33
 msgid "EUR, Euro"
 msgstr "EUR, Euro"
 
-#: .\apps\project\specific\sales\models.py:35
+#: .\apps\project\specific\sales\models.py:34
 msgid "GBP, British Pound Sterling"
 msgstr "GBP, Libra Esterlina Británica"
 
-#: .\apps\project\specific\sales\models.py:36
+#: .\apps\project\specific\sales\models.py:35
 msgid "HKD, Hong Kong Dollar"
 msgstr "HKD, Dólar de Hong Kong"
 
-#: .\apps\project\specific\sales\models.py:37
+#: .\apps\project\specific\sales\models.py:36
 msgid "ILS, Israeli New Shekel"
 msgstr "ILS, Nuevo Séquel Israelí"
 
-#: .\apps\project\specific\sales\models.py:38
+#: .\apps\project\specific\sales\models.py:37
 msgid "INR, Indian Rupee"
 msgstr "INR, Rupia India"
 
-#: .\apps\project\specific\sales\models.py:39
+#: .\apps\project\specific\sales\models.py:38
 msgid "JPY, Japanese Yen"
 msgstr "JPY, Yen Japonés"
 
-#: .\apps\project\specific\sales\models.py:40
+#: .\apps\project\specific\sales\models.py:39
 msgid "KRW, South Korean Won"
 msgstr "KRW, Won Surcoreano"
 
-#: .\apps\project\specific\sales\models.py:41
+#: .\apps\project\specific\sales\models.py:40
 msgid "MXN, Mexican Peso"
 msgstr "MXN, Peso Mexicano"
 
-#: .\apps\project\specific\sales\models.py:42
+#: .\apps\project\specific\sales\models.py:41
 msgid "MYR, Malaysian Ringgit"
 msgstr "MYR, Ringgit Malayo"
 
-#: .\apps\project\specific\sales\models.py:43
+#: .\apps\project\specific\sales\models.py:42
 msgid "NOK, Norwegian Krone"
 msgstr "NOK, Corona Noruega"
 
-#: .\apps\project\specific\sales\models.py:44
+#: .\apps\project\specific\sales\models.py:43
 msgid "NZD, New Zealand Dollar"
 msgstr "NZD, Dólar Neozelandés"
 
-#: .\apps\project\specific\sales\models.py:45
+#: .\apps\project\specific\sales\models.py:44
 msgid "PLN, Polish Zloty"
 msgstr "PLN, Złoty Polaco"
 
-#: .\apps\project\specific\sales\models.py:46
+#: .\apps\project\specific\sales\models.py:45
 msgid "RUB, Russian Ruble"
 msgstr "RUB, Rublo Ruso"
 
-#: .\apps\project\specific\sales\models.py:47
+#: .\apps\project\specific\sales\models.py:46
 msgid "SAR, Saudi Riyal"
 msgstr "SAR, Riyal Saudí"
 
-#: .\apps\project\specific\sales\models.py:48
+#: .\apps\project\specific\sales\models.py:47
 msgid "SEK, Swedish Krona"
 msgstr "SEK, Corona Sueca"
 
-#: .\apps\project\specific\sales\models.py:49
+#: .\apps\project\specific\sales\models.py:48
 msgid "SGD, Singapore Dollar"
 msgstr "SGD, Dólar de Singapur"
 
-#: .\apps\project\specific\sales\models.py:50
+#: .\apps\project\specific\sales\models.py:49
 msgid "THB, Thai Baht"
 msgstr "THB, Baht Tailandés"
 
-#: .\apps\project\specific\sales\models.py:51
+#: .\apps\project\specific\sales\models.py:50
 msgid "TRY, Turkish Lira"
 msgstr "TRY, Lira Turca"
 
-#: .\apps\project\specific\sales\models.py:52
+#: .\apps\project\specific\sales\models.py:51
 msgid "TWD, New Taiwan Dollar"
 msgstr "TWD, Nuevo Dólar Taiwanés"
 
-#: .\apps\project\specific\sales\models.py:53
+#: .\apps\project\specific\sales\models.py:52
 msgid "USD, United States Dollar"
 msgstr "USD, Dólar Estadounidense"
 
-#: .\apps\project\specific\sales\models.py:54
+#: .\apps\project\specific\sales\models.py:53
 msgid "ZAR, South African Rand"
 msgstr "ZAR, Rand Sudafricano"
 
-#: .\apps\project\specific\sales\models.py:55
+#: .\apps\project\specific\sales\models.py:54
 msgid "ZWD, Zimbabwe Dollar"
 msgstr "ZWD, Dólar Zimbabuense"
 
-#: .\apps\project\specific\sales\models.py:61
+#: .\apps\project\specific\sales\models.py:60
 msgid "asset"
 msgstr "activo"
 
-#: .\apps\project\specific\sales\models.py:65
+#: .\apps\project\specific\sales\models.py:64
 msgid "buyer type"
 msgstr "tipo de comprador"
 
-#: .\apps\project\specific\sales\models.py:72
+#: .\apps\project\specific\sales\models.py:71
 msgid "buyer name"
 msgstr "nombre del comprador"
 
-#: .\apps\project\specific\sales\models.py:77
+#: .\apps\project\specific\sales\models.py:76
 msgid "country code"
 msgstr "código de país"
 
-#: .\apps\project\specific\sales\models.py:83
+#: .\apps\project\specific\sales\models.py:82
 msgid "amount sold"
 msgstr "cantidad vendida"
 
-#: .\apps\project\specific\sales\models.py:88
+#: .\apps\project\specific\sales\models.py:87
 msgid "sales type"
 msgstr "tipo de venta"
 
-#: .\apps\project\specific\sales\models.py:95
+#: .\apps\project\specific\sales\models.py:94
 msgid "sale value"
 msgstr "valor de la venta"
 
-#: .\apps\project\specific\sales\models.py:100
+#: .\apps\project\specific\sales\models.py:99
 msgid "currency"
 msgstr "moneda"
 
-#: .\apps\project\specific\sales\models.py:111
+#: .\apps\project\specific\sales\models.py:110
 msgid "Sale"
 msgstr "Venta"
 
-#: .\apps\project\specific\sales\models.py:112
+#: .\apps\project\specific\sales\models.py:111
 msgid "Sales"
 msgstr "Ventas"
 

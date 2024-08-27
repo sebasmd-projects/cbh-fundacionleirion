@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 10:38-0500\n"
-"PO-Revision-Date: 2024-08-22 10:40-0500\n"
+"POT-Creation-Date: 2024-08-27 14:26-0500\n"
+"PO-Revision-Date: 2024-08-27 14:26-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,43 +19,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\common\utils\contrib\auth\mixins.py:13
+#: .\apps\common\utils\contrib\auth\mixins.py:17
 msgid "group_required attribute not set"
 msgstr "atributo group_required no establecido"
 
-#: .\apps\common\utils\contrib\auth\mixins.py:20
+#: .\apps\common\utils\contrib\auth\mixins.py:25
 msgid "You do not have permission to view this page"
 msgstr "No tienes permiso para ver esta página"
+
+#: .\apps\common\utils\forms.py:9
+msgid "Security Key"
+msgstr "LLave de seguridad"
 
 #: .\apps\common\utils\middleware.py:57
 msgid "Your IP has been blocked due to too many incorrect attempts."
 msgstr "Su IP ha sido bloqueada debido a demasiados intentos incorrectos."
 
-#: .\apps\common\utils\models.py:19
+#: .\apps\common\utils\models.py:166
 msgid "Spanish"
 msgstr "Español"
 
-#: .\apps\common\utils\models.py:20
+#: .\apps\common\utils\models.py:167
 msgid "English"
 msgstr "Ingles"
 
-#: .\apps\common\utils\models.py:24
+#: .\apps\common\utils\models.py:171
 msgid "language"
 msgstr "idioma"
 
-#: .\apps\common\utils\models.py:33
+#: .\apps\common\utils\models.py:180
 msgid "created"
 msgstr "creado"
 
-#: .\apps\common\utils\models.py:39
+#: .\apps\common\utils\models.py:186
 msgid "updated"
 msgstr "actualizado"
 
-#: .\apps\common\utils\models.py:45
+#: .\apps\common\utils\models.py:192
 msgid "is active"
 msgstr "esta activo"
 
-#: .\apps\common\utils\models.py:50
+#: .\apps\common\utils\models.py:197
 msgid "priority"
 msgstr "prioridad"
 

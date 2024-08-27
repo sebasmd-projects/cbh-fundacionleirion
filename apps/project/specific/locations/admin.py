@@ -17,3 +17,4 @@ class LocationModelAdmin(ImportExportActionModelAdmin):
     list_display = ['reference', 'continent', 'owner']
     search_fields = ['reference', 'owner']
     list_filter = ['continent', 'owner']
+    ordering = ('default_order','reference','-created')

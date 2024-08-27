@@ -22,18 +22,18 @@ handler404 = h404
 
 handler500 = h500
 
-admin_urls = [
-    path(admin_url, admin.site.urls),
-]
-
-roseta_urls = [
+third_party_urls = [
     re_path(
         r'^rosetta/',
         include('rosetta.urls')
     ),
 ]
 
-urlpatterns = admin_urls + apps_urls + roseta_urls
+admin_urls = [
+    path(admin_url, admin.site.urls),
+]
+
+urlpatterns = admin_urls + apps_urls + third_party_urls
 
 if settings.DEBUG:
     urlpatterns += static(
