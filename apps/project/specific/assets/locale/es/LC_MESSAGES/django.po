@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 14:26-0500\n"
-"PO-Revision-Date: 2024-08-27 14:27-0500\n"
+"POT-Creation-Date: 2024-08-29 15:50-0500\n"
+"PO-Revision-Date: 2024-08-29 15:51-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -36,17 +36,14 @@ msgid "No"
 msgstr "No"
 
 #: .\apps\project\specific\assets\admin.py:34
-#| msgid "units per box"
 msgid "Units per Box Zero"
 msgstr "Unidades por Caja en 0"
 
 #: .\apps\project\specific\assets\admin.py:52
-#| msgid "boxes per container"
 msgid "Boxes per Container Zero"
 msgstr "Cajas por Contenedor en 0"
 
 #: .\apps\project\specific\assets\admin.py:70
-#| msgid "category"
 msgid "Parent Category"
 msgstr "Categoría Padre"
 
@@ -71,7 +68,7 @@ msgid "Boxes"
 msgstr "Cajas"
 
 #: .\apps\project\specific\assets\models.py:21
-#: .\apps\project\specific\assets\models.py:111
+#: .\apps\project\specific\assets\models.py:112
 msgid "Other"
 msgstr "Otro"
 
@@ -80,6 +77,7 @@ msgid "img"
 msgstr "imagen"
 
 #: .\apps\project\specific\assets\models.py:32
+#: .\apps\project\specific\assets\models.py:147
 msgid "observations"
 msgstr "observaciones"
 
@@ -104,6 +102,7 @@ msgid "category"
 msgstr "categoría"
 
 #: .\apps\project\specific\assets\models.py:66
+#: .\apps\project\specific\assets\models.py:153
 msgid "description"
 msgstr "descripción"
 
@@ -128,43 +127,47 @@ msgid "Asset"
 msgstr "Activo"
 
 #: .\apps\project\specific\assets\models.py:102
-#: .\apps\project\specific\assets\models.py:117
+#: .\apps\project\specific\assets\models.py:118
 msgid "Assets"
 msgstr "Activos"
 
-#: .\apps\project\specific\assets\models.py:108
+#: .\apps\project\specific\assets\models.py:109
 msgid "Available"
 msgstr "Disponible"
 
-#: .\apps\project\specific\assets\models.py:109
+#: .\apps\project\specific\assets\models.py:110
 msgid "Reserved"
 msgstr "Reservado"
 
-#: .\apps\project\specific\assets\models.py:110
+#: .\apps\project\specific\assets\models.py:111
 msgid "Sold"
 msgstr "Vendido"
 
-#: .\apps\project\specific\assets\models.py:121
+#: .\apps\project\specific\assets\models.py:122
 msgid "status"
 msgstr "estado"
 
-#: .\apps\project\specific\assets\models.py:128
+#: .\apps\project\specific\assets\models.py:129
 msgid "quantity"
 msgstr "cantidad"
 
-#: .\apps\project\specific\assets\models.py:133
+#: .\apps\project\specific\assets\models.py:134
 msgid "price"
 msgstr "precio"
 
-#: .\apps\project\specific\assets\models.py:149
+#: .\apps\project\specific\assets\models.py:140
+msgid "buyer"
+msgstr "comprador"
+
+#: .\apps\project\specific\assets\models.py:169
 #, python-brace-format
 msgid "Not enough quantity available for {asset.name}"
 msgstr "No hay suficiente cantidad disponible para {asset.name}"
 
-#: .\apps\project\specific\assets\models.py:161
+#: .\apps\project\specific\assets\models.py:181
 msgid "Assets Status"
 msgstr "Estado de los Activos"
 
-#: .\apps\project\specific\assets\models.py:162
+#: .\apps\project\specific\assets\models.py:182
 msgid "Assets Statuses"
 msgstr "Estados de los Activos"

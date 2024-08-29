@@ -136,6 +136,25 @@ class AssetStatusModel(TimeStampedModel):
         null=True
     )
 
+    buyer = models.CharField(
+        _("buyer"),
+        max_length=255,
+        blank=True,
+        null=True
+    )
+
+    observations = models.TextField(
+        _("observations"),
+        blank=True,
+        null=True
+    )
+
+    description = models.TextField(
+        _("description"),
+        blank=True,
+        null=True
+    )
+
     def clean(self):
         super().clean()
         asset = self.assets
