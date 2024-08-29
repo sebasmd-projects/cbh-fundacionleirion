@@ -94,7 +94,7 @@ class AssetModel(TimeStampedModel):
     )
 
     def __str__(self) -> str:
-        return f"{self.es_name} - {self.get_quantity_type_display()}"
+        return f"{self.es_name} - {self.get_quantity_type_display()} - {self.total_quantity}"
 
     class Meta:
         db_table = "apps_project_specific_assets_asset"
