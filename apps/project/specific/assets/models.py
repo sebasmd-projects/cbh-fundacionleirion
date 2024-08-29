@@ -101,6 +101,7 @@ class AssetModel(TimeStampedModel):
         verbose_name = _("Asset")
         verbose_name_plural = _("Assets")
         unique_together = [['name', 'quantity_type']]
+        ordering = ["default_order", "es_name", "-created"]
 
 
 class AssetStatusModel(TimeStampedModel):
