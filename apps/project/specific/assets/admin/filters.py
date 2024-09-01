@@ -1,15 +1,8 @@
-from django import forms
 from django.contrib import admin
-from django.contrib.admin import SimpleListFilter
+from django.db import models
 from django.utils.translation import gettext_lazy as _
-from import_export.admin import ImportExportActionModelAdmin
 
 from apps.project.specific.categories.models import AssetCategoryModel
-from apps.project.specific.locations.admin import AssetLocationInline
-
-from .models import AssetModel, AssetStatusModel
-
-admin.site.register(AssetStatusModel, ImportExportActionModelAdmin)
 
 
 class ZeroTotalQuantityFilter(admin.SimpleListFilter):
@@ -66,7 +59,7 @@ class ZeroBoxesPerContainerFilter(admin.SimpleListFilter):
         return queryset
 
 
-class ParentCategoryFilter(SimpleListFilter):
+class ParentCategoryFilter(admin.SimpleListFilter):
     title = _('Parent Category')
     parameter_name = 'parent_category'
 
@@ -85,87 +78,19 @@ class ParentCategoryFilter(SimpleListFilter):
         return queryset
 
 
-class AssetModelForm(forms.ModelForm):
-    class Meta:
-        model = AssetModel
-        fields = '__all__'
-        widgets = {
-            'name': forms.Textarea(attrs={'rows': 2, 'style': 'width: 80%;'}),
-            'es_name': forms.Textarea(attrs={'rows': 2, 'style': 'width: 80%;'}),
-        }
+class HasImageFilter(admin.SimpleListFilter):
+    title = _('Has Image')
+    parameter_name = 'has_image'
 
-
-@admin.register(AssetModel)
-class AssetModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
-    inlines = [AssetLocationInline]
-
-    form = AssetModelForm
-
-    search_fields = (
-        'name',
-        'es_name',
-        'category__name'
-    )
-
-    list_filter = (
-        'is_active',
-        'quantity_type',
-        ZeroTotalQuantityFilter,
-        ZeroUnitsPerBoxFilter,
-        ZeroBoxesPerContainerFilter,
-        ParentCategoryFilter
-    )
-
-    list_display = (
-        'es_name',
-        'name',
-        'category',
-        'quantity_type',
-        'total_quantity',
-        'is_active',
-        'units_per_box',
-        'boxes_per_container'
-    )
-
-    list_display_links = list_display
-
-    readonly_fields = (
-        'created',
-        'updated'
-    )
-
-    ordering = (
-        'default_order',
-        'created'
-    )
-
-    fieldsets = (
-        (
-            _('Required Fields'),
-            {
-                'fields': (
-                    'asset_img',
-                    'name',
-                    'es_name',
-                    'category',
-                    'quantity_type',
-                    'total_quantity',
-                    'is_active',
-                    'units_per_box',
-                    'boxes_per_container'
-                )
-            }
-        ),
-        (
-            _('Optional Fields'),
-            {
-                'fields': (
-                    'asset_year',
-                    'emission',
-                    'language',
-                    'default_order',
-                    'observations'
-                )
-            }
+    def lookups(self, request, model_admin):
+        return (
+            ('yes', _('Yes')),
+            ('no', _('No')),
         )
-    )
+
+    def queryset(self, request, queryset):
+        if self.value() == 'yes':
+            return queryset.exclude(asset_img__isnull=True).exclude(asset_img__exact='')
+        if self.value() == 'no':
+            return queryset.filter(models.Q(asset_img__isnull=True) | models.Q(asset_img__exact=''))
+        return queryset

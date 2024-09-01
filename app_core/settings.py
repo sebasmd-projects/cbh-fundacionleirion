@@ -64,6 +64,7 @@ CUSTOM_APPS = [
     'apps.project.specific.categories',
     'apps.project.specific.locations',
     'apps.project.specific.sales',
+    'apps.project.specific.status',
 ]
 
 ALL_CUSTOM_APPS = CUSTOM_APPS

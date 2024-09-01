@@ -6,24 +6,17 @@ from django.utils.translation import gettext_lazy as _
 from apps.common.utils.models import TimeStampedModel
 from apps.project.specific.assets.models import AssetModel
 
-from .signals import (handle_assetlocation_is_active_change,
-                      update_asset_total_quantity_on_location,
+from .signals import (update_asset_total_quantity_on_location,
                       update_asset_total_quantity_on_location_change,
-                      update_asset_total_quantity_on_location_delete)
+                      update_asset_total_quantity_on_location_delete,
+                      update_asset_total_quantity_on_location_is_active_change)
 
 
 class LocationModel(TimeStampedModel):
-    """Represents a physical location with attributes such as reference, description, and continent.
+    """Represents a physical location, including reference, description, and continent."""
 
-    Args:
-        TimeStampedModel (class): Base model with timestamp fields.
-    """
     class ContinentChoices(models.TextChoices):
-        """Enumeration of continent choices for the LocationModel.
-
-        Args:
-            models.TextChoices (class): Django model choices class.
-        """
+        """Enumeration of continent choices."""
         ASIA = "AS", _("Asia")
         NORTH_AMERICA = "NA", _("North America")
         CENTRAL_AMERICA = "CA", _("Central America")
@@ -59,23 +52,22 @@ class LocationModel(TimeStampedModel):
     )
 
     def __str__(self) -> str:
+        """Returns a string representation of the location."""
         message = f"{self.reference} - {self.get_continent_display()}"
         if self.owner:
-            message = f"{self.reference} - {self.get_continent_display()} - {self.owner}"
+            message += f" - {self.owner}"
         return message
 
     class Meta:
         db_table = "apps_project_specific_locations_location"
         verbose_name = _("Location")
         verbose_name_plural = _("Locations")
+        ordering = ["default_order", "reference", "owner", "-created"]
 
 
 class AssetLocationModel(TimeStampedModel):
-    """Represents the relationship between an Asset and a Location, including the quantity of assets at that location.
-
-    Args:
-        TimeStampedModel (class): Base model with timestamp fields.
-    """
+    """Represents the relationship between an Asset and a Location, including the quantity of assets at that location."""
+    
     asset = models.ForeignKey(
         AssetModel,
         on_delete=models.CASCADE,
@@ -90,45 +82,27 @@ class AssetLocationModel(TimeStampedModel):
         verbose_name=_("location"),
     )
 
-    amount = models.BigIntegerField(
+    amount = models.PositiveBigIntegerField(
         _("amount")
     )
 
     def __str__(self) -> str:
-        return f"{self.asset.es_name} - {self.location.reference} - {self.amount}"
+        return f"{self.location.reference} - {self.location.owner or ''} - {self.amount} - {self.asset.es_name}"
 
     class Meta:
         db_table = "apps_project_specific_locations_assetlocation"
         verbose_name = _("Assets Location")
         verbose_name_plural = _("Assets Locations")
+        ordering = ["default_order", "asset", "-created"]
 
 
-auditlog.register(
-    LocationModel,
-    serialize_data=True
-)
+# Signal connections
+post_save.connect(update_asset_total_quantity_on_location, sender=AssetLocationModel)
+pre_delete.connect(update_asset_total_quantity_on_location_delete, sender=AssetLocationModel)
+pre_save.connect(update_asset_total_quantity_on_location_change, sender=AssetLocationModel)
+pre_save.connect(update_asset_total_quantity_on_location_is_active_change, sender=AssetLocationModel)
 
-auditlog.register(
-    AssetLocationModel,
-    serialize_data=True
-)
 
-post_save.connect(
-    update_asset_total_quantity_on_location,
-    sender=AssetLocationModel
-)
-
-pre_delete.connect(
-    update_asset_total_quantity_on_location_delete,
-    sender=AssetLocationModel
-)
-
-pre_save.connect(
-    update_asset_total_quantity_on_location_change,
-    sender=AssetLocationModel
-)
-
-pre_save.connect(
-    handle_assetlocation_is_active_change,
-    sender=AssetLocationModel
-)
+# Register models with audit log
+auditlog.register(LocationModel, serialize_data=True)
+auditlog.register(AssetLocationModel, serialize_data=True)

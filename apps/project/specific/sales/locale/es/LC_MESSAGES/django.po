@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 14:26-0500\n"
+"POT-Creation-Date: 2024-08-30 11:17-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\project\specific\sales\apps.py:8
+#: .\apps\project\specific\sales\models.py:110
+msgid "Sale"
+msgstr "Venta"
+
+#: .\apps\project\specific\sales\apps.py:9
+#: .\apps\project\specific\sales\models.py:111
+msgid "Sales"
+msgstr "Ventas"
 
 #: .\apps\project\specific\sales\models.py:13
 msgid "Direct Sales"
@@ -198,14 +208,6 @@ msgstr "valor de la venta"
 #: .\apps\project\specific\sales\models.py:99
 msgid "currency"
 msgstr "moneda"
-
-#: .\apps\project\specific\sales\models.py:110
-msgid "Sale"
-msgstr "Venta"
-
-#: .\apps\project\specific\sales\models.py:111
-msgid "Sales"
-msgstr "Ventas"
 
 #: .\apps\project\specific\sales\templates\sales_info.html:15
 msgid "Sales Information"

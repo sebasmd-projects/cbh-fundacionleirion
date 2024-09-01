@@ -2,7 +2,6 @@ import hashlib
 import os
 from datetime import date
 
-from django.db import transaction
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from PIL import Image
@@ -10,72 +9,71 @@ from PIL import Image
 
 def optimize_image(sender, instance, *args, **kwargs):
     """
-    This function is used as a signal handler for the post_save signal of a model with an asset_img field.
-    It opens the image file, saves it with a quality of 40 and optimizes the image.
+    Optimize image quality and size after saving the model.
     """
     if instance.asset_img:
-        asset_img = Image.open(
-            instance.asset_img.path
-        )
-        asset_img.save(
-            instance.asset_img.path,
-            quality=40,
-            optimize_image=True
-        )
+        img_path = instance.asset_img.path
+        try:
+            with Image.open(img_path) as img:
+                img.save(img_path, quality=40, optimize=True)
+        except Exception as e:
+            #TODO Log the error or handle it according to your logging policy
+            print(f"Error optimizing image: {e}")
 
 
-def generate_md5_hash(value: str):
+def generate_md5_hash(value: str) -> str:
     """
-    Generates an MD5 hash for the given value.
+    Generate an MD5 hash for the given value.
     """
     return hashlib.md5(value.encode('utf-8')).hexdigest()
 
 
-def assets_directory_path(instance, filename):
+def assets_directory_path(instance, filename) -> str:
     """
-    Generates a file path for an asset image.
-    The path includes the current year, month, and day, and the hash of the filename without the extension.
-    Maintains the original file extension.
+    Generate a file path for an asset image.
+    Path format: asset/{slugified_name}/img/YYYY/MM/DD/{hashed_filename}.{extension}
     """
     es_name = slugify(instance.es_name)[:40]
     base_filename, file_extension = os.path.splitext(filename)
     filename_hash = generate_md5_hash(base_filename)
-    return f"asset/{es_name}/img/{date.today().year}/{date.today().month}/{date.today().day}/{filename_hash[:10]}{file_extension}"
+    return os.path.join(
+        "asset", es_name, "img",
+        str(date.today().year),
+        str(date.today().month),
+        str(date.today().day),
+        f"{filename_hash[:10]}{file_extension}"
+    )
 
 
 def auto_delete_asset_img_on_delete(sender, instance, *args, **kwargs):
     """
-    Deletes file from filesystem
-    when corresponding `AssetModel` object is deleted.
+    Delete image file from filesystem when the corresponding AssetModel instance is deleted.
     """
     if instance.asset_img:
-        if os.path.isfile(instance.asset_img.path):
-            os.remove(instance.asset_img.path)
+        try:
+            if os.path.isfile(instance.asset_img.path):
+                os.remove(instance.asset_img.path)
+        except Exception as e:
+            #TODO Log the error or handle it according to your logging policy
+            print(f"Error deleting image: {e}")
 
 
 def auto_delete_asset_img_on_change(sender, instance, *args, **kwargs):
     """
-    Deletes old file from filesystem when corresponding `AssetModel` object is updated with new file.
+    Delete old image file from filesystem when the corresponding AssetModel instance is updated with a new file.
     """
-    if instance.pk:  # Check if the instance is already saved (i.e., has a primary key)
+    if not instance.pk:
+        return
+
+    try:
+        old_instance = sender.objects.get(pk=instance.pk)
+    except sender.DoesNotExist:
+        return
+
+    if old_instance.asset_img and old_instance.asset_img != instance.asset_img:
         try:
-            old_instance = sender.objects.get(
-                pk=instance.pk
-            )  # Get the old instance
-        except sender.DoesNotExist:
-            return  # If old instance doesn't exist, do nothing
-        if old_instance.asset_img != instance.asset_img:  # Check if profile photo has changed
-            if old_instance.asset_img:  # Check if there was an old profile photo
-                if os.path.isfile(old_instance.asset_img.path):  # Check if old file exists
-                    os.remove(old_instance.asset_img.path)  # Delete old file
-
-
-def return_asset_total_quantity_on_delete(sender, instance, **kwargs):
-    from apps.project.specific.assets.models import AssetModel
-
-    asset = instance.assets
-
-    with transaction.atomic():
-        if instance.status != 'A':
-            asset.total_quantity += instance.quantity
-            asset.save()
+            if os.path.isfile(old_instance.asset_img.path):
+                os.remove(old_instance.asset_img.path)
+        except Exception as e:
+            #TODO Log the error or handle it according to your logging policy
+            print(f"Error deleting old image: {e}")

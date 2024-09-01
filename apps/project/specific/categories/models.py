@@ -38,6 +38,7 @@ class AssetCategoryModel(TimeStampedModel):
         db_table = "apps_project_specific_categories_assetcategory"
         verbose_name = _('Asset Category')
         verbose_name_plural = _('Assets Categories')
+        ordering = ["default_order", "name", "-created"]
 
 auditlog.register(
     AssetCategoryModel,

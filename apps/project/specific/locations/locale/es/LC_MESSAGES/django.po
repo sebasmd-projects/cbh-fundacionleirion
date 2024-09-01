@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-27 14:26-0500\n"
-"PO-Revision-Date: 2024-08-23 00:21-0500\n"
+"POT-Creation-Date: 2024-09-01 00:45-0500\n"
+"PO-Revision-Date: 2024-08-30 11:19-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -19,78 +19,86 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\specific\locations\models.py:27
+#: .\apps\project\specific\locations\apps.py:8
+msgid "2. Location"
+msgstr "2. Ubicación"
+
+#: .\apps\project\specific\locations\apps.py:9
+msgid "2. Locations"
+msgstr "2. Ubicaciones"
+
+#: .\apps\project\specific\locations\models.py:20
 msgid "Asia"
 msgstr "Asia"
 
-#: .\apps\project\specific\locations\models.py:28
+#: .\apps\project\specific\locations\models.py:21
 msgid "North America"
 msgstr "Norteamérica"
 
-#: .\apps\project\specific\locations\models.py:29
+#: .\apps\project\specific\locations\models.py:22
 msgid "Central America"
 msgstr "Centroamérica"
 
-#: .\apps\project\specific\locations\models.py:30
+#: .\apps\project\specific\locations\models.py:23
 msgid "South America"
 msgstr "Sudamérica"
 
-#: .\apps\project\specific\locations\models.py:31
+#: .\apps\project\specific\locations\models.py:24
 msgid "Africa"
 msgstr "África"
 
-#: .\apps\project\specific\locations\models.py:32
+#: .\apps\project\specific\locations\models.py:25
 msgid "Antarctica"
 msgstr "Antártida"
 
-#: .\apps\project\specific\locations\models.py:33
+#: .\apps\project\specific\locations\models.py:26
 msgid "Europe"
 msgstr "Europa"
 
-#: .\apps\project\specific\locations\models.py:34
+#: .\apps\project\specific\locations\models.py:27
 msgid "Oceania"
 msgstr "Oceanía"
 
-#: .\apps\project\specific\locations\models.py:37
+#: .\apps\project\specific\locations\models.py:30
 msgid "reference"
 msgstr "referencia"
 
-#: .\apps\project\specific\locations\models.py:42
+#: .\apps\project\specific\locations\models.py:35
 msgid "description"
 msgstr "descripción"
 
-#: .\apps\project\specific\locations\models.py:48
+#: .\apps\project\specific\locations\models.py:41
 msgid "continent"
 msgstr "continente"
 
-#: .\apps\project\specific\locations\models.py:55
+#: .\apps\project\specific\locations\models.py:48
 msgid "owner"
 msgstr "propietario"
 
-#: .\apps\project\specific\locations\models.py:69
+#: .\apps\project\specific\locations\models.py:63
 msgid "Location"
 msgstr "Ubicación"
 
-#: .\apps\project\specific\locations\models.py:70
+#: .\apps\project\specific\locations\models.py:64
 msgid "Locations"
 msgstr "Ubicaciones"
 
-#: .\apps\project\specific\locations\models.py:83
+#: .\apps\project\specific\locations\models.py:75
 msgid "Assets"
 msgstr "Activos"
 
-#: .\apps\project\specific\locations\models.py:90
+#: .\apps\project\specific\locations\models.py:82
 msgid "location"
 msgstr "ubicación"
 
-#: .\apps\project\specific\locations\models.py:94
+#: .\apps\project\specific\locations\models.py:86
 msgid "amount"
 msgstr "cantidad"
 
-#: .\apps\project\specific\locations\models.py:102
+#: .\apps\project\specific\locations\models.py:94
 msgid "Assets Location"
 msgstr "Ubicación de los activos"
 
-#: .\apps\project\specific\locations\models.py:103
+#: .\apps\project\specific\locations\models.py:95
 msgid "Assets Locations"
 msgstr "Ubicaciones de los activos"

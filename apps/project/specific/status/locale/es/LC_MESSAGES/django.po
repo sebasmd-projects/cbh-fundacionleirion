@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-01 00:45-0500\n"
+"PO-Revision-Date: 2024-09-01 00:45-0500\n"
+"Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\project\specific\status\admin\__init__.py:39
+#| msgid "amount"
+msgid "Total Amount"
+msgstr "Cantidad Total"
+
+#: .\apps\project\specific\status\admin\__init__.py:53
+#| msgid "Assets Statuses"
+msgid "Asset Name"
+msgstr "Activo"
+
+#: .\apps\project\specific\status\apps.py:7
+msgid "3. State"
+msgstr "3. Estado"
+
+#: .\apps\project\specific\status\apps.py:8
+msgid "3. Status"
+msgstr "3. Estados"
+
+#: .\apps\project\specific\status\models.py:14
+msgid "price"
+msgstr "precio"
+
+#: .\apps\project\specific\status\models.py:22
+msgid "buyer"
+msgstr "comprador"
+
+#: .\apps\project\specific\status\models.py:29
+msgid "observations"
+msgstr "observaciones"
+
+#: .\apps\project\specific\status\models.py:35
+msgid "description"
+msgstr "descripción"
+
+#: .\apps\project\specific\status\models.py:45
+msgid "Assets Status"
+msgstr "Estado de los activos"
+
+#: .\apps\project\specific\status\models.py:46
+msgid "Assets Statuses"
+msgstr "Estados de los activos"
+
+#: .\apps\project\specific\status\models.py:52
+msgid "Available"
+msgstr "Disponible"
+
+#: .\apps\project\specific\status\models.py:53
+msgid "Reserved"
+msgstr "Reservado"
+
+#: .\apps\project\specific\status\models.py:54
+msgid "Sold"
+msgstr "Vendido"
+
+#: .\apps\project\specific\status\models.py:55
+msgid "Other"
+msgstr "Otro"
+
+#: .\apps\project\specific\status\models.py:61
+msgid "asset status"
+msgstr "estado del activo"
+
+#: .\apps\project\specific\status\models.py:68
+msgid "supplier"
+msgstr "proveedor"
+
+#: .\apps\project\specific\status\models.py:72
+msgid "status"
+msgstr "estado"
+
+#: .\apps\project\specific\status\models.py:79
+msgid "amount"
+msgstr "cantidad"
+
+#: .\apps\project\specific\status\models.py:87
+msgid "Assets Status Reference"
+msgstr "Referencia del estado de los activos"
+
+#: .\apps\project\specific\status\models.py:88
+msgid "Assets Statuses References"
+msgstr "Referencias del estado de los activos"

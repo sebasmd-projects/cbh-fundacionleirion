@@ -1,16 +1,13 @@
 from auditlog.registry import auditlog
 from django.db import models
-from django.db.models.signals import (post_delete, post_save, pre_delete,
-                                      pre_save)
-from django.forms import ValidationError
+from django.db.models.signals import post_delete, post_save, pre_save
 from django.utils.translation import gettext_lazy as _
 
 from apps.common.utils.models import TimeStampedModel
 from apps.project.specific.categories.models import AssetCategoryModel
 
 from .signals import (assets_directory_path, auto_delete_asset_img_on_change,
-                      auto_delete_asset_img_on_delete, optimize_image,
-                      return_asset_total_quantity_on_delete)
+                      auto_delete_asset_img_on_delete, optimize_image)
 
 
 class AssetModel(TimeStampedModel):
@@ -93,6 +90,14 @@ class AssetModel(TimeStampedModel):
         default=0
     )
 
+    def validate_asset_total_quantity(self):
+        # Validates that the total quantity matches the sum of all related asset locations.
+        expected_total = self.assetlocation_asset.aggregate(
+            total=models.Sum('amount')
+        )['total'] or 0
+        if self.total_quantity != expected_total:
+            self.total_quantity = expected_total
+
     def __str__(self) -> str:
         return f"{self.es_name} - {self.get_quantity_type_display()} - {self.total_quantity}"
 
@@ -104,113 +109,10 @@ class AssetModel(TimeStampedModel):
         ordering = ["default_order", "es_name", "-created"]
 
 
-class AssetStatusModel(TimeStampedModel):
-    class StatusChoices(models.TextChoices):
-        AVAILABLE = "A", _("Available")
-        RESERVED = "R", _("Reserved")
-        SOLD = "S", _("Sold")
-        OTHER = "O", _("Other")
+# Connect signals to the model
+post_save.connect(optimize_image, sender=AssetModel)
+post_delete.connect(auto_delete_asset_img_on_delete, sender=AssetModel)
+pre_save.connect(auto_delete_asset_img_on_change, sender=AssetModel)
 
-    assets = models.ForeignKey(
-        AssetModel,
-        on_delete=models.CASCADE,
-        related_name="assetstatus_asset",
-        verbose_name=_("Assets")
-    )
-
-    status = models.CharField(
-        _("status"),
-        max_length=2,
-        choices=StatusChoices.choices,
-        default=StatusChoices.RESERVED
-    )
-
-    quantity = models.PositiveIntegerField(
-        _("quantity"),
-        default=0
-    )
-
-    price = models.BigIntegerField(
-        _("price"),
-        blank=True,
-        null=True
-    )
-
-    buyer = models.CharField(
-        _("buyer"),
-        max_length=255,
-        blank=True,
-        null=True
-    )
-
-    observations = models.TextField(
-        _("observations"),
-        blank=True,
-        null=True
-    )
-
-    description = models.TextField(
-        _("description"),
-        blank=True,
-        null=True
-    )
-
-    def clean(self):
-        super().clean()
-        asset = self.assets
-
-        if self.pk:
-            previous_instance = AssetStatusModel.objects.get(pk=self.pk)
-            if previous_instance.status != 'A' and self.status == 'A':
-                asset.total_quantity += previous_instance.quantity
-
-        if asset.total_quantity < self.quantity:
-            raise ValidationError(
-                _(f"Not enough quantity available for {asset.name}")
-            )
-
-        if self.status != 'A':
-            asset.total_quantity -= self.quantity
-
-    def save(self, *args, **kwargs):
-        self.clean()
-        super().save(*args, **kwargs)
-
-    class Meta:
-        db_table = "apps_project_specific_assets_status"
-        verbose_name = _("Assets Status")
-        verbose_name_plural = _("Assets Statuses")
-
-    def __str__(self):
-        return f"{self.assets.name} - {self.get_status_display()} - {self.quantity}"
-
-
-auditlog.register(
-    AssetModel,
-    serialize_data=True
-)
-
-auditlog.register(
-    AssetStatusModel,
-    serialize_data=True
-)
-
-post_save.connect(
-    optimize_image,
-    sender=AssetModel
-)
-
-post_delete.connect(
-    auto_delete_asset_img_on_delete,
-    sender=AssetModel
-)
-
-pre_save.connect(
-    auto_delete_asset_img_on_change,
-    sender=AssetModel
-)
-
-pre_delete.connect(
-    return_asset_total_quantity_on_delete,
-    sender=AssetStatusModel
-)
+# Register the model with audit log for tracking changes
+auditlog.register(AssetModel, serialize_data=True)
