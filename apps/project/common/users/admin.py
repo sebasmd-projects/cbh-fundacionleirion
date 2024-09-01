@@ -60,8 +60,7 @@ class UserModelAdmin(UserAdmin, ImportExportActionModelAdmin):
         'email',
         'is_staff',
         'is_active',
-        'is_superuser',
-        'get_groups',
+        'is_superuser'
     )
 
     list_display_links = (
