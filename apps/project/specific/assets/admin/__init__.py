@@ -66,32 +66,26 @@ class AssetModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
     )
 
     fieldsets = (
-        (
-            _('Required Fields'),
-            {
-                'fields': (
-                    'asset_img',
-                    'name',
-                    'es_name',
-                    'category',
-                    'quantity_type',
-                    'total_quantity',
-                    'is_active',
-                    'units_per_box',
-                    'boxes_per_container'
-                )
-            }
-        ),
-        (
-            _('Optional Fields'),
-            {
-                'fields': (
-                    'asset_year',
-                    'emission',
-                    'language',
-                    'default_order',
-                    'observations'
-                )
-            }
-        )
+        (_('Required Fields'), {'fields': (
+            'asset_img',
+            'name',
+            'es_name',
+            'category',
+            'quantity_type',
+            'total_quantity',
+            'is_active',
+            'units_per_box',
+            'boxes_per_container'
+        )}),
+        (_('Optional Fields'), {'fields': (
+            'observations',
+            'asset_year',
+            'emission',
+            'language',
+            'default_order',
+        )}),
+        (_('Dates'), {'fields': (
+            'created',
+            'updated'
+        )}),
     )
