@@ -1,4 +1,5 @@
 
+from django.conf import settings
 from django.contrib import admin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -7,7 +8,13 @@ from import_export.admin import ImportExportActionModelAdmin
 from ..models import AssetStatusModel, AssetStatusReferenceModel
 from .inline import AssetStatusReferenceInline
 
-admin.site.register(AssetStatusReferenceModel)
+@admin.register(AssetStatusReferenceModel)
+class AssetStatusReferenceAdmin(admin.ModelAdmin):
+    
+    def has_module_permission(self, request):
+        if request.user.is_superuser or request.user.groups.filter(name=settings.EDIT_ASSETS_STATUS_REFERENCE).exists():
+            return True
+        return False
 
 @admin.register(AssetStatusModel)
 class AssetStatusAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
