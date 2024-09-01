@@ -13,7 +13,7 @@ class AssetStatusModel(TimeStampedModel):
     price = models.DecimalField(
         _("price"),
         decimal_places=4,
-        max_digits=250,
+        max_digits=60,
         blank=True,
         null=True
     )
