@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='assetstatusmodel',
             name='price',
-            field=models.DecimalField(blank=True, decimal_places=4, max_digits=250, null=True, verbose_name='price'),
+            field=models.DecimalField(blank=True, decimal_places=4, max_digits=60, null=True, verbose_name='price'),
         ),
     ]
