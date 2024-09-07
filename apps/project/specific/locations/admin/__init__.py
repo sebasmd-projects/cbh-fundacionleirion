@@ -3,45 +3,36 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from import_export.admin import ImportExportActionModelAdmin
 
-from .models import AssetLocationModel, LocationModel
+from ..models import AssetLocationModel, LocationModel
 
 
 @admin.register(AssetLocationModel)
 class AssetLocationAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
+    autocomplete_fields = ('asset',)
     search_fields = (
         'location__reference', 'location__owner',
         'asset__name', 'asset__es_name'
     )
-
-    autocomplete_fields = ('asset',)
-
     list_display = (
-        'get_location_owner',
-        'get_location_reference',
-        'get_location_continent',
-        'amount',
+        'get_location_owner', 'get_location_reference',
+        'get_location_continent', 'amount',
         'get_asset_es_name',
     )
-    
     list_display_links = list_display[:3]
-
-    readonly_fields = (
-        'created',
-        'updated',
-    )
-    
-    ordering = (
-        'default_order',
-        'created'
-    )
-
+    readonly_fields = ('created', 'updated')
+    ordering = ('default_order', 'created')
     fieldsets = (
-        (_('Required Fields'), {"fields": ('asset', 'location', 'amount', 'is_active'),}),
-        (_('Dates'), {'fields': ('created','updated')}),
-        (_('Other fields'), {'fields': ('language', 'default_order')}),
+        (_('Required Fields'), {
+            'fields': ('asset', 'location', 'amount', 'is_active'),
+        }),
+        (_('Dates'), {
+            'fields': ('created', 'updated')
+        }),
+        (_('Other fields'), {
+            'fields': ('language', 'default_order')
+        }),
     )
-    
-    
+
     def has_module_permission(self, request):
         if request.user.is_superuser or request.user.groups.filter(name=settings.EDIT_ASSETS_LOCATION).exists():
             return True
@@ -76,8 +67,16 @@ class LocationModelAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
     ordering = ('default_order', 'reference', 'owner', '-created')
     readonly_fields = ('created', 'updated',)
     fieldsets = (
-        (_('Required Fields'), {'fields': ('reference', 'continent',)}),
-        (_('Optional Fields'), {'fields': ('owner', 'description',)}),
-        (_('Dates'), {'fields': ('created', 'updated')}),
-        (_('Other fields'), {'fields': ('language', 'default_order')}),
+        (_('Required Fields'), {
+            'fields': ('reference', 'continent',)
+        }),
+        (_('Optional Fields'), {
+            'fields': ('owner', 'description',)
+        }),
+        (_('Dates'), {
+            'fields': ('created', 'updated')
+        }),
+        (_('Other fields'), {
+            'fields': ('language', 'default_order')
+        }),
     )

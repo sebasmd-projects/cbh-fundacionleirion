@@ -90,11 +90,13 @@ class AssetModel(TimeStampedModel):
         default=0
     )
 
-    def validate_asset_total_quantity(self):
-        # Validates that the total quantity matches the sum of all related asset locations.
+    def asset_total_quantity(self):
+        # total quantity matches the sum of all related asset locations.
         expected_total = self.assetlocation_asset.aggregate(
             total=models.Sum('amount')
         )['total'] or 0
+        
+        return expected_total
         if self.total_quantity != expected_total:
             self.total_quantity = expected_total
 

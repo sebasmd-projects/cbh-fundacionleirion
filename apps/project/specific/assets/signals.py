@@ -18,8 +18,7 @@ def optimize_image(sender, instance, *args, **kwargs):
                 img.save(img_path, quality=40, optimize=True)
         except Exception as e:
             #TODO Log the error or handle it according to your logging policy
-            print(f"Error optimizing image: {e}")
-
+            pass
 
 def generate_md5_hash(value: str) -> str:
     """
@@ -55,7 +54,7 @@ def auto_delete_asset_img_on_delete(sender, instance, *args, **kwargs):
                 os.remove(instance.asset_img.path)
         except Exception as e:
             #TODO Log the error or handle it according to your logging policy
-            print(f"Error deleting image: {e}")
+            pass
 
 
 def auto_delete_asset_img_on_change(sender, instance, *args, **kwargs):
@@ -76,4 +75,4 @@ def auto_delete_asset_img_on_change(sender, instance, *args, **kwargs):
                 os.remove(old_instance.asset_img.path)
         except Exception as e:
             #TODO Log the error or handle it according to your logging policy
-            print(f"Error deleting old image: {e}")
+            pass
