@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-30 15:23-0500\n"
-"PO-Revision-Date: 2024-09-30 15:23-0500\n"
+"POT-Creation-Date: 2024-09-30 17:11-0500\n"
+"PO-Revision-Date: 2024-09-30 17:12-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -46,15 +46,23 @@ msgstr "Nombres"
 msgid "Document number"
 msgstr "Número de documento"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:13
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:11
 msgid "Suitability Verification"
 msgstr "Verificación de Idoneidad"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:25
-msgid "with C.C."
-msgstr "con C.C."
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:21
+msgid "ID Number:"
+msgstr "Documento de identidad"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:22
+msgid "Certificate ID:"
+msgstr "ID del Certificado"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:26
+msgid "with document number"
+msgstr "con número de documento"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:27
 msgid ""
 "\n"
 "                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
@@ -65,13 +73,9 @@ msgstr ""
 "\n"
 "califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha 20 de septiembre de 2024."
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:35
-msgid "ID Number:"
-msgstr "Documento de identidad"
-
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:36
-msgid "Certificate ID:"
-msgstr "ID del Certificado"
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:40
+msgid "Propensiones Abogados S.A.S. for the Leirion Foundation"
+msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 
 #: .\apps\project\specific\certificates\templates\certificate_input.html:5
 #: .\apps\project\specific\certificates\templates\certificate_input.html:9
@@ -83,6 +87,8 @@ msgid "Verify"
 msgstr "Verificar"
 
 #: .\apps\project\specific\certificates\views.py:22
-#| msgid "ID Number"
 msgid "ID Number not found."
 msgstr "No se encontró el documento."
+
+#~ msgid "with C.C."
+#~ msgstr "con C.C."

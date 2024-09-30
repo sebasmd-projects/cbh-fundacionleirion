@@ -23,7 +23,7 @@
                     <hr>
                     <p class="text-justify">
                             <strong>{{ certificate.name }}</strong>
-                            {% trans 'with C.C.' %} {{ certificate.masked_document_number }}
+                            {% trans 'with document number' %} {{ certificate.masked_document_number }}
                             {% blocktrans %}
                                 qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; 
                                 and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, 
@@ -37,7 +37,7 @@
         
         
         <div class="card-footer text-muted text-center mb-5">
-            &copy; {{ now|date:"Y" }} Fundación Leirion & Propensiones Abogados S.A.S.
+            &copy; {{ now|date:"Y" }} {% trans 'Propensiones Abogados S.A.S. for the Leirion Foundation' %}
         </div>
     </div>
 </div>
