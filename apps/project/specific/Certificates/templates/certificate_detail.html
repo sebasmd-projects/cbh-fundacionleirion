@@ -6,19 +6,16 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="mx-auto" style="max-width: 800px;">
+    <div class="mx-auto">
+        <div class="text-center mb-4">
+            <h2>{% trans 'Suitability Verification' %}</h2>
+        </div>
         <div class="row">
-            <div class="col-12 mb-4">
-                <div class="text-center">
-                    <h2>{% trans 'Suitability Verification' %}</h2>
-                </div>
-            </div>
-
             <div class="col-md-4 text-center">
                 <img src="{% static 'imgs/badge/certificate_badge.png' %}" alt="Certificate Badge" class="mb-4" style="width: 150px;">
             </div>
 
-            <div class="col-8">
+            <div class="col-md-8">
                 <div>
                     <h3>{{ certificate.name }}</h3>
                     <p class="mb-1"><strong>{% trans 'ID Number:' %}</strong> {{ certificate.masked_document_number }}</p>
@@ -39,13 +36,9 @@
         </div>
         
         
-        <div class="card-footer text-muted text-center">
+        <div class="card-footer text-muted text-center mb-5">
             &copy; {{ now|date:"Y" }} Fundación Leirion & Propensiones Abogados S.A.S.
         </div>
     </div>
 </div>
 {% endblock content %}
-
-{% block footer %}
-    {% include 'partials/footer.html' %}
-{% endblock footer %}
