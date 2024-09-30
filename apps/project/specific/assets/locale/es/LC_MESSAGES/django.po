@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 00:45-0500\n"
-"PO-Revision-Date: 2024-09-01 00:45-0500\n"
+"POT-Creation-Date: 2024-09-30 15:10-0500\n"
+"PO-Revision-Date: 2024-09-30 15:12-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -19,13 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\specific\assets\admin\__init__.py:70
+#: .\apps\project\specific\assets\admin\__init__.py:69
 msgid "Required Fields"
 msgstr "Campos Requeridos"
 
-#: .\apps\project\specific\assets\admin\__init__.py:86
+#: .\apps\project\specific\assets\admin\__init__.py:80
 msgid "Optional Fields"
 msgstr "Campos Opcionales"
+
+#: .\apps\project\specific\assets\admin\__init__.py:87
+msgid "Dates"
+msgstr "Fechas"
 
 #: .\apps\project\specific\assets\admin\actions.py:7
 msgid "Update total quantities"

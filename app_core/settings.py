@@ -62,6 +62,7 @@ CUSTOM_APPS = [
 
     'apps.project.specific.assets',
     'apps.project.specific.categories',
+    'apps.project.specific.certificates',
     'apps.project.specific.locations',
     'apps.project.specific.sales',
     'apps.project.specific.status',
@@ -70,7 +71,6 @@ CUSTOM_APPS = [
 ALL_CUSTOM_APPS = CUSTOM_APPS
 
 if DEBUG:
-    ALL_CUSTOM_APPS += ['apps.project.specific.custom_tests']
     INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS
 else:
     INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS

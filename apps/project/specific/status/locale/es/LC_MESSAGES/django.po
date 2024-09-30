@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 00:45-0500\n"
-"PO-Revision-Date: 2024-09-01 00:45-0500\n"
+"POT-Creation-Date: 2024-09-30 15:18-0500\n"
+"PO-Revision-Date: 2024-09-30 15:13-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,13 +19,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
+#: .\apps\project\specific\status\admin\__init__.py:36
+#: .\apps\project\specific\status\admin\__init__.py:97
+msgid "Required Fields"
+msgstr "Campos Requeridos"
+
+#: .\apps\project\specific\status\admin\__init__.py:38
+#: .\apps\project\specific\status\admin\__init__.py:98
+msgid "Dates"
+msgstr "Fechas"
+
 #: .\apps\project\specific\status\admin\__init__.py:39
-#| msgid "amount"
+#: .\apps\project\specific\status\admin\__init__.py:99
+msgid "Other fields"
+msgstr "Otros Campos"
+
+#: .\apps\project\specific\status\admin\__init__.py:67
+#: .\apps\project\specific\status\models.py:22
+msgid "buyer"
+msgstr "comprador"
+
+#: .\apps\project\specific\status\admin\__init__.py:69
+#: .\apps\project\specific\status\models.py:14
+msgid "price"
+msgstr "precio"
+
+#: .\apps\project\specific\status\admin\__init__.py:71
+msgid "asset"
+msgstr "activo"
+
+#: .\apps\project\specific\status\admin\__init__.py:73
+msgid "location"
+msgstr "ubicación"
+
+#: .\apps\project\specific\status\admin\__init__.py:75
+#: .\apps\project\specific\status\models.py:72
+msgid "status"
+msgstr "estado"
+
+#: .\apps\project\specific\status\admin\__init__.py:119
 msgid "Total Amount"
 msgstr "Cantidad Total"
 
-#: .\apps\project\specific\status\admin\__init__.py:53
-#| msgid "Assets Statuses"
+#: .\apps\project\specific\status\admin\__init__.py:133
 msgid "Asset Name"
 msgstr "Activo"
 
@@ -36,14 +72,6 @@ msgstr "3. Estado"
 #: .\apps\project\specific\status\apps.py:8
 msgid "3. Status"
 msgstr "3. Estados"
-
-#: .\apps\project\specific\status\models.py:14
-msgid "price"
-msgstr "precio"
-
-#: .\apps\project\specific\status\models.py:22
-msgid "buyer"
-msgstr "comprador"
 
 #: .\apps\project\specific\status\models.py:29
 msgid "observations"
@@ -84,10 +112,6 @@ msgstr "estado del activo"
 #: .\apps\project\specific\status\models.py:68
 msgid "supplier"
 msgstr "proveedor"
-
-#: .\apps\project\specific\status\models.py:72
-msgid "status"
-msgstr "estado"
 
 #: .\apps\project\specific\status\models.py:79
 msgid "amount"

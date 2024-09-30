@@ -1,36 +1,48 @@
-import hashlib
+
+
+import uuid
 
 from django.db import models
-from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
+
+from apps.common.utils.models import TimeStampedModel
 
 
-class CertificateModel(models.Model):
-    nombre = models.CharField(max_length=100)
-    cedula = models.CharField(max_length=20)
-    short_url = models.URLField(blank=True, null=True)
-    qr_code = models.ImageField(upload_to='qr_codes/', blank=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
-    contador_total = models.IntegerField(default=0)
-    contador_unicos = models.IntegerField(default=0)
+class CertificateModel(TimeStampedModel):
+    id = models.UUIDField(
+        'ID',
+        default=uuid.uuid4,
+        unique=True,
+        primary_key=True,
+        serialize=False,
+        editable=False
+    )
 
-    def save(self, *args, **kwargs):
-        if not self.short_url:
-            hash_value = hashlib.sha256(
-                f'{self.nombre}{self.cedula}{self.fecha_creacion}'.encode()
-            ).hexdigest()[:6]
-            self.short_url = reverse('certificado_detail', args=[hash_value])
-        super().save(*args, **kwargs)
+    name = models.CharField(
+        _('Name'),
+        max_length=100
+    )
 
+    document_number = models.CharField(
+        _('Document number'),
+        max_length=20,
+        unique=True
+    )
+
+    def masked_document_number(self):
+        """Returns the ID number with all but the last four digits masked."""
+        last_four = self.document_number[-4:]
+        masked = '*' * (len(self.document_number) - 4) + last_four
+        return masked
+    
     def __str__(self):
-        return f'Certificado - {self.nombre}'
+        return f'{self.name} {self.masked_document_number()}'
 
-
-class CertificateValidationModel(models.Model):
-    certificado = models.ForeignKey(CertificateModel, on_delete=models.CASCADE)
-    fecha_lectura = models.DateTimeField(auto_now_add=True)
-    ip = models.GenericIPAddressField()
-    user_agent = models.TextField()
-    geo_info = models.JSONField(default=dict)
-
-    def __str__(self):
-        return f'Lectura - {self.certificado.nombre} en {self.fecha_lectura}'
+    class Meta:
+        db_table = "apps_project_specific_certificates_certificate"
+        verbose_name = _("Certificate")
+        verbose_name_plural = _("Certificates")
+        ordering = ["default_order", "-created"]
+        permissions = [
+            ('view_certificate', 'Can view certificate list'),
+        ]

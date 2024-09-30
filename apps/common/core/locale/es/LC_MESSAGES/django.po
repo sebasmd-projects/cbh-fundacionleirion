@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-22 10:52-0500\n"
+"POT-Creation-Date: 2024-09-30 15:11-0500\n"
 "PO-Revision-Date: 2024-08-22 10:53-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,6 +73,11 @@ msgstr "Admin"
 #: .\apps\common\core\templates\partials\nav.html:63
 msgid "Login"
 msgstr "Iniciar Sesión"
+
+#, fuzzy
+#~| msgid "Logout"
+#~ msgid "Logo"
+#~ msgstr "Cerrar Sesión"
 
 #~ msgid "Home"
 #~ msgstr "Inicio"

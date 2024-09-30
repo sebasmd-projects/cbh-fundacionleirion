@@ -95,10 +95,8 @@ class AssetModel(TimeStampedModel):
         expected_total = self.assetlocation_asset.aggregate(
             total=models.Sum('amount')
         )['total'] or 0
-        
+
         return expected_total
-        if self.total_quantity != expected_total:
-            self.total_quantity = expected_total
 
     def __str__(self) -> str:
         return f"{self.es_name} - {self.get_quantity_type_display()} - {self.total_quantity}"

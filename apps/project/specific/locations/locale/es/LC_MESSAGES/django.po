@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-01 00:45-0500\n"
-"PO-Revision-Date: 2024-08-30 11:19-0500\n"
+"POT-Creation-Date: 2024-09-30 15:10-0500\n"
+"PO-Revision-Date: 2024-09-30 15:13-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: es\n"
@@ -18,6 +18,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\project\specific\locations\admin\__init__.py:25
+#: .\apps\project\specific\locations\admin\__init__.py:70
+msgid "Required Fields"
+msgstr "Campos Requeridos"
+
+#: .\apps\project\specific\locations\admin\__init__.py:28
+#: .\apps\project\specific\locations\admin\__init__.py:76
+msgid "Dates"
+msgstr "Fechas"
+
+#: .\apps\project\specific\locations\admin\__init__.py:31
+#: .\apps\project\specific\locations\admin\__init__.py:79
+msgid "Other fields"
+msgstr "Otros campos"
+
+#: .\apps\project\specific\locations\admin\__init__.py:53
+msgid "spanish name"
+msgstr "Nombre en español"
+
+#: .\apps\project\specific\locations\admin\__init__.py:55
+#: .\apps\project\specific\locations\models.py:30
+msgid "reference"
+msgstr "referencia"
+
+#: .\apps\project\specific\locations\admin\__init__.py:57
+#: .\apps\project\specific\locations\models.py:41
+msgid "continent"
+msgstr "continente"
+
+#: .\apps\project\specific\locations\admin\__init__.py:59
+#: .\apps\project\specific\locations\models.py:48
+msgid "owner"
+msgstr "propietario"
+
+#: .\apps\project\specific\locations\admin\__init__.py:73
+msgid "Optional Fields"
+msgstr "Campos Opcionales"
 
 #: .\apps\project\specific\locations\apps.py:8
 msgid "2. Location"
@@ -59,21 +97,9 @@ msgstr "Europa"
 msgid "Oceania"
 msgstr "Oceanía"
 
-#: .\apps\project\specific\locations\models.py:30
-msgid "reference"
-msgstr "referencia"
-
 #: .\apps\project\specific\locations\models.py:35
 msgid "description"
 msgstr "descripción"
-
-#: .\apps\project\specific\locations\models.py:41
-msgid "continent"
-msgstr "continente"
-
-#: .\apps\project\specific\locations\models.py:48
-msgid "owner"
-msgstr "propietario"
 
 #: .\apps\project\specific\locations\models.py:63
 msgid "Location"

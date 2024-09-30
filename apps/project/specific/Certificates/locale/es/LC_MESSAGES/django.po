@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-30 15:23-0500\n"
+"PO-Revision-Date: 2024-09-30 15:23-0500\n"
+"Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\apps\project\specific\certificates\admin.py:11
+#: .\apps\project\specific\certificates\apps.py:8
+#: .\apps\project\specific\certificates\models.py:43
+msgid "Certificate"
+msgstr "Certificado"
+
+#: .\apps\project\specific\certificates\admin.py:16
+msgid "Dates"
+msgstr "Fechas"
+
+#: .\apps\project\specific\certificates\apps.py:9
+#: .\apps\project\specific\certificates\models.py:44
+msgid "Certificates"
+msgstr "Certificados"
+
+#: .\apps\project\specific\certificates\forms.py:6
+msgid "ID Number"
+msgstr "Documento de identidad"
+
+#: .\apps\project\specific\certificates\models.py:22
+msgid "Name"
+msgstr "Nombres"
+
+#: .\apps\project\specific\certificates\models.py:27
+msgid "Document number"
+msgstr "Número de documento"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:13
+msgid "Suitability Verification"
+msgstr "Verificación de Idoneidad"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:25
+msgid "with C.C."
+msgstr "con C.C."
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:26
+msgid ""
+"\n"
+"                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
+"                                and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
+"                                which affect its suitability for the date September 20, 2024\n"
+"                            "
+msgstr ""
+"\n"
+"califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha 20 de septiembre de 2024."
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:35
+msgid "ID Number:"
+msgstr "Documento de identidad"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:36
+msgid "Certificate ID:"
+msgstr "ID del Certificado"
+
+#: .\apps\project\specific\certificates\templates\certificate_input.html:5
+#: .\apps\project\specific\certificates\templates\certificate_input.html:9
+msgid "Verify your Certificate"
+msgstr "Verificar certificado"
+
+#: .\apps\project\specific\certificates\templates\certificate_input.html:29
+msgid "Verify"
+msgstr "Verificar"
+
+#: .\apps\project\specific\certificates\views.py:22
+#| msgid "ID Number"
+msgid "ID Number not found."
+msgstr "No se encontró el documento."
