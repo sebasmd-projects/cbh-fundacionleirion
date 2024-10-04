@@ -6,7 +6,18 @@ from .models import CertificateModel
 
 
 class CertificateAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
-    list_display = ('name', 'document_number')
+    list_display = (
+        'name',
+        'document_number',
+        'created',
+        'updated'
+    )
+    search_fields = (
+        'id',
+        'name',
+        'document_number'
+    )
+    list_filter = ("is_active",)
     fieldsets = (
         (_('Certificate'), {'fields': (
             'name',
@@ -17,8 +28,15 @@ class CertificateAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
             'created',
             'updated'
         )}),
+        (_('Priority'), {'fields': (
+            'default_order',
+        )}),
     )
-    readonly_fields = ('created', 'updated')
+    readonly_fields = (
+        'created',
+        'updated'
+    )
+    
 
 
 admin.site.register(CertificateModel, CertificateAdmin)
