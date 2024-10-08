@@ -1,12 +1,15 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect
-from django.views.generic import DetailView, FormView, ListView
+from django.views.generic import DetailView, FormView, ListView, TemplateView
 
 from .forms import IDNumberForm
 from .models import CertificateModel
 from django.utils.translation import gettext_lazy as _
 
+
+class CertificateFormFacadeTemplateView(TemplateView):
+    template_name = 'certificate_form_facade.html'
 
 class CertificateInputView(FormView):
     template_name = 'certificate_input.html'
