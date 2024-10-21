@@ -28,6 +28,12 @@ class CertificateModel(TimeStampedModel):
         max_length=20,
         unique=True
     )
+    
+    step = models.IntegerField(
+        _('Step'),
+        default=1,
+        help_text=_('Step of the certificate')
+    )
 
     def masked_document_number(self):
         """Returns the ID number with all but the last four digits masked."""
