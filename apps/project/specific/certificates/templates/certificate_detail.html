@@ -2,7 +2,7 @@
 
 {% load static i18n %}
 
-{% block title %}Certificate Details{% endblock title %}
+{% block title %}{% trans 'Certificate Details' %}{% endblock title %}
 
 {% block content %}
 <div class="container mt-5">
@@ -31,7 +31,10 @@
                             {% endblocktrans %}
                     </p>
                     <p>
-                        {{ certificate.step }} 
+                        {% trans 'Stage:' %} {{ certificate.step }}
+                    </p>
+                    <p>
+                        {% trans 'Status:' %} 
                         {% if certificate.approved %}
                             <i class="fas fa-check-circle text-success"></i>
                         {% else %}

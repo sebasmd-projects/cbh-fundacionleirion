@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-08 18:15-0500\n"
-"PO-Revision-Date: 2024-10-08 18:16-0500\n"
+"POT-Creation-Date: 2024-10-20 21:36-0500\n"
+"PO-Revision-Date: 2024-10-20 21:39-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,20 +21,20 @@ msgstr ""
 
 #: .\apps\project\specific\certificates\admin.py:22
 #: .\apps\project\specific\certificates\apps.py:8
-#: .\apps\project\specific\certificates\models.py:43
+#: .\apps\project\specific\certificates\models.py:54
 msgid "Certificate"
 msgstr "Certificado"
 
-#: .\apps\project\specific\certificates\admin.py:27
+#: .\apps\project\specific\certificates\admin.py:29
 msgid "Dates"
 msgstr "Fechas"
 
-#: .\apps\project\specific\certificates\admin.py:31
+#: .\apps\project\specific\certificates\admin.py:33
 msgid "Priority"
 msgstr "Prioridad"
 
 #: .\apps\project\specific\certificates\apps.py:9
-#: .\apps\project\specific\certificates\models.py:44
+#: .\apps\project\specific\certificates\models.py:55
 msgid "Certificates"
 msgstr "Certificados"
 
@@ -43,12 +43,27 @@ msgid "ID Number"
 msgstr "Documento de identidad"
 
 #: .\apps\project\specific\certificates\models.py:22
+#: .\apps\project\specific\certificates\templates\certificate_list.html:24
 msgid "Name"
 msgstr "Nombres"
 
 #: .\apps\project\specific\certificates\models.py:27
 msgid "Document number"
 msgstr "Número de documento"
+
+#: .\apps\project\specific\certificates\models.py:33
+#: .\apps\project\specific\certificates\templates\certificate_list.html:27
+msgid "Step"
+msgstr "Etapa"
+
+#: .\apps\project\specific\certificates\models.py:35
+#| msgid "Verify your Certificate"
+msgid "Step of the certificate"
+msgstr "Etapa del certificado"
+
+#: .\apps\project\specific\certificates\models.py:39
+msgid "Approved"
+msgstr "Aprobado "
 
 #: .\apps\project\specific\certificates\templates\certificate_base.html:10
 #: .\apps\project\specific\certificates\templates\certificate_base.html:11
@@ -59,6 +74,11 @@ msgstr "Certificados | Fundación Leirion"
 #: .\apps\project\specific\certificates\templates\certificate_base.html:16
 msgid "Fundación Leirion certificates"
 msgstr "Fundación Leirion certificados"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:5
+#| msgid "Certificates"
+msgid "Certificate Details"
+msgstr "Detalles del certificado"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:11
 msgid "Suitability Verification"
@@ -87,7 +107,15 @@ msgstr ""
 "\n"
 "califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha 20 de septiembre de 2024."
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:40
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:34
+msgid "Stage:"
+msgstr "Etapa"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:37
+msgid "Status:"
+msgstr "Estado"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:50
 msgid "Propensiones Abogados S.A.S. for the Leirion Foundation"
 msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 
@@ -99,6 +127,38 @@ msgstr "Verificar certificado"
 #: .\apps\project\specific\certificates\templates\certificate_input.html:29
 msgid "Verify"
 msgstr "Verificar"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:5
+#| msgid "Certificates"
+msgid "Certificate List"
+msgstr "Lista de certificados"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:14
+msgid "Search by Name or ID Number"
+msgstr "Buscar por Nombre o Número de Documento"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:18
+msgid "Search"
+msgstr "Buscar"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:25
+#| msgid "Document number"
+msgid "Document Number"
+msgstr "Número de documento"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:26
+#| msgid "Certificate ID:"
+msgid "Certificate ID"
+msgstr "ID del Certificado"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:28
+msgid "Approved Status"
+msgstr "Estado aprobado"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:50
+#| msgid "Certificates"
+msgid "No certificates found."
+msgstr "No se encontraron certificados."
 
 #: .\apps\project\specific\certificates\views.py:25
 msgid "ID Number not found."

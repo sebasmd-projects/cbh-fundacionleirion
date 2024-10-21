@@ -2,7 +2,7 @@
 
 {% load static i18n %}
 
-{% block title %}Certificate List{% endblock title %}
+{% block title %}{% trans 'Certificate List' %}{% endblock title %}
 
 {% block content %}
 <div class="container mt-5">
@@ -11,11 +11,11 @@
         <div class="col-md-4">
             <div class="form-floating">
                 <input type="text" name="q" class="form-control" id="floatingSearch" placeholder="Search" value="{{ request.GET.q }}">
-                <label for="floatingSearch">Search by Name or ID Number</label>
+                <label for="floatingSearch">{% trans 'Search by Name or ID Number' %}</label>
             </div>
         </div>
         <div class="col-md-2">
-            <button type="submit" class="btn btn-primary w-100">Search</button>
+            <button type="submit" class="btn btn-primary w-100">{% trans 'Search' %}</button>
         </div>
     </form>
     <table class="table table-striped">
@@ -26,6 +26,7 @@
                 <th>{% trans 'Certificate ID' %}</th>
                 <th>{% trans 'Step' %}</th>
                 <th>{% trans 'Approved Status' %}</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -43,11 +44,16 @@
                         <i class="fas fa-times-circle text-danger"></i>
                     {% endif %}
                 </td>
-                <td><a href="{% url 'certificates:detail' certificate.id %}" class="btn btn-sm btn-outline-primary">View</a></td>
+                <td>
+                    <a href="{% url 'certificates:detail' certificate.id %}" class="btn btn-sm btn-outline-success">View</a>
+                </td>
+                <td>
+                    <a href="{% url 'admin:certificates_certificate_change' certificate.id %}" class="btn btn-sm btn-outline-warning">{% trans 'Edit' %}</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="4" class="text-center">No certificates found.</td>
+                <td colspan="4" class="text-center">{% trans 'No certificates found.' %}</td>
             </tr>
             {% endfor %}
         </tbody>
