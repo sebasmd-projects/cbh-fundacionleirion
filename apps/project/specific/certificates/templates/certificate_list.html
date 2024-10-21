@@ -48,7 +48,7 @@
                     <a href="{% url 'certificates:detail' certificate.id %}" class="btn btn-sm btn-outline-success">View</a>
                 </td>
                 <td>
-                    <a href="{% url 'admin:certificates_certificate_change' certificate.id %}" class="btn btn-sm btn-outline-warning">{% trans 'Edit' %}</a>
+                    <a href="{% url 'admin:certificates_certificatemodel_change' certificate.id %}" class="btn btn-sm btn-outline-warning">{% trans 'Edit' %}</a>
                 </td>
             </tr>
             {% empty %}
