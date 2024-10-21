@@ -22,7 +22,9 @@ class CertificateAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
         (_('Certificate'), {'fields': (
             'name',
             'document_number',
-            'is_active'
+            'is_active',
+            'step',
+            'approved'
         )}),
         (_('Dates'), {'fields': (
             'created',

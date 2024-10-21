@@ -34,6 +34,11 @@ class CertificateModel(TimeStampedModel):
         default=1,
         help_text=_('Step of the certificate')
     )
+    
+    approved = models.BooleanField(
+        _('Approved'),
+        default=True,
+    )
 
     def masked_document_number(self):
         """Returns the ID number with all but the last four digits masked."""
