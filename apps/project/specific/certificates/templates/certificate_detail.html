@@ -13,6 +13,13 @@
         <div class="row">
             <div class="col-md-4 text-center">
                 <img src="{% static 'imgs/badge/certificate_badge.png' %}" alt="Certificate Badge" class="mb-4" style="width: 150px;">
+                
+                    {% if certificate.approved %}
+                        <h2 class="text-success">{% trans 'Approved' %}</h2>
+                    {% else %}
+                        <h2 class="text-danger">{% trans 'Not Approved' %}</h2>
+                    {% endif %}
+                
             </div>
 
             <div class="col-md-8">
@@ -21,19 +28,32 @@
                     <p class="mb-1"><strong>{% trans 'ID Number:' %}</strong> {{ certificate.masked_document_number }}</p>
                     <p><strong>{% trans 'Certificate ID:' %}</strong> {{ certificate.id }}</p>
                     <hr>
-                    <p class="text-justify">
+                    {% if certificate.approved %}
+                        <p class="text-justify">
+                                <strong>{{ certificate.name }}</strong>
+                                {% trans 'with document number' %} {{ certificate.masked_document_number }}
+                                {% blocktrans %}
+                                    qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; 
+                                    and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, 
+                                    which affect its suitability for the date September 20, 2024
+                                {% endblocktrans %}
+                        </p>
+                    {% else %}
+                        <p class="text-justify">
                             <strong>{{ certificate.name }}</strong>
                             {% trans 'with document number' %} {{ certificate.masked_document_number }}
                             {% blocktrans %}
-                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; 
-                                and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, 
-                                which affect its suitability for the date September 20, 2024
+                                we inform you that, after the evaluation conducted, your security study <span class="text-danger">HAS NOT BEEN APPROVED</span> due to not meeting the suitability requirements according to the current security regulations.
                             {% endblocktrans %}
+                        </p>
+                    {% endif %}
+                    <p>
+                        <small>
+                            {% trans 'We remind you that, in accordance with the provisions of the Habeas Data Law, all your personal data has been treated with due confidentiality and is protected under the strictest security standards, guaranteeing its integrity and privacy. Your data will be used exclusively for authorized purposes and within the framework of current data protection regulations.' %}
+                        </small>
                     </p>
                     <p>
                         {% trans 'Stage:' %} {{ certificate.step }}
-                    </p>
-                    <p>
                         {% trans 'Status:' %} 
                         {% if certificate.approved %}
                             <i class="fas fa-check-circle text-success"></i>

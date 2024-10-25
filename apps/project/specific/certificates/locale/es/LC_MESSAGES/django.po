@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-20 21:36-0500\n"
-"PO-Revision-Date: 2024-10-20 21:39-0500\n"
+"POT-Creation-Date: 2024-10-25 11:30-0500\n"
+"PO-Revision-Date: 2024-10-25 11:33-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -43,7 +43,7 @@ msgid "ID Number"
 msgstr "Documento de identidad"
 
 #: .\apps\project\specific\certificates\models.py:22
-#: .\apps\project\specific\certificates\templates\certificate_list.html:24
+#: .\apps\project\specific\certificates\templates\certificate_list.html:51
 msgid "Name"
 msgstr "Nombres"
 
@@ -52,31 +52,34 @@ msgid "Document number"
 msgstr "Número de documento"
 
 #: .\apps\project\specific\certificates\models.py:33
-#: .\apps\project\specific\certificates\templates\certificate_list.html:27
+#: .\apps\project\specific\certificates\templates\certificate_list.html:72
 msgid "Step"
 msgstr "Etapa"
 
 #: .\apps\project\specific\certificates\models.py:35
-#| msgid "Verify your Certificate"
 msgid "Step of the certificate"
 msgstr "Etapa del certificado"
 
 #: .\apps\project\specific\certificates\models.py:39
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:18
 msgid "Approved"
 msgstr "Aprobado "
 
 #: .\apps\project\specific\certificates\templates\certificate_base.html:10
 #: .\apps\project\specific\certificates\templates\certificate_base.html:11
+#: .\apps\project\specific\certificates\templates\certificate_list.html:12
+#: .\apps\project\specific\certificates\templates\certificate_list.html:13
 msgid "Certificates | Fundación Leirion"
 msgstr "Certificados | Fundación Leirion"
 
 #: .\apps\project\specific\certificates\templates\certificate_base.html:15
 #: .\apps\project\specific\certificates\templates\certificate_base.html:16
+#: .\apps\project\specific\certificates\templates\certificate_list.html:17
+#: .\apps\project\specific\certificates\templates\certificate_list.html:18
 msgid "Fundación Leirion certificates"
 msgstr "Fundación Leirion certificados"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:5
-#| msgid "Certificates"
 msgid "Certificate Details"
 msgstr "Detalles del certificado"
 
@@ -84,38 +87,74 @@ msgstr "Detalles del certificado"
 msgid "Suitability Verification"
 msgstr "Verificación de Idoneidad"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:21
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:20
+#| msgid "Approved"
+msgid "Not Approved"
+msgstr "No Aprobado "
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:28
 msgid "ID Number:"
 msgstr "Documento de identidad"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:22
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:29
 msgid "Certificate ID:"
 msgstr "ID del Certificado"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:26
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:34
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:44
 msgid "with document number"
 msgstr "con número de documento"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:27
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:35
+#| msgid ""
+#| "\n"
+#| "                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
+#| "                                and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
+#| "                                which affect its suitability for the date September 20, 2024\n"
+#| "                            "
 msgid ""
 "\n"
-"                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
-"                                and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
-"                                which affect its suitability for the date September 20, 2024\n"
-"                            "
+"                                    qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
+"                                    and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
+"                                    which affect its suitability for the date September 20, 2024\n"
+"                                "
 msgstr ""
 "\n"
 "califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha 20 de septiembre de 2024."
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:34
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:45
+msgid ""
+"\n"
+"                                we inform you that, after the evaluation conducted, your security study <span class=\"text-danger\">HAS NOT BEEN APPROVED</span> due to not meeting the suitability requirements according to the current security regulations.\n"
+"                            "
+msgstr ""
+"\n"
+"Le informamos que, tras la evaluación realizada, su estudio de seguridad <span class=\"text-danger\">NO HA SIDO APROBADO</span>, debido a que no cumple con los requisitos de idoneidad exigidos, según las normativas vigentes en materia de seguridad. "
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:52
+msgid ""
+"We remind you that, in accordance with the provisions of the Habeas Data "
+"Law, all your personal data has been treated with due confidentiality and is"
+" protected under the strictest security standards, guaranteeing its "
+"integrity and privacy. Your data will be used exclusively for authorized "
+"purposes and within the framework of current data protection regulations."
+msgstr ""
+"Le recordamos que, de conformidad con lo dispuesto por la Ley de Habeas "
+"Data, todos sus datos personales han sido tratados con la debida "
+"confidencialidad y están protegidos bajo los más estrictos estándares de "
+"seguridad, garantizando su integridad y privacidad. Sus datos serán "
+"utilizados exclusivamente para los fines autorizados y en el marco de la "
+"normativa vigente en protección de datos."
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:56
 msgid "Stage:"
 msgstr "Etapa"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:37
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:57
 msgid "Status:"
 msgstr "Estado"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:50
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:70
 msgid "Propensiones Abogados S.A.S. for the Leirion Foundation"
 msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 
@@ -129,38 +168,38 @@ msgid "Verify"
 msgstr "Verificar"
 
 #: .\apps\project\specific\certificates\templates\certificate_list.html:5
-#| msgid "Certificates"
 msgid "Certificate List"
 msgstr "Lista de certificados"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:14
+#: .\apps\project\specific\certificates\templates\certificate_list.html:28
 msgid "Search by Name or ID Number"
 msgstr "Buscar por Nombre o Número de Documento"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:18
+#: .\apps\project\specific\certificates\templates\certificate_list.html:32
 msgid "Search"
 msgstr "Buscar"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:25
-#| msgid "Document number"
+#: .\apps\project\specific\certificates\templates\certificate_list.html:61
 msgid "Document Number"
 msgstr "Número de documento"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:26
-#| msgid "Certificate ID:"
+#: .\apps\project\specific\certificates\templates\certificate_list.html:70
 msgid "Certificate ID"
 msgstr "ID del Certificado"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:28
+#: .\apps\project\specific\certificates\templates\certificate_list.html:81
 msgid "Approved Status"
 msgstr "Estado aprobado"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:50
-#| msgid "Certificates"
+#: .\apps\project\specific\certificates\templates\certificate_list.html:105
+msgid "Edit"
+msgstr "Editar"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:110
 msgid "No certificates found."
 msgstr "No se encontraron certificados."
 
-#: .\apps\project\specific\certificates\views.py:25
+#: .\apps\project\specific\certificates\views.py:27
 msgid "ID Number not found."
 msgstr "No se encontró el documento."
 
