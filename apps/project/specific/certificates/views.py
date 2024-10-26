@@ -37,6 +37,11 @@ class CertificateInputView(FormView):
     template_name = 'certificate_input.html'
     form_class = IDNumberForm
 
+    def dispatch(self, *args, **kwargs):
+        response = super().dispatch(*args, **kwargs)
+        response['X-Frame-Options'] = f"ALLOW-FROM https://cbh.fundacionleirion.com/"
+        return response
+    
     def form_valid(self, form):
         max_attempts = 5
         lockout_duration = timedelta(minutes=60)
