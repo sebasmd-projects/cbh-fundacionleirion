@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-25 11:30-0500\n"
-"PO-Revision-Date: 2024-10-25 11:33-0500\n"
+"POT-Creation-Date: 2024-10-26 00:24-0500\n"
+"PO-Revision-Date: 2024-10-26 00:24-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -88,7 +88,6 @@ msgid "Suitability Verification"
 msgstr "Verificación de Idoneidad"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:20
-#| msgid "Approved"
 msgid "Not Approved"
 msgstr "No Aprobado "
 
@@ -106,12 +105,6 @@ msgid "with document number"
 msgstr "con número de documento"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:35
-#| msgid ""
-#| "\n"
-#| "                                qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
-#| "                                and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
-#| "                                which affect its suitability for the date September 20, 2024\n"
-#| "                            "
 msgid ""
 "\n"
 "                                    qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
@@ -163,9 +156,22 @@ msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 msgid "Verify your Certificate"
 msgstr "Verificar certificado"
 
-#: .\apps\project\specific\certificates\templates\certificate_input.html:29
+#: .\apps\project\specific\certificates\templates\certificate_input.html:35
+#| msgid "please try again in"
+msgid "Please try again in"
+msgstr "Por favor intenta nuevamente en"
+
+#: .\apps\project\specific\certificates\templates\certificate_input.html:35
+msgid "minutes."
+msgstr "minutos."
+
+#: .\apps\project\specific\certificates\templates\certificate_input.html:41
 msgid "Verify"
 msgstr "Verificar"
+
+#: .\apps\project\specific\certificates\templates\certificate_input.html:52
+msgid "FINAL MEMORIAL TOTAL CLOSURE OF OPERATION"
+msgstr "MEMORIAL FINAL CIERRE TOTAL DE OPERACION"
 
 #: .\apps\project\specific\certificates\templates\certificate_list.html:5
 msgid "Certificate List"
@@ -199,7 +205,12 @@ msgstr "Editar"
 msgid "No certificates found."
 msgstr "No se encontraron certificados."
 
-#: .\apps\project\specific\certificates\views.py:27
+#: .\apps\project\specific\certificates\views.py:56
+#: .\apps\project\specific\certificates\views.py:86
+msgid "Too many failed attempts."
+msgstr "Demasiados intentos fallidos."
+
+#: .\apps\project\specific\certificates\views.py:90
 msgid "ID Number not found."
 msgstr "No se encontró el documento."
 

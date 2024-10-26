@@ -7,6 +7,7 @@
 {% block content %}
 <div class="container mt-5">
     <h1 class="mb-4 text-center">{% trans 'Verify your Certificate' %}</h1>
+    
     <form method="post" novalidate>
         {% csrf_token %}
         <div class="row justify-content-center">
@@ -26,11 +27,63 @@
                         </div>
                     {% endif %}
                 </div>
-                <button type="submit" class="btn btn-primary w-100">{% trans 'Verify' %}</button>
+                
+                {% if messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for message in messages %}
+                        <div id="lockout-timer">
+                            <p id="remaining-time">{{ message }} {% trans 'Please try again in' %} <span id="time-left">0</span> {% trans 'minutes.' %}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                
+            <button type="submit" class="btn btn-primary w-100">{% trans 'Verify' %}</button>
             </div>
         </div>
+        
     </form>
+    
+
+    <div class="accordion my-5" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {% trans 'FINAL MEMORIAL TOTAL CLOSURE OF OPERATION' %}
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body justify-content-center">
+                <iframe src="{% static 'files/pdf/Propensiones Abogados/MEMORIAL FINAL CIERRE TOTAL DE OPERACION.pdf' %}" width="100%" height="400px" style="border: none;"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>
+
+<script>
+    function updateRemainingTime() {
+        fetch("{% url 'certificates:lockout_time' %}")
+            .then(response => response.json())
+            .then(data => {
+                const remainingTime = data.remaining_time;
+                if (remainingTime > 0) {
+                    const minutes = Math.floor(remainingTime / 60);
+                    const seconds = remainingTime % 60;
+                    document.getElementById('time-left').innerText = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+                    document.getElementById('lockout-timer').style.display = 'block';
+                } else {
+                    document.getElementById('lockout-timer').style.display = 'none';
+                }
+            })
+            .catch(error => console.error('Error fetching lockout time:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateRemainingTime();
+        setInterval(updateRemainingTime, 10*1000);
+    });
+</script>
 {% endblock content %}
 
 {% block footer %}
