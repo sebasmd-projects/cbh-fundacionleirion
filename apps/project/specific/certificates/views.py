@@ -103,16 +103,29 @@ class CertificateListView(PermissionRequiredMixin, ListView):
         search_query = self.request.GET.get('q', '')
         order_by = self.request.GET.get('order_by', 'default_order')
         order_dir = self.request.GET.get('order_dir', 'asc')
+        step_filter = self.request.GET.get('step', None)
+        approved_filter = self.request.GET.get('approved', None)
+
         if search_query:
             queryset = queryset.filter(
                 Q(name__icontains=search_query) |
                 Q(document_number__icontains=search_query)
             )
 
+        if step_filter:
+            queryset = queryset.filter(step=step_filter)
+
+        if approved_filter is not None:
+            if approved_filter == 'true':
+                queryset = queryset.filter(approved=True)
+            elif approved_filter == 'false':
+                queryset = queryset.filter(approved=False)
+
         if order_dir == 'desc':
             order_by = f'-{order_by}'
+        queryset = queryset.order_by(order_by)
 
-        return queryset.order_by(order_by)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

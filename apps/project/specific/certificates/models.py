@@ -59,7 +59,7 @@ class CertificateModel(TimeStampedModel):
 
     def masked_document_number(self):
         """Returns the ID number with all but the last four digits masked."""
-        document_number_str = str(self.document_number)  # Convertir a cadena
+        document_number_str = str(self.document_number)
         last_four = document_number_str[-4:]
         masked = '*' * (len(document_number_str) - 4) + last_four
         return masked

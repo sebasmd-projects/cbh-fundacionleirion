@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-28 19:00-0500\n"
-"PO-Revision-Date: 2024-10-28 18:59-0500\n"
+"POT-Creation-Date: 2024-10-29 00:29-0500\n"
+"PO-Revision-Date: 2024-10-29 00:30-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: .\apps\project\specific\certificates\admin.py:28
 #: .\apps\project\specific\certificates\apps.py:8
-#: .\apps\project\specific\certificates\models.py:71
+#: .\apps\project\specific\certificates\models.py:72
 msgid "Certificate"
 msgstr "Certificado"
 
@@ -34,7 +34,8 @@ msgid "Priority"
 msgstr "Prioridad"
 
 #: .\apps\project\specific\certificates\apps.py:9
-#: .\apps\project\specific\certificates\models.py:72
+#: .\apps\project\specific\certificates\models.py:73
+#: .\apps\project\specific\certificates\templates\certificate_list.html:23
 msgid "Certificates"
 msgstr "Certificados"
 
@@ -43,7 +44,7 @@ msgid "Document Type"
 msgstr "Tipo de documento"
 
 #: .\apps\project\specific\certificates\forms.py:18
-#: .\apps\project\specific\certificates\templates\certificate_list.html:61
+#: .\apps\project\specific\certificates\templates\certificate_list.html:80
 msgid "Document Number"
 msgstr "Número de documento"
 
@@ -84,7 +85,7 @@ msgid "Diplomatic ID Card (CD)"
 msgstr "Carné diplomático (CD)"
 
 #: .\apps\project\specific\certificates\models.py:33
-#: .\apps\project\specific\certificates\templates\certificate_list.html:51
+#: .\apps\project\specific\certificates\templates\certificate_list.html:70
 msgid "Name"
 msgstr "Nombres"
 
@@ -97,7 +98,7 @@ msgid "Document number"
 msgstr "Número de documento"
 
 #: .\apps\project\specific\certificates\models.py:50
-#: .\apps\project\specific\certificates\templates\certificate_list.html:72
+#: .\apps\project\specific\certificates\templates\certificate_list.html:91
 msgid "Step"
 msgstr "Etapa"
 
@@ -107,8 +108,17 @@ msgstr "Etapa del certificado"
 
 #: .\apps\project\specific\certificates\models.py:56
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:18
+#: .\apps\project\specific\certificates\templates\certificate_list.html:42
 msgid "Approved"
 msgstr "Aprobado "
+
+#: .\apps\project\specific\certificates\templates\admin\change_list.html:8
+msgid "Show"
+msgstr "Mostrar"
+
+#: .\apps\project\specific\certificates\templates\admin\change_list.html:17
+msgid "(Max: 2000)"
+msgstr "(Máximo: 2000)"
 
 #: .\apps\project\specific\certificates\templates\certificate_base.html:10
 #: .\apps\project\specific\certificates\templates\certificate_base.html:11
@@ -133,6 +143,7 @@ msgid "Suitability Verification"
 msgstr "Verificación de Idoneidad"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:20
+#: .\apps\project\specific\certificates\templates\certificate_list.html:43
 msgid "Not Approved"
 msgstr "No Aprobado "
 
@@ -152,22 +163,12 @@ msgstr "con número de documento"
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:35
 msgid ""
 "\n"
-"                                    qualifies as a beneficiary, who has "
-"undergone a security study and accreditation of judicial records in "
-"accordance with the regulations in force in the Republic of Colombia; \n"
-"                                    and consequently, it does <strong>NOT</"
-"strong> present judicial or disciplinary records by the certifying entities "
-"authorized by Colombian legislation, \n"
-"                                    which affect its suitability for the "
-"date "
+"                                    qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
+"                                    and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
+"                                    which affect its suitability for the date "
 msgstr ""
 "\n"
-"califica como beneficiario, a quien se le ha realizado un estudio de "
-"seguridad y acreditación de antecedentes judiciales de acuerdo con la "
-"normativa vigente en la República de Colombia; y en consecuencia, "
-"<strong>NO</strong> presenta antecedentes judiciales o disciplinarios por "
-"parte de las entidades certificadoras autorizadas por la legislación "
-"colombiana, que afecten su idoneidad para la fecha"
+"califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:40
 msgid "September 20, 2024"
@@ -180,25 +181,19 @@ msgstr "20 de octubre de 2024"
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:49
 msgid ""
 "\n"
-"                                we inform you that, after the evaluation "
-"conducted, your security study <span class=\"text-danger\">HAS NOT BEEN "
-"APPROVED</span> due to not meeting the suitability requirements according to "
-"the current security regulations.\n"
+"                                we inform you that, after the evaluation conducted, your security study <span class=\"text-danger\">HAS NOT BEEN APPROVED</span> due to not meeting the suitability requirements according to the current security regulations.\n"
 "                            "
 msgstr ""
 "\n"
-"Le informamos que, tras la evaluación realizada, su estudio de seguridad "
-"<span class=\"text-danger\">NO HA SIDO APROBADO</span>, debido a que no "
-"cumple con los requisitos de idoneidad exigidos, según las normativas "
-"vigentes en materia de seguridad. "
+"Le informamos que, tras la evaluación realizada, su estudio de seguridad <span class=\"text-danger\">NO HA SIDO APROBADO</span>, debido a que no cumple con los requisitos de idoneidad exigidos, según las normativas vigentes en materia de seguridad. "
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:56
 msgid ""
 "We remind you that, in accordance with the provisions of the Habeas Data "
-"Law, all your personal data has been treated with due confidentiality and is "
-"protected under the strictest security standards, guaranteeing its integrity "
-"and privacy. Your data will be used exclusively for authorized purposes and "
-"within the framework of current data protection regulations."
+"Law, all your personal data has been treated with due confidentiality and is"
+" protected under the strictest security standards, guaranteeing its "
+"integrity and privacy. Your data will be used exclusively for authorized "
+"purposes and within the framework of current data protection regulations."
 msgstr ""
 "Le recordamos que, de conformidad con lo dispuesto por la Ley de Habeas "
 "Data, todos sus datos personales han sido tratados con la debida "
@@ -248,23 +243,51 @@ msgstr "Lista de certificados"
 msgid "Search by Name or ID Number"
 msgstr "Buscar por Nombre o Número de Documento"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:32
+#: .\apps\project\specific\certificates\templates\certificate_list.html:33
+#| msgid "Step"
+msgid "All Steps"
+msgstr "Todas las Etapas"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:34
+#| msgid "Step"
+msgid "Step 1"
+msgstr "Etapa 1"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:35
+#| msgid "Step"
+msgid "Step 2"
+msgstr "Etapa 2"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:41
+#| msgid "Status:"
+msgid "All Status"
+msgstr "Todos los Estados"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:47
 msgid "Search"
 msgstr "Buscar"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:70
+#: .\apps\project\specific\certificates\templates\certificate_list.html:50
+msgid "Clear Filters"
+msgstr "Borrar filtros"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:89
 msgid "Certificate ID"
 msgstr "ID del Certificado"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:81
+#: .\apps\project\specific\certificates\templates\certificate_list.html:101
 msgid "Approved Status"
 msgstr "Estado aprobado"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:105
+#: .\apps\project\specific\certificates\templates\certificate_list.html:130
+msgid "View"
+msgstr "Ver"
+
+#: .\apps\project\specific\certificates\templates\certificate_list.html:133
 msgid "Edit"
 msgstr "Editar"
 
-#: .\apps\project\specific\certificates\templates\certificate_list.html:110
+#: .\apps\project\specific\certificates\templates\certificate_list.html:138
 msgid "No certificates found."
 msgstr "No se encontraron certificados."
 

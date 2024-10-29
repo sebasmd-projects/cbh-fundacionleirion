@@ -71,9 +71,9 @@ CUSTOM_APPS = [
 ALL_CUSTOM_APPS = CUSTOM_APPS
 
 if DEBUG:
-    INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS
+    INSTALLED_APPS = THIRD_PARTY_APPS + ALL_CUSTOM_APPS + DJANGO_APPS
 else:
-    INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS
+    INSTALLED_APPS = THIRD_PARTY_APPS + ALL_CUSTOM_APPS + DJANGO_APPS
 
 IMPORT_EXPORT_FORMATS = [CSV, HTML, JSON, TSV, XLS, XLSX]
 
@@ -110,7 +110,7 @@ ROOT_URLCONF = 'app_core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'apps'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -11,7 +11,24 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-          {% comment %} <li class="nav-item">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Certificates' %}</a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item text-capitalize" href="{% url 'certificates:input' %}">{% trans 'Verify' %}</a>
+              </li>
+              {% if request.user.is_authenticated and request.user.is_staff %}
+                <li>
+                  <a class="dropdown-item text-capitalize" href="{% url 'certificates:list' %}">{% trans 'List' %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-capitalize" href="{% url 'certificates:form' %}">{% trans 'Form' %}</a>
+                </li>
+              {% endif %}
+            </ul>
+          </li>
+          {% comment %}
+          <li class="nav-item">
             <a class="nav-link text-capitalize active" href="{% url 'core:index' %}">{% trans 'Home' %}</a>
           </li>
           <li class="nav-item">
@@ -36,7 +53,8 @@
                 <a class="dropdown-item text-capitalize" href="{% url 'core:index' %}">{% trans 'Sales' %}</a>
               </li>
             </ul>
-          </li> {% endcomment %}
+          </li>
+          {% endcomment %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'Language' %}</a>
             <ul class="dropdown-menu">

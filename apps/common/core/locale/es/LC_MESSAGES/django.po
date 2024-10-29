@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-20 21:36-0500\n"
-"PO-Revision-Date: 2024-10-08 18:16-0500\n"
+"POT-Creation-Date: 2024-10-29 00:29-0500\n"
+"PO-Revision-Date: 2024-10-29 00:29-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -58,19 +58,35 @@ msgstr "Creado por"
 msgid "CHB"
 msgstr "CHB"
 
-#: .\apps\common\core\templates\partials\nav.html:42
+#: .\apps\common\core\templates\partials\nav.html:15
+msgid "Certificates"
+msgstr "Certificados"
+
+#: .\apps\common\core\templates\partials\nav.html:18
+msgid "Verify"
+msgstr "Verificar"
+
+#: .\apps\common\core\templates\partials\nav.html:22
+msgid "List"
+msgstr "Lista"
+
+#: .\apps\common\core\templates\partials\nav.html:25
+msgid "Form"
+msgstr "Formulario"
+
+#: .\apps\common\core\templates\partials\nav.html:60
 msgid "Language"
 msgstr "Idioma"
 
-#: .\apps\common\core\templates\partials\nav.html:56
+#: .\apps\common\core\templates\partials\nav.html:74
 msgid "Logout"
 msgstr "Cerrar Sesión"
 
-#: .\apps\common\core\templates\partials\nav.html:59
+#: .\apps\common\core\templates\partials\nav.html:77
 msgid "Admin"
 msgstr "Admin"
 
-#: .\apps\common\core\templates\partials\nav.html:63
+#: .\apps\common\core\templates\partials\nav.html:81
 msgid "Login"
 msgstr "Iniciar Sesión"
 
