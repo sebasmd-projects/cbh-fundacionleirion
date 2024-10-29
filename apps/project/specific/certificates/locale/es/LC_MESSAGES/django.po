@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-26 00:24-0500\n"
-"PO-Revision-Date: 2024-10-26 00:24-0500\n"
+"POT-Creation-Date: 2024-10-28 19:00-0500\n"
+"PO-Revision-Date: 2024-10-28 18:59-0500\n"
 "Last-Translator: Sebastian Morales <sebasmoralesd@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,48 +19,93 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\apps\project\specific\certificates\admin.py:22
+#: .\apps\project\specific\certificates\admin.py:28
 #: .\apps\project\specific\certificates\apps.py:8
-#: .\apps\project\specific\certificates\models.py:54
+#: .\apps\project\specific\certificates\models.py:71
 msgid "Certificate"
 msgstr "Certificado"
 
-#: .\apps\project\specific\certificates\admin.py:29
+#: .\apps\project\specific\certificates\admin.py:36
 msgid "Dates"
 msgstr "Fechas"
 
-#: .\apps\project\specific\certificates\admin.py:33
+#: .\apps\project\specific\certificates\admin.py:40
 msgid "Priority"
 msgstr "Prioridad"
 
 #: .\apps\project\specific\certificates\apps.py:9
-#: .\apps\project\specific\certificates\models.py:55
+#: .\apps\project\specific\certificates\models.py:72
 msgid "Certificates"
 msgstr "Certificados"
 
-#: .\apps\project\specific\certificates\forms.py:6
-msgid "ID Number"
-msgstr "Documento de identidad"
+#: .\apps\project\specific\certificates\forms.py:12
+msgid "Document Type"
+msgstr "Tipo de documento"
 
-#: .\apps\project\specific\certificates\models.py:22
+#: .\apps\project\specific\certificates\forms.py:18
+#: .\apps\project\specific\certificates\templates\certificate_list.html:61
+msgid "Document Number"
+msgstr "Número de documento"
+
+#: .\apps\project\specific\certificates\models.py:13
+msgid "Citizen ID (CC)"
+msgstr "Cédula de ciudadanía (CC)"
+
+#: .\apps\project\specific\certificates\models.py:14
+msgid "Foreigner ID (CE)"
+msgstr "Cédula de extranjería (CE)"
+
+#: .\apps\project\specific\certificates\models.py:15
+msgid "Special Residence Permit (PPT)"
+msgstr "Permiso especial de permanencia (PPT)"
+
+#: .\apps\project\specific\certificates\models.py:16
+msgid "Identity Card (TI)"
+msgstr "Tarjeta de identidad (TI)"
+
+#: .\apps\project\specific\certificates\models.py:17
+msgid "Passport (PA)"
+msgstr "Pasaporte (PA)"
+
+#: .\apps\project\specific\certificates\models.py:18
+msgid "Civil Registry (RC)"
+msgstr "Registro civil (RC)"
+
+#: .\apps\project\specific\certificates\models.py:19
+msgid "Tax Identification Number (NIT)"
+msgstr "Número de identificación tributaria (NIT)"
+
+#: .\apps\project\specific\certificates\models.py:20
+msgid "Single Tax Registry (RUT)"
+msgstr "Registro único tributario (RUT)"
+
+#: .\apps\project\specific\certificates\models.py:21
+msgid "Diplomatic ID Card (CD)"
+msgstr "Carné diplomático (CD)"
+
+#: .\apps\project\specific\certificates\models.py:33
 #: .\apps\project\specific\certificates\templates\certificate_list.html:51
 msgid "Name"
 msgstr "Nombres"
 
-#: .\apps\project\specific\certificates\models.py:27
+#: .\apps\project\specific\certificates\models.py:38
+msgid "Document type"
+msgstr "Tipo de documento"
+
+#: .\apps\project\specific\certificates\models.py:45
 msgid "Document number"
 msgstr "Número de documento"
 
-#: .\apps\project\specific\certificates\models.py:33
+#: .\apps\project\specific\certificates\models.py:50
 #: .\apps\project\specific\certificates\templates\certificate_list.html:72
 msgid "Step"
 msgstr "Etapa"
 
-#: .\apps\project\specific\certificates\models.py:35
+#: .\apps\project\specific\certificates\models.py:52
 msgid "Step of the certificate"
 msgstr "Etapa del certificado"
 
-#: .\apps\project\specific\certificates\models.py:39
+#: .\apps\project\specific\certificates\models.py:56
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:18
 msgid "Approved"
 msgstr "Aprobado "
@@ -100,37 +145,60 @@ msgid "Certificate ID:"
 msgstr "ID del Certificado"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:34
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:44
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:48
 msgid "with document number"
 msgstr "con número de documento"
 
 #: .\apps\project\specific\certificates\templates\certificate_detail.html:35
 msgid ""
 "\n"
-"                                    qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; \n"
-"                                    and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, \n"
-"                                    which affect its suitability for the date September 20, 2024\n"
-"                                "
+"                                    qualifies as a beneficiary, who has "
+"undergone a security study and accreditation of judicial records in "
+"accordance with the regulations in force in the Republic of Colombia; \n"
+"                                    and consequently, it does <strong>NOT</"
+"strong> present judicial or disciplinary records by the certifying entities "
+"authorized by Colombian legislation, \n"
+"                                    which affect its suitability for the "
+"date "
 msgstr ""
 "\n"
-"califica como beneficiario, a quien se le ha realizado un estudio de seguridad y acreditación de antecedentes judiciales de acuerdo con la normativa vigente en la República de Colombia; y en consecuencia, <strong>NO</strong> presenta antecedentes judiciales o disciplinarios por parte de las entidades certificadoras autorizadas por la legislación colombiana, que afecten su idoneidad para la fecha 20 de septiembre de 2024."
+"califica como beneficiario, a quien se le ha realizado un estudio de "
+"seguridad y acreditación de antecedentes judiciales de acuerdo con la "
+"normativa vigente en la República de Colombia; y en consecuencia, "
+"<strong>NO</strong> presenta antecedentes judiciales o disciplinarios por "
+"parte de las entidades certificadoras autorizadas por la legislación "
+"colombiana, que afecten su idoneidad para la fecha"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:45
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:40
+msgid "September 20, 2024"
+msgstr "20 de septiembre de 2024"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:42
+msgid "October 20, 2024"
+msgstr "20 de octubre de 2024"
+
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:49
 msgid ""
 "\n"
-"                                we inform you that, after the evaluation conducted, your security study <span class=\"text-danger\">HAS NOT BEEN APPROVED</span> due to not meeting the suitability requirements according to the current security regulations.\n"
+"                                we inform you that, after the evaluation "
+"conducted, your security study <span class=\"text-danger\">HAS NOT BEEN "
+"APPROVED</span> due to not meeting the suitability requirements according to "
+"the current security regulations.\n"
 "                            "
 msgstr ""
 "\n"
-"Le informamos que, tras la evaluación realizada, su estudio de seguridad <span class=\"text-danger\">NO HA SIDO APROBADO</span>, debido a que no cumple con los requisitos de idoneidad exigidos, según las normativas vigentes en materia de seguridad. "
+"Le informamos que, tras la evaluación realizada, su estudio de seguridad "
+"<span class=\"text-danger\">NO HA SIDO APROBADO</span>, debido a que no "
+"cumple con los requisitos de idoneidad exigidos, según las normativas "
+"vigentes en materia de seguridad. "
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:52
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:56
 msgid ""
 "We remind you that, in accordance with the provisions of the Habeas Data "
-"Law, all your personal data has been treated with due confidentiality and is"
-" protected under the strictest security standards, guaranteeing its "
-"integrity and privacy. Your data will be used exclusively for authorized "
-"purposes and within the framework of current data protection regulations."
+"Law, all your personal data has been treated with due confidentiality and is "
+"protected under the strictest security standards, guaranteeing its integrity "
+"and privacy. Your data will be used exclusively for authorized purposes and "
+"within the framework of current data protection regulations."
 msgstr ""
 "Le recordamos que, de conformidad con lo dispuesto por la Ley de Habeas "
 "Data, todos sus datos personales han sido tratados con la debida "
@@ -139,15 +207,15 @@ msgstr ""
 "utilizados exclusivamente para los fines autorizados y en el marco de la "
 "normativa vigente en protección de datos."
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:56
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:60
 msgid "Stage:"
 msgstr "Etapa"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:57
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:61
 msgid "Status:"
 msgstr "Estado"
 
-#: .\apps\project\specific\certificates\templates\certificate_detail.html:70
+#: .\apps\project\specific\certificates\templates\certificate_detail.html:74
 msgid "Propensiones Abogados S.A.S. for the Leirion Foundation"
 msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 
@@ -156,20 +224,19 @@ msgstr "Propensiones Abogados S.A.S. para la Fundación Leirion"
 msgid "Verify your Certificate"
 msgstr "Verificar certificado"
 
-#: .\apps\project\specific\certificates\templates\certificate_input.html:35
-#| msgid "please try again in"
+#: .\apps\project\specific\certificates\templates\certificate_input.html:53
 msgid "Please try again in"
 msgstr "Por favor intenta nuevamente en"
 
-#: .\apps\project\specific\certificates\templates\certificate_input.html:35
+#: .\apps\project\specific\certificates\templates\certificate_input.html:53
 msgid "minutes."
 msgstr "minutos."
 
-#: .\apps\project\specific\certificates\templates\certificate_input.html:41
+#: .\apps\project\specific\certificates\templates\certificate_input.html:59
 msgid "Verify"
 msgstr "Verificar"
 
-#: .\apps\project\specific\certificates\templates\certificate_input.html:52
+#: .\apps\project\specific\certificates\templates\certificate_input.html:70
 msgid "FINAL MEMORIAL TOTAL CLOSURE OF OPERATION"
 msgstr "MEMORIAL FINAL CIERRE TOTAL DE OPERACION"
 
@@ -184,10 +251,6 @@ msgstr "Buscar por Nombre o Número de Documento"
 #: .\apps\project\specific\certificates\templates\certificate_list.html:32
 msgid "Search"
 msgstr "Buscar"
-
-#: .\apps\project\specific\certificates\templates\certificate_list.html:61
-msgid "Document Number"
-msgstr "Número de documento"
 
 #: .\apps\project\specific\certificates\templates\certificate_list.html:70
 msgid "Certificate ID"
@@ -205,14 +268,33 @@ msgstr "Editar"
 msgid "No certificates found."
 msgstr "No se encontraron certificados."
 
-#: .\apps\project\specific\certificates\views.py:56
-#: .\apps\project\specific\certificates\views.py:86
+#: .\apps\project\specific\certificates\templates\partials\detail_certificate_header.html:8
+msgid "CHB"
+msgstr "CAH"
+
+#: .\apps\project\specific\certificates\templates\partials\detail_certificate_header.html:15
+msgid "Language"
+msgstr "Idioma"
+
+#: .\apps\project\specific\certificates\templates\partials\detail_certificate_header.html:29
+msgid "Logout"
+msgstr "Cerrar Sesión"
+
+#: .\apps\project\specific\certificates\templates\partials\detail_certificate_header.html:32
+msgid "Admin"
+msgstr "Administrador"
+
+#: .\apps\project\specific\certificates\views.py:51
+#: .\apps\project\specific\certificates\views.py:78
 msgid "Too many failed attempts."
 msgstr "Demasiados intentos fallidos."
 
-#: .\apps\project\specific\certificates\views.py:90
+#: .\apps\project\specific\certificates\views.py:82
 msgid "ID Number not found."
 msgstr "No se encontró el documento."
+
+#~ msgid "ID Number"
+#~ msgstr "Documento de identidad"
 
 #~ msgid "with C.C."
 #~ msgstr "con C.C."

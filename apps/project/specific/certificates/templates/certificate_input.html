@@ -14,6 +14,24 @@
             <div class="col-md-6">
                 {{ form.non_field_errors }}
                 <div class="form-floating mb-3">
+                    <select name="{{ form.document_type.name }}"
+                            id="floatingDocumentType"
+                            class="form-select{% if form.document_type.errors %} is-invalid{% endif %}">
+                        {% for choice in form.document_type.field.choices %}
+                            <option value="{{ choice.0 }}"
+                                    {% if choice.0 == form.document_type.value %}selected{% endif %}>
+                                {{ choice.1 }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingDocumentType">{{ form.document_type.label }}</label>
+                    {% if form.document_type.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.document_type.errors.as_text }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-floating mb-3">
                     <input type="text"
                            name="{{ form.document_number.name }}"
                            id="floatingIDNumber"

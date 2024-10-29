@@ -31,17 +31,21 @@
                     {% if certificate.approved %}
                         <p class="text-justify">
                                 <strong>{{ certificate.name }}</strong>
-                                {% trans 'with document number' %} {{ certificate.masked_document_number }}
+                                {% trans 'with document number' %} {{ certificate.document_type }} {{ certificate.masked_document_number }}
                                 {% blocktrans %}
                                     qualifies as a beneficiary, who has undergone a security study and accreditation of judicial records in accordance with the regulations in force in the Republic of Colombia; 
                                     and consequently, it does <strong>NOT</strong> present judicial or disciplinary records by the certifying entities authorized by Colombian legislation, 
-                                    which affect its suitability for the date September 20, 2024
-                                {% endblocktrans %}
+                                    which affect its suitability for the date {% endblocktrans %} 
+                                    {% if certificate.step == 1 %}
+                                        {% trans 'September 20, 2024' %}.
+                                    {% elif certificate.step == 2 %}
+                                        {% trans 'October 20, 2024' %}.
+                                    {% endif %}
                         </p>
                     {% else %}
                         <p class="text-justify">
                             <strong>{{ certificate.name }}</strong>
-                            {% trans 'with document number' %} {{ certificate.masked_document_number }}
+                            {% trans 'with document number' %} {{ certificate.document_type }} {{ certificate.masked_document_number }}
                             {% blocktrans %}
                                 we inform you that, after the evaluation conducted, your security study <span class="text-danger">HAS NOT BEEN APPROVED</span> due to not meeting the suitability requirements according to the current security regulations.
                             {% endblocktrans %}

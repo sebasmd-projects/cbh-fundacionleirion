@@ -3,9 +3,9 @@ import logging
 import os
 from pathlib import Path
 
-from cryptography.fernet import Fernet
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
+from import_export.formats.base_formats import CSV, HTML, JSON, TSV, XLS, XLSX
 
 load_dotenv()
 
@@ -74,7 +74,10 @@ if DEBUG:
     INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS
 else:
     INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + ALL_CUSTOM_APPS
-    
+
+IMPORT_EXPORT_FORMATS = [CSV, HTML, JSON, TSV, XLS, XLSX]
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 6000
 
 LOCALE_PATHS = [
     app_path / 'locale' for app_path in [BASE_DIR / app.replace('.', '/') for app in ALL_CUSTOM_APPS]
@@ -227,8 +230,10 @@ EMAIL_PORT = int(os.getenv('DJANGO_EMAIL_PORT'))
 
 EDIT_USER_GROUP = os.getenv('PERMISSION_EDIT_USER_GROUP')
 EDIT_USERS_GROUP = os.getenv('PERMISSION_EDIT_USERS_GROUP')
-EDIT_ASSETS_STATUS_REFERENCE = os.getenv('PERMISSION_EDIT_ASSETS_STATUS_REFERENCE')
-EDIT_ASSETS_LOCATION=os.getenv('PERMISSION_EDIT_ASSETS_LOCATION')
+EDIT_ASSETS_STATUS_REFERENCE = os.getenv(
+    'PERMISSION_EDIT_ASSETS_STATUS_REFERENCE'
+)
+EDIT_ASSETS_LOCATION = os.getenv('PERMISSION_EDIT_ASSETS_LOCATION')
 
 SALES_GROUP = os.getenv('PERMISSION_SALES_GROUP')
 KEY_BYPASS_GROUP = os.getenv('PERMISSION_KEY_BYPASS_GROUP')

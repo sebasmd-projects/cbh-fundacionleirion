@@ -55,10 +55,14 @@ class CertificateInputView(FormView):
                 self.request.session['failed_attempts'] = 0
                 self.request.session['lockout_time'] = None
 
+        document_type = form.cleaned_data['document_type']
         document_number = form.cleaned_data['document_number']
+        
         try:
             certificate = CertificateModel.objects.get(
-                document_number=document_number)
+                document_type=document_type,
+                document_number=document_number
+            )
             self.request.session['failed_attempts'] = 0
             self.request.session['lockout_time'] = None
             return redirect('certificates:detail', pk=certificate.id)
