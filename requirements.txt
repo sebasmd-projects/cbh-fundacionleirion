@@ -36,9 +36,11 @@ pillow==10.3.0
 polib==1.2.0
 psycopg2-binary==2.9.9
 pycparser==2.22
+python-barcode==0.15.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2024.1
+qrcode==7.4.2
 requests==2.32.3
 rosetta==0.3
 six==1.16.0
