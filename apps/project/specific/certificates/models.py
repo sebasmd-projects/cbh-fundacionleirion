@@ -63,6 +63,10 @@ class CertificateModel(TimeStampedModel):
         last_four = document_number_str[-4:]
         masked = '*' * (len(document_number_str) - 4) + last_four
         return masked
+    
+    def save(self, *args, **kwargs):
+        self.name = self.name.upper()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.name} {self.masked_document_number()}'
