@@ -5,7 +5,7 @@
 {% block title %}{% trans 'Verify your Certificate' %}{% endblock title %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container my-5">
     <h1 class="mb-4 text-center">{% trans 'Verify your Certificate' %}</h1>
     
     <form method="post" novalidate>
@@ -65,17 +65,34 @@
 
     <div class="accordion my-5 vh-100" id="accordionExample">
         <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                {% trans 'FINAL MEMORIAL TOTAL CLOSURE OF OPERATION' %} 2024
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <img src="{% static 'imgs/final_memorial/1.png' %}" alt="img 1 final memorial" class="img-fluid">
+                <img src="{% static 'imgs/final_memorial/2.png' %}" alt="img 2 final memorial" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        
+        <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 {% trans 'FINAL MEMORIAL TOTAL CLOSURE OF OPERATION' %} 2024
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          
+          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body justify-content-center">
                 <iframe src="https://fundacionleirion.com/MEMORIALFINALCIERRETOTALDEOPERACION.pdf" width="100%" class="vh-100" style="border: none;"></iframe>
             </div>
           </div>
         </div>
+
+
       </div>
 </div>
 
